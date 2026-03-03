@@ -12,8 +12,13 @@ export default function Nav() {
     <header className="py-6">
       <Container>
         <div className="flex items-center justify-between">
-          <div className="text-sm font-semibold tracking-widest text-white/80">
-            C CODED
+          <div className="inline-flex items-baseline gap-1 leading-none">
+            <span className="bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500 bg-clip-text text-base font-semibold text-transparent">
+              C
+            </span>
+            <span className="text-xs font-semibold tracking-widest text-white/80">
+              CODED
+            </span>
           </div>
 
           <div className="flex items-center gap-6">
