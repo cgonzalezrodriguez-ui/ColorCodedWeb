@@ -2,14 +2,115 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Container from "./components/Container";
 
+const PROBLEM_POINTS = [
+  {
+    title: "Too much translation",
+    description:
+      "Beginners often have to decode symbols into note names, then find keys — every note becomes a mini puzzle.",
+  },
+  {
+    title: "Slow feedback loops",
+    description:
+      "When reading is hard, practice turns into stopping and starting instead of building flow and confidence.",
+  },
+  {
+    title: "Motivation drops early",
+    description:
+      "The hardest part should be the music, not the notation. Early friction makes it easy to quit.",
+  },
+] as const;
+
+const HOW_IT_WORKS_STEPS = [
+  ["1. Upload", "Import a photo or PDF of your sheet music."],
+  ["2. Detect", "We detect noteheads and determine their pitch."],
+  ["3. Colorize", "Notes get color-coded and mapped to the keyboard."],
+] as const;
+
+const BUILT_FOR = [
+  {
+    title: "Beginners",
+    description: "A clearer path from page to keys without extra decoding.",
+  },
+  {
+    title: "Visual learners",
+    description: "A consistent color language that’s easier to recognize at a glance.",
+  },
+  {
+    title: "Returning players",
+    description: "Get back into reading with less friction and more momentum.",
+  },
+  {
+    title: "Teachers",
+    description: "A supportive layer that helps students build early confidence.",
+  },
+  {
+    title: "Parents",
+    description: "Make practice feel more approachable without constant prompting.",
+  },
+  {
+    title: "Self-guided practice",
+    description: "Stay in flow longer while reinforcing note-to-key connections.",
+  },
+] as const;
+
+const DEVELOPMENT_STATUS = [
+  {
+    title: "Status",
+    description: "Actively building the first release.",
+  },
+  {
+    title: "Current focus",
+    description: "Reliable note detection and consistent, readable color output.",
+  },
+  {
+    title: "What’s next",
+    description: "Better uploads, stronger accuracy, and a smoother practice workflow.",
+  },
+] as const;
+
+const FAQ_ITEMS = [
+  {
+    question: "Is this for beginners only?",
+    answer:
+      "Beginners love it, but it’s also great for returning players and visual learners.",
+  },
+  {
+    question: "When is the app launching?",
+    answer: "We’re building the first release now. This site will update as we get closer.",
+  },
+] as const;
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       <Nav />
       <Hero />
 
+      {/* Problem */}
+      <section id="problem" className="pb-20">
+        <Container>
+          <h2 className="text-2xl font-semibold">The problem</h2>
+          <p className="mt-4 max-w-3xl text-white/70">
+            For many beginners, reading sheet music isn’t just learning notes — it’s
+            translating multiple layers at once. That cognitive load slows practice and
+            makes progress feel harder than it should.
+          </p>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {PROBLEM_POINTS.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-3xl border border-white/10 bg-white/5 p-6"
+              >
+                <div className="text-sm text-white/80">{item.title}</div>
+                <div className="mt-2 text-sm text-white/60">{item.description}</div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
       {/* Product preview */}
-      <section className="pb-20">
+      <section id="preview" className="pb-20">
         <Container>
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
             <div className="grid gap-6 md:grid-cols-2">
@@ -42,9 +143,9 @@ export default function Home() {
         <Container>
           <h2 className="text-2xl font-semibold">Vision</h2>
           <p className="mt-4 max-w-3xl text-white/70">
-            Traditional sheet music forces beginners to translate symbols into letters,
-            then into keys. COLOR CODED removes a step by turning notes into a consistent
-            color language — so learning feels faster, clearer, and more motivating.
+            Music reading should feel direct and encouraging. COLOR CODED adds a consistent
+            color layer to sheet music and maps it to the keyboard — reducing translation so
+            practice can focus on timing, feel, and repetition instead of constant decoding.
           </p>
         </Container>
       </section>
@@ -53,15 +154,51 @@ export default function Home() {
       <section id="how" className="pb-20">
         <Container>
           <h2 className="text-2xl font-semibold">How it works</h2>
+          <p className="mt-4 max-w-3xl text-white/70">
+            A simple pipeline that turns existing sheet music into a clearer, color-coded
+            practice view.
+          </p>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {[
-              ["1. Upload", "Import a photo or PDF of your sheet music."],
-              ["2. Detect", "We detect noteheads and determine their pitch."],
-              ["3. Colorize", "Notes get color-coded and mapped to the keyboard."],
-            ].map(([title, desc]) => (
+            {HOW_IT_WORKS_STEPS.map(([title, desc]) => (
               <div key={title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
                 <div className="text-sm text-white/80">{title}</div>
                 <div className="mt-2 text-sm text-white/60">{desc}</div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Built for */}
+      <section id="built-for" className="pb-20">
+        <Container>
+          <h2 className="text-2xl font-semibold">Built for</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {BUILT_FOR.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-3xl border border-white/10 bg-white/5 p-6"
+              >
+                <div className="text-sm text-white/80">{item.title}</div>
+                <div className="mt-2 text-sm text-white/60">{item.description}</div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Development status */}
+      <section id="status" className="pb-20">
+        <Container>
+          <h2 className="text-2xl font-semibold">Development status</h2>
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
+            {DEVELOPMENT_STATUS.map((item) => (
+              <div
+                key={item.title}
+                className="rounded-3xl border border-white/10 bg-white/5 p-6"
+              >
+                <div className="text-sm text-white/80">{item.title}</div>
+                <div className="mt-2 text-sm text-white/60">{item.description}</div>
               </div>
             ))}
           </div>
@@ -73,18 +210,12 @@ export default function Home() {
         <Container>
           <h2 className="text-2xl font-semibold">FAQ</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div className="text-sm text-white/80">Is this for beginners only?</div>
-              <div className="mt-2 text-sm text-white/60">
-                Beginners love it, but it’s also great for returning players and visual learners.
+            {FAQ_ITEMS.map((item) => (
+              <div key={item.question} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                <div className="text-sm text-white/80">{item.question}</div>
+                <div className="mt-2 text-sm text-white/60">{item.answer}</div>
               </div>
-            </div>
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div className="text-sm text-white/80">When is the app launching?</div>
-              <div className="mt-2 text-sm text-white/60">
-                We’re building the first release now. This site will update as we get closer.
-              </div>
-            </div>
+            ))}
           </div>
         </Container>
       </section>
