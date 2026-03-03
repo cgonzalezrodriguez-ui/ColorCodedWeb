@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
@@ -82,6 +85,13 @@ const FAQ_ITEMS = [
 ] as const;
 
 export default function Home() {
+  const [ctaClicked, setCtaClicked] = useState(false);
+
+  function handleCtaClick() {
+    setCtaClicked(true);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
   return (
     <main className="min-h-screen bg-black text-white">
       <Nav />
@@ -213,12 +223,18 @@ export default function Home() {
             <p className="mt-4 max-w-2xl mx-auto text-white/70">
               Join the beta and experience a simpler way to read piano music.
             </p>
-            <a
-              href="#cta"
+            <button
+              type="button"
+              onClick={handleCtaClick}
               className="mt-8 inline-block rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90"
             >
               Join the Beta
-            </a>
+            </button>
+            {ctaClicked && (
+              <p className="mt-4 text-sm text-white/60">
+                Beta signups opening soon.
+              </p>
+            )}
             <p className="mt-6 text-xs text-white/50">
               Launching first on iOS.
             </p>
