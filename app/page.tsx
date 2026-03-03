@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Container from "./components/Container";
@@ -86,6 +87,14 @@ export default function Home() {
       <Nav />
       <Hero />
 
+      <div className="py-4">
+        <Container>
+          <p className="text-center text-sm text-white/50">
+            Designed and approved by musicians.
+          </p>
+        </Container>
+      </div>
+
       {/* Problem */}
       <section id="problem" className="pb-20">
         <Container>
@@ -113,27 +122,18 @@ export default function Home() {
       <section id="preview" className="pb-20">
         <Container>
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-            <div className="grid gap-6 md:grid-cols-2">
-              <div className="rounded-2xl bg-black/30 p-5">
-                <div className="text-sm text-white/70">Sheet → Color overlay</div>
-                <div className="mt-4 h-36 rounded-xl bg-gradient-to-br from-white/10 to-white/0" />
-                <div className="mt-4 flex gap-2 text-xs text-white/60">
-                  <span className="rounded-full bg-red-500/20 px-3 py-1">C</span>
-                  <span className="rounded-full bg-yellow-500/20 px-3 py-1">D</span>
-                  <span className="rounded-full bg-green-500/20 px-3 py-1">E</span>
-                  <span className="rounded-full bg-blue-500/20 px-3 py-1">F</span>
-                  <span className="rounded-full bg-purple-500/20 px-3 py-1">G</span>
-                </div>
-              </div>
-
-              <div className="rounded-2xl bg-black/30 p-5">
-                <div className="text-sm text-white/70">Color → Keyboard mapping</div>
-                <div className="mt-4 h-36 rounded-xl bg-gradient-to-br from-white/10 to-white/0" />
-                <div className="mt-4 text-xs text-white/60">
-                  Same colors on the keys so your brain connects notes instantly.
-                </div>
-              </div>
+            <div className="overflow-hidden rounded-2xl bg-black/30">
+              <Image
+                src="/mary-had-a-little-lamb.jpg"
+                alt="Color-coded sheet music preview"
+                width={1200}
+                height={800}
+                className="w-full object-cover"
+              />
             </div>
+            <p className="mt-4 text-center text-sm text-white/60">
+              Real-time note detection with consistent color mapping.
+            </p>
           </div>
         </Container>
       </section>
@@ -201,6 +201,27 @@ export default function Home() {
                 <div className="mt-2 text-sm text-white/60">{item.description}</div>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA */}
+      <section id="cta" className="pb-20">
+        <Container>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
+            <h2 className="text-2xl font-semibold">Be first to try COLOR CODED</h2>
+            <p className="mt-4 max-w-2xl mx-auto text-white/70">
+              Join the beta and experience a simpler way to read piano music.
+            </p>
+            <a
+              href="#cta"
+              className="mt-8 inline-block rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90"
+            >
+              Join the Beta
+            </a>
+            <p className="mt-6 text-xs text-white/50">
+              Launching first on iOS.
+            </p>
           </div>
         </Container>
       </section>
