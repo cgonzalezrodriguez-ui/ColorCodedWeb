@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+import Link from "next/link";
 import Container from "./Container";
 
 export default function Nav() {
@@ -12,14 +14,15 @@ export default function Nav() {
     <header className="py-6">
       <Container>
         <div className="flex items-center justify-between">
-          <div className="inline-flex items-baseline gap-1 leading-none">
-            <span className="bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500 bg-clip-text text-base font-semibold text-transparent">
-              C
-            </span>
-            <span className="text-xs font-semibold tracking-widest text-white/80">
-              CODED
-            </span>
-          </div>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/logo.png"
+              alt="C CODED"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+            />
+          </Link>
 
           <div className="flex items-center gap-6">
             <nav className="flex gap-6 text-sm text-white/70">
