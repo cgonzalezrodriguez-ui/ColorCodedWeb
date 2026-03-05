@@ -4,16 +4,19 @@ export default function Hero() {
   return (
     <section className="pt-10 pb-20">
       <Container>
+        <div className="mb-8 w-full text-center">
+          <span className="text-5xl font-semibold leading-tight md:text-6xl">
+            <span className="text-red-500">C</span>
+            <span className="text-orange-500">O</span>
+            <span className="text-yellow-500">L</span>
+            <span className="text-green-500">O</span>
+            <span className="text-blue-500">R</span>{" "}
+            <span className="text-white">CODED</span>
+          </span>
+        </div>
         <div className="max-w-3xl">
           <h1 className="text-5xl font-semibold leading-tight md:text-6xl">
-            Read piano music
-            <span className="block">
-              in{" "}
-              <span className="bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500 bg-clip-text text-transparent">
-                color
-              </span>
-              .
-            </span>
+            Read piano music in color.
           </h1>
 
           <p className="mt-6 text-lg text-white/70">
