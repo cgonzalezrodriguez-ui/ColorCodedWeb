@@ -191,7 +191,7 @@ export default function Home() {
             {BUILT_FOR.map((item) => (
               <div
                 key={item.title}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center"
+                className="rounded-3xl border border-white/10 bg-white/5 p-8 text-center transition hover:border-white/20 hover:bg-white/10"
               >
                 <div className="text-4xl" aria-hidden>
                   {item.icon}
