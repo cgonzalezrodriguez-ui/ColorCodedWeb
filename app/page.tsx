@@ -5,6 +5,7 @@ import Image from "next/image";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Container from "./components/Container";
+import ColorSystemSection from "./components/ColorSystemSection";
 
 const PROBLEM_POINTS = [
   {
@@ -32,30 +33,26 @@ const HOW_IT_WORKS_STEPS = [
 
 const BUILT_FOR = [
   {
+    icon: "🎹",
     title: "Beginners",
-    description: "A clearer path from page to keys without extra decoding.",
+    description: "Learn faster without decoding notes.",
   },
   {
+    icon: "👁",
     title: "Visual learners",
-    description: "A consistent color language that’s easier to recognize at a glance.",
+    description: "Instant color recognition.",
   },
   {
-    title: "Returning players",
-    description: "Get back into reading with less friction and more momentum.",
-  },
-  {
+    icon: "👨‍🏫",
     title: "Teachers",
-    description: "A supportive layer that helps students build early confidence.",
+    description: "A new tool for teaching music.",
   },
   {
-    title: "Parents",
-    description: "Make practice feel more approachable without constant prompting.",
+    icon: "🎵",
+    title: "Returning players",
+    description: "Rebuild reading skills quickly.",
   },
-  {
-    title: "Self-guided practice",
-    description: "Stay in flow longer while reinforcing note-to-key connections.",
-  },
-] as const;
+];
 
 const DEVELOPMENT_STATUS = [
   {
@@ -80,7 +77,8 @@ const FAQ_ITEMS = [
   },
   {
     question: "When is the app launching?",
-    answer: "We’re building the first release now. This site will update as we get closer.",
+    answer:
+      "We’re building the first release now. This site will update as we get closer.",
   },
 ] as const;
 
@@ -170,7 +168,10 @@ export default function Home() {
           </p>
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {HOW_IT_WORKS_STEPS.map(([title, desc]) => (
-              <div key={title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <div
+                key={title}
+                className="rounded-3xl border border-white/10 bg-white/5 p-6"
+              >
                 <div className="text-sm text-white/80">{title}</div>
                 <div className="mt-2 text-sm text-white/60">{desc}</div>
               </div>
@@ -179,18 +180,28 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* Color System (NEW) */}
+      <ColorSystemSection />
+
       {/* Built for */}
       <section id="built-for" className="pb-20">
         <Container>
           <h2 className="text-2xl font-semibold">Built for</h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {BUILT_FOR.map((item) => (
               <div
                 key={item.title}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6"
+                className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center"
               >
-                <div className="text-sm text-white/80">{item.title}</div>
-                <div className="mt-2 text-sm text-white/60">{item.description}</div>
+                <div className="text-4xl" aria-hidden>
+                  {item.icon}
+                </div>
+                <h3 className="mt-4 text-base font-semibold text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm text-white/60">
+                  {item.description}
+                </p>
               </div>
             ))}
           </div>
@@ -220,7 +231,7 @@ export default function Home() {
         <Container>
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
             <h2 className="text-2xl font-semibold">Be first to try COLOR CODED</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-white/70">
+            <p className="mt-4 mx-auto max-w-2xl text-white/70">
               Join the beta and experience a simpler way to read piano music.
             </p>
             <button
@@ -231,13 +242,9 @@ export default function Home() {
               Join the Beta
             </button>
             {ctaClicked && (
-              <p className="mt-4 text-sm text-white/60">
-                Beta signups opening soon.
-              </p>
+              <p className="mt-4 text-sm text-white/60">Beta signups opening soon.</p>
             )}
-            <p className="mt-6 text-xs text-white/50">
-              Launching first on iOS.
-            </p>
+            <p className="mt-6 text-xs text-white/50">Launching first on iOS.</p>
           </div>
         </Container>
       </section>
@@ -248,7 +255,10 @@ export default function Home() {
           <h2 className="text-2xl font-semibold">FAQ</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {FAQ_ITEMS.map((item) => (
-              <div key={item.question} className="rounded-3xl border border-white/10 bg-white/5 p-6">
+              <div
+                key={item.question}
+                className="rounded-3xl border border-white/10 bg-white/5 p-6"
+              >
                 <div className="text-sm text-white/80">{item.question}</div>
                 <div className="mt-2 text-sm text-white/60">{item.answer}</div>
               </div>
