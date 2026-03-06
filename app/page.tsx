@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Container from "./components/Container";
 import ColorSystemSection from "./components/ColorSystemSection";
+import Waitlist from "./components/Waitlist";
 
 const PROBLEM_POINTS = [
   {
@@ -105,13 +106,7 @@ const FAQ_ITEMS = [
 ] as const;
 
 export default function Home() {
-  const [ctaClicked, setCtaClicked] = useState(false);
   const [selectedAudience, setSelectedAudience] = useState<string | null>("Beginners");
-
-  function handleCtaClick() {
-    setCtaClicked(true);
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -267,28 +262,8 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* CTA */}
-      <section id="cta" className="pb-20">
-        <Container>
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center">
-            <h2 className="text-2xl font-semibold">Be first to try COLOR CODED</h2>
-            <p className="mt-4 mx-auto max-w-2xl text-white/70">
-              Join the beta and experience a simpler way to read piano music.
-            </p>
-            <button
-              type="button"
-              onClick={handleCtaClick}
-              className="mt-8 inline-block rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90"
-            >
-              Join the Beta
-            </button>
-            {ctaClicked && (
-              <p className="mt-4 text-sm text-white/60">Beta signups opening soon.</p>
-            )}
-            <p className="mt-6 text-xs text-white/50">Launching first on iOS.</p>
-          </div>
-        </Container>
-      </section>
+      {/* CTA / Waitlist */}
+      <Waitlist />
 
       {/* FAQ */}
       <section id="faq" className="pb-24">
