@@ -16,7 +16,7 @@ export default function Nav() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo.png"
+              src="/logofixed.jpg"
               alt="C CODED"
               width={120}
               height={40}

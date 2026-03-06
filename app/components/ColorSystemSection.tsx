@@ -101,7 +101,7 @@ export default function ColorSystemSection() {
 
             {/* Optional: small note explaining sharps/flats */}
             <p className="mt-4 text-xs text-white/55">
-              *Sharps/flats can be shown as blended/secondary colors (optional setting).
+              *Sharps/flats can be shown as triangular colored shapes .
             </p>
           </div>
         </div>
