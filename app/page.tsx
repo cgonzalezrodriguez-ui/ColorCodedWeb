@@ -35,22 +35,44 @@ const BUILT_FOR = [
   {
     icon: "🎹",
     title: "Beginners",
-    description: "Learn faster without decoding notes.",
+    summary: "Learn faster without decoding every note.",
+    expanded:
+      "COLOR CODED helps beginners connect sheet music to the keyboard more directly. Instead of constantly translating symbols into note names first, they can recognize patterns faster and build confidence earlier.",
   },
   {
     icon: "👁",
     title: "Visual learners",
-    description: "Instant color recognition.",
-  },
-  {
-    icon: "👨‍🏫",
-    title: "Teachers",
-    description: "A new tool for teaching music.",
+    summary: "Instant color recognition for faster understanding.",
+    expanded:
+      "For visual learners, consistent color mapping makes note recognition more intuitive. It reduces mental friction and makes it easier to follow music at a glance.",
   },
   {
     icon: "🎵",
     title: "Returning players",
-    description: "Rebuild reading skills quickly.",
+    summary: "Rebuild reading skills with less friction.",
+    expanded:
+      "Returning players often remember how music feels before they fully regain reading fluency. COLOR CODED makes re-entry smoother by reducing the effort needed to interpret notation.",
+  },
+  {
+    icon: "👨‍🏫",
+    title: "Teachers",
+    summary: "A supportive tool for music instruction.",
+    expanded:
+      "Teachers can use COLOR CODED as a support layer for early learning, helping students stay engaged while reinforcing note-to-key relationships.",
+  },
+  {
+    icon: "👪",
+    title: "Parents",
+    summary: "Make practice feel more approachable at home.",
+    expanded:
+      "Parents who are helping children practice can benefit from a clearer and more visual system. It makes practice sessions feel less intimidating and easier to support.",
+  },
+  {
+    icon: "🎯",
+    title: "Self-guided practice",
+    summary: "Stay in flow longer while practicing alone.",
+    expanded:
+      "Independent learners can use COLOR CODED to reduce stop-and-start practice. It supports longer, more focused sessions while reinforcing recognition over time.",
   },
 ];
 
@@ -84,6 +106,7 @@ const FAQ_ITEMS = [
 
 export default function Home() {
   const [ctaClicked, setCtaClicked] = useState(false);
+  const [selectedAudience, setSelectedAudience] = useState("Beginners");
 
   function handleCtaClick() {
     setCtaClicked(true);
@@ -187,23 +210,51 @@ export default function Home() {
       <section id="built-for" className="pb-20">
         <Container>
           <h2 className="text-2xl font-semibold">Built for</h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {BUILT_FOR.map((item) => (
-              <div
-                key={item.title}
-                className="rounded-3xl border border-white/10 bg-white/5 p-8 text-center transition hover:border-white/20 hover:bg-white/10"
-              >
-                <div className="text-4xl" aria-hidden>
-                  {item.icon}
-                </div>
-                <h3 className="mt-4 text-base font-semibold text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm text-white/60">
-                  {item.description}
-                </p>
-              </div>
-            ))}
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {BUILT_FOR.map((item) => {
+              const isSelected = selectedAudience === item.title;
+              return (
+                <button
+                  key={item.title}
+                  type="button"
+                  onClick={() => setSelectedAudience(item.title)}
+                  className={`rounded-3xl border p-8 text-left transition ${
+                    isSelected
+                      ? "border-white/25 bg-white/10"
+                      : "border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10"
+                  }`}
+                >
+                  <div className="text-5xl" aria-hidden>
+                    {item.icon}
+                  </div>
+                  <h3 className="mt-4 text-base font-semibold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-white/60">{item.summary}</p>
+                </button>
+              );
+            })}
+          </div>
+          <div className="mt-8 rounded-3xl border border-white/10 bg-white/5 p-8 transition">
+            {(() => {
+              const selected = BUILT_FOR.find((i) => i.title === selectedAudience);
+              if (!selected) return null;
+              return (
+                <>
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl" aria-hidden>
+                      {selected.icon}
+                    </span>
+                    <h3 className="text-xl font-semibold text-white">
+                      {selected.title}
+                    </h3>
+                  </div>
+                  <p className="mt-4 text-white/80 leading-relaxed">
+                    {selected.expanded}
+                  </p>
+                </>
+              );
+            })()}
           </div>
         </Container>
       </section>
