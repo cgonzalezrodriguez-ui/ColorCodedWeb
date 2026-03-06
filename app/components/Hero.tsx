@@ -15,8 +15,13 @@ export default function Hero() {
           </span>
         </div>
         <div className="max-w-3xl">
-          <h1 className="text-5xl font-semibold leading-tight md:text-6xl">
-            Read piano music in color.
+          <h1 className="text-5xl font-semibold leading-tight text-white md:text-6xl">
+            Read piano music
+            <br />
+            in{" "}
+            <span className="bg-clip-text text-transparent bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6)]">
+              color.
+            </span>
           </h1>
 
           <p className="mt-6 text-lg text-white/70">
