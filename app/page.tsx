@@ -215,10 +215,10 @@ export default function Home() {
                   onClick={() =>
                     setSelectedAudience(isExpanded ? null : item.title)
                   }
-                  className={`rounded-3xl border p-8 text-left transition-all duration-300 ease-in-out ${
+                  className={`cursor-pointer rounded-3xl border p-8 text-left transition-all duration-200 ease-in-out hover:-translate-y-1 hover:border-white/30 hover:shadow-lg ${
                     isExpanded
                       ? "border-white/25 bg-white/10 ring-2 ring-white/10"
-                      : "border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/10"
+                      : "border-white/10 bg-white/5 hover:bg-white/10"
                   }`}
                 >
                   <div className="text-5xl" aria-hidden>
