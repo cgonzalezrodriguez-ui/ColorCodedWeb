@@ -44,62 +44,91 @@ export default function Vision() {
                 That lets practice focus more on timing, feel, and repetition.
               </p>
             </div>
-            {/* Focus shift callout */}
-            <div className="mt-8 flex flex-wrap gap-8 rounded-2xl border border-white/10 bg-white/5 p-5 sm:gap-12 sm:p-6">
-              <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-white/50">
-                  Focus on
-                </p>
-                <ul className="mt-2 space-y-1 text-sm font-medium text-white/90">
-                  <li>Timing</li>
-                  <li>Feel</li>
-                  <li>Repetition</li>
-                </ul>
-              </div>
-              <div className="h-12 w-px shrink-0 bg-white/15 sm:h-auto sm:w-px sm:min-h-[3.5rem]" />
-              <div>
-                <p className="text-xs font-medium uppercase tracking-wider text-white/50">
-                  Not on
-                </p>
-                <ul className="mt-2 space-y-1 text-sm text-white/60">
-                  <li>Constant decoding</li>
-                </ul>
-              </div>
-            </div>
+            {/* Benefits list */}
+            <ul className="mt-8 space-y-2.5 text-sm text-white/80">
+              <li className="flex items-center gap-2.5">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" aria-hidden />
+                Faster note recognition
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" aria-hidden />
+                Less mental translation
+              </li>
+              <li className="flex items-center gap-2.5">
+                <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" aria-hidden />
+                Practice focused on timing and musical feel
+              </li>
+            </ul>
           </div>
 
           {/* Right: stylized visual */}
           <div className="hidden lg:block">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20">
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {/* Sheet music mockup */}
                 <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
                   <p className="mb-3 text-xs font-medium uppercase tracking-wider text-white/40">
                     Sheet music
                   </p>
-                  <div className="space-y-3">
-                    {[1, 2, 3, 4, 5].map((i) => (
-                      <div
-                        key={i}
-                        className="h-px w-full bg-white/20"
-                        aria-hidden
-                      />
-                    ))}
-                  </div>
-                  <div className="mt-3 flex gap-2">
-                    {SHEET_MUSIC_COLORS.map((hex, i) => (
-                      <div
-                        key={i}
-                        className="h-3 w-4 rounded-sm"
-                        style={{ backgroundColor: hex }}
-                        aria-hidden
-                      />
-                    ))}
+                  <div className="relative flex items-start gap-2">
+                    {/* Treble clef (stylized G clef) */}
+                    <div className="shrink-0 text-white/50" aria-hidden>
+                      <svg
+                        className="h-11 w-7"
+                        viewBox="0 0 28 56"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M14 2v52M14 2c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7zm0 14c4 0 7 3 7 7s-3 7-7 7-7-3-7-7 3-7 7-7zm0 14c4 0 7 3 7 7s-3 7-7 7-7-3-7-7 3-7 7-7z" />
+                      </svg>
+                    </div>
+                    {/* Staff lines + notes */}
+                    <div className="min-w-0 flex-1">
+                      <div className="relative h-14">
+                        {/* 5 staff lines - slightly more visible */}
+                        {[0, 1, 2, 3, 4].map((i) => (
+                          <div
+                            key={i}
+                            className="absolute left-0 right-0 h-px bg-white/35"
+                            style={{ top: `${i * 25}%` }}
+                            aria-hidden
+                          />
+                        ))}
+                        {/* Note heads (circles) with stems - colored to show mapping to keys below */}
+                        <div className="absolute left-8 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-white/70" aria-hidden />
+                        <div className="absolute left-8 top-[36%] h-3 w-px bg-white/50" aria-hidden />
+                        <div className="absolute left-14 top-[28%] h-2 w-2 rounded-full" style={{ backgroundColor: SHEET_MUSIC_COLORS[0] }} aria-hidden />
+                        <div className="absolute left-14 top-[28%] h-3 w-px bg-white/50" aria-hidden />
+                        <div className="absolute left-20 top-[44%] h-2 w-2 rounded-full" style={{ backgroundColor: SHEET_MUSIC_COLORS[1] }} aria-hidden />
+                        <div className="absolute left-20 top-[44%] h-3 w-px bg-white/50" aria-hidden />
+                        <div className="absolute left-26 top-[20%] h-2 w-2 rounded-full" style={{ backgroundColor: SHEET_MUSIC_COLORS[2] }} aria-hidden />
+                        <div className="absolute left-26 top-[20%] h-3 w-px bg-white/50" aria-hidden />
+                        <div className="absolute left-34 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full" style={{ backgroundColor: SHEET_MUSIC_COLORS[3] }} aria-hidden />
+                        <div className="absolute left-34 top-[36%] h-3 w-px bg-white/50" aria-hidden />
+                        <div className="absolute left-42 top-[36%] h-2 w-2 rounded-full" style={{ backgroundColor: SHEET_MUSIC_COLORS[4] }} aria-hidden />
+                        <div className="absolute left-42 top-[36%] h-3 w-px bg-white/50" aria-hidden />
+                      </div>
+                  {/* Color mapping hint - colored markers aligned with note colors */}
+                      <div className="mt-3 flex gap-1.5">
+                        {SHEET_MUSIC_COLORS.map((hex, i) => (
+                          <div
+                            key={i}
+                            className="h-2.5 w-3 rounded-sm"
+                            style={{ backgroundColor: hex }}
+                            aria-hidden
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div className="flex justify-center text-white/30" aria-hidden>
-                  <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                {/* Arrow - refined, centered */}
+                <div className="flex justify-center py-1 text-white/25" aria-hidden>
+                  <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                   </svg>
                 </div>
                 {/* Keyboard mockup */}
