@@ -1,13 +1,8 @@
 import Image from "next/image";
 import Container from "./Container";
 
-/**
- * Sheet music image for the Vision section upper panel.
- * Replace with your own: put the file in public/images/sheet-music-placeholder.png,
- * or set this to any path under public/ (e.g. "/my-sheet-music.png").
- * To test the layout before adding an asset, use an existing image (e.g. "/mary-had-a-little-lambfixed.jpg").
- */
-const SHEET_MUSIC_IMAGE_SRC = "/images/sheet-music-placeholder.png";
+/** Sheet music image for the Vision section upper panel (file in public/images/). */
+const SHEET_MUSIC_IMAGE_SRC = "/sheet-music.jpeg";
 
 const KEYBOARD_COLORS = ["#EF4444", "#F97316", "#EAB308", "#22C55E", "#3B82F6", "#6366F1", "#A855F7"];
 
@@ -78,12 +73,12 @@ export default function Vision() {
                   <p className="mb-3 text-xs font-medium uppercase tracking-wider text-white/40">
                     Sheet music
                   </p>
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+                  <div className="relative h-56 w-full overflow-hidden rounded-xl">
                     <Image
                       src={SHEET_MUSIC_IMAGE_SRC}
                       alt="Traditional sheet music"
                       fill
-                      className="object-cover object-center"
+                      className="object-contain object-center"
                       sizes="(min-width: 1024px) 50vw, 100vw"
                     />
                     {/* Subtle dark overlay to match site aesthetic */}
