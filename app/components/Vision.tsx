@@ -2,7 +2,7 @@ import Image from "next/image";
 import Container from "./Container";
 
 /** Sheet music image for the Vision section upper panel (file in public/images/). */
-const SHEET_MUSIC_IMAGE_SRC = "/sheet-music.jpeg";
+const SHEET_MUSIC_IMAGE_SRC = "/sheet-musicF.png";
 
 const KEYBOARD_COLORS = ["#EF4444", "#F97316", "#EAB308", "#22C55E", "#3B82F6", "#6366F1", "#A855F7"];
 
@@ -73,18 +73,13 @@ export default function Vision() {
                   <p className="mb-3 text-xs font-medium uppercase tracking-wider text-white/40">
                     Sheet music
                   </p>
-                  <div className="relative h-56 w-full overflow-hidden rounded-xl">
+                  <div className="relative h-44 w-full overflow-hidden rounded-xl">
                     <Image
                       src={SHEET_MUSIC_IMAGE_SRC}
                       alt="Traditional sheet music"
                       fill
                       className="object-contain object-center"
                       sizes="(min-width: 1024px) 50vw, 100vw"
-                    />
-                    {/* Subtle dark overlay to match site aesthetic */}
-                    <div
-                      className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-b from-black/20 to-black/50"
-                      aria-hidden
                     />
                   </div>
                 </div>
