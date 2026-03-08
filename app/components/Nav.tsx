@@ -11,7 +11,7 @@ export default function Nav() {
   }
 
   return (
-    <header className="py-6">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 py-6 shadow-[0_1px_0_0_rgba(255,255,255,0.05)] backdrop-blur-sm">
       <Container>
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center">
