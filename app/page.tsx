@@ -137,7 +137,7 @@ export default function Home() {
           <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
             <div className="overflow-hidden rounded-2xl bg-black/30">
               <Image
-                src="/mary-had-a-little-lamb.jpg"
+                src="/mary-had-a-little-lambfixed.jpg"
                 alt="Color-coded sheet music preview"
                 width={1200}
                 height={800}
