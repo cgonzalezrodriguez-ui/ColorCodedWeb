@@ -1,6 +1,14 @@
+import Image from "next/image";
 import Container from "./Container";
 
-const SHEET_MUSIC_COLORS = ["#EF4444", "#F97316", "#EAB308", "#22C55E", "#3B82F6", "#6366F1"];
+/**
+ * Sheet music image for the Vision section upper panel.
+ * Replace with your own: put the file in public/images/sheet-music-placeholder.png,
+ * or set this to any path under public/ (e.g. "/my-sheet-music.png").
+ * To test the layout before adding an asset, use an existing image (e.g. "/mary-had-a-little-lambfixed.jpg").
+ */
+const SHEET_MUSIC_IMAGE_SRC = "/images/sheet-music-placeholder.png";
+
 const KEYBOARD_COLORS = ["#EF4444", "#F97316", "#EAB308", "#22C55E", "#3B82F6", "#6366F1", "#A855F7"];
 
 export default function Vision() {
@@ -65,64 +73,24 @@ export default function Vision() {
           <div className="hidden lg:block">
             <div className="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20">
               <div className="space-y-8">
-                {/* Sheet music mockup */}
+                {/* Sheet music panel — image source: SHEET_MUSIC_IMAGE_SRC */}
                 <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
                   <p className="mb-3 text-xs font-medium uppercase tracking-wider text-white/40">
                     Sheet music
                   </p>
-                  <div className="relative flex items-start gap-2">
-                    {/* Treble clef (stylized G clef) */}
-                    <div className="shrink-0 text-white/50" aria-hidden>
-                      <svg
-                        className="h-11 w-7"
-                        viewBox="0 0 28 56"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M14 2v52M14 2c-4 0-7 3-7 7s3 7 7 7 7-3 7-7-3-7-7-7zm0 14c4 0 7 3 7 7s-3 7-7 7-7-3-7-7 3-7 7-7zm0 14c4 0 7 3 7 7s-3 7-7 7-7-3-7-7 3-7 7-7z" />
-                      </svg>
-                    </div>
-                    {/* Staff lines + notes */}
-                    <div className="min-w-0 flex-1">
-                      <div className="relative h-14">
-                        {/* 5 staff lines - slightly more visible */}
-                        {[0, 1, 2, 3, 4].map((i) => (
-                          <div
-                            key={i}
-                            className="absolute left-0 right-0 h-px bg-white/35"
-                            style={{ top: `${i * 25}%` }}
-                            aria-hidden
-                          />
-                        ))}
-                        {/* Note heads (circles) with stems - colored to show mapping to keys below */}
-                        <div className="absolute left-8 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full bg-white/70" aria-hidden />
-                        <div className="absolute left-8 top-[36%] h-3 w-px bg-white/50" aria-hidden />
-                        <div className="absolute left-14 top-[28%] h-2 w-2 rounded-full" style={{ backgroundColor: SHEET_MUSIC_COLORS[0] }} aria-hidden />
-                        <div className="absolute left-14 top-[28%] h-3 w-px bg-white/50" aria-hidden />
-                        <div className="absolute left-20 top-[44%] h-2 w-2 rounded-full" style={{ backgroundColor: SHEET_MUSIC_COLORS[1] }} aria-hidden />
-                        <div className="absolute left-20 top-[44%] h-3 w-px bg-white/50" aria-hidden />
-                        <div className="absolute left-26 top-[20%] h-2 w-2 rounded-full" style={{ backgroundColor: SHEET_MUSIC_COLORS[2] }} aria-hidden />
-                        <div className="absolute left-26 top-[20%] h-3 w-px bg-white/50" aria-hidden />
-                        <div className="absolute left-34 top-1/2 h-2 w-2 -translate-y-1/2 rounded-full" style={{ backgroundColor: SHEET_MUSIC_COLORS[3] }} aria-hidden />
-                        <div className="absolute left-34 top-[36%] h-3 w-px bg-white/50" aria-hidden />
-                        <div className="absolute left-42 top-[36%] h-2 w-2 rounded-full" style={{ backgroundColor: SHEET_MUSIC_COLORS[4] }} aria-hidden />
-                        <div className="absolute left-42 top-[36%] h-3 w-px bg-white/50" aria-hidden />
-                      </div>
-                  {/* Color mapping hint - colored markers aligned with note colors */}
-                      <div className="mt-3 flex gap-1.5">
-                        {SHEET_MUSIC_COLORS.map((hex, i) => (
-                          <div
-                            key={i}
-                            className="h-2.5 w-3 rounded-sm"
-                            style={{ backgroundColor: hex }}
-                            aria-hidden
-                          />
-                        ))}
-                      </div>
-                    </div>
+                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+                    <Image
+                      src={SHEET_MUSIC_IMAGE_SRC}
+                      alt="Traditional sheet music"
+                      fill
+                      className="object-cover object-center"
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                    />
+                    {/* Subtle dark overlay to match site aesthetic */}
+                    <div
+                      className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-b from-black/20 to-black/50"
+                      aria-hidden
+                    />
                   </div>
                 </div>
                 {/* Arrow - refined, centered */}
