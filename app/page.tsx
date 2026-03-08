@@ -107,6 +107,7 @@ const FAQ_ITEMS = [
 
 export default function Home() {
   const [selectedAudience, setSelectedAudience] = useState<string | null>("Beginners");
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -269,16 +270,55 @@ export default function Home() {
       <section id="faq" className="pb-24">
         <Container>
           <h2 className="text-2xl font-semibold">FAQ</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {FAQ_ITEMS.map((item) => (
-              <div
-                key={item.question}
-                className="rounded-3xl border border-white/10 bg-white/5 p-6"
-              >
-                <div className="text-sm text-white/80">{item.question}</div>
-                <div className="mt-2 text-sm text-white/60">{item.answer}</div>
-              </div>
-            ))}
+          <div className="mt-6 divide-y divide-white/10">
+            {FAQ_ITEMS.map((item, index) => {
+              const isOpen = openFaqIndex === index;
+              return (
+                <div key={item.question}>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setOpenFaqIndex(isOpen ? null : index)
+                    }
+                    className="flex w-full cursor-pointer items-center justify-between gap-4 py-4 text-left transition-colors duration-200 hover:text-white/90"
+                  >
+                    <span className="font-medium text-white">
+                      {item.question}
+                    </span>
+                    <span
+                      className={`shrink-0 transition-transform duration-200 ease-in-out ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                      aria-hidden
+                    >
+                      <svg
+                        className="h-5 w-5 text-white/60"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-200 ease-in-out ${
+                      isOpen ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <p className="pb-4 text-sm text-white/60">
+                      {item.answer}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </Container>
       </section>
