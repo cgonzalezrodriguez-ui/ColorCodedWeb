@@ -5,6 +5,7 @@ import Container from "./Container";
 const SHEET_MUSIC_IMAGE_SRC = "/sheet-musicF.png";
 
 const KEYBOARD_COLORS = ["#EF4444", "#F97316", "#EAB308", "#22C55E", "#3B82F6", "#6366F1", "#A855F7"];
+const KEYBOARD_NOTES = ["C", "D", "E", "F", "G", "A", "B"];
 
 export default function Vision() {
   return (
@@ -98,10 +99,12 @@ export default function Vision() {
                     {KEYBOARD_COLORS.map((hex, i) => (
                       <div
                         key={i}
-                        className="h-12 flex-1 rounded-md"
+                        className="flex h-12 flex-1 select-none items-center justify-center rounded-md text-lg font-bold text-white/95"
                         style={{ backgroundColor: hex }}
-                        aria-hidden
-                      />
+                        aria-label={`Key ${KEYBOARD_NOTES[i] ?? ""}`}
+                      >
+                        {KEYBOARD_NOTES[i]}
+                      </div>
                     ))}
                   </div>
                 </div>
