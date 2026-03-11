@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
@@ -96,7 +95,6 @@ const DEVELOPMENT_STATUS = [
 ] as const;
 
 export default function Home() {
-  const [selectedAudience, setSelectedAudience] = useState<string | null>("Beginners");
   return (
     <main className="min-h-screen bg-black text-white">
       <Nav />
@@ -182,11 +180,7 @@ export default function Home() {
       <ColorSystemSection />
 
       {/* Built for */}
-      <BuiltFor
-        items={BUILT_FOR}
-        selectedAudience={selectedAudience}
-        setSelectedAudience={setSelectedAudience}
-      />
+      <BuiltFor items={BUILT_FOR} />
 
       {/* Development status */}
       <section id="status" className="pb-20">
