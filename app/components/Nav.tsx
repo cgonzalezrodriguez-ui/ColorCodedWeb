@@ -4,9 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import Container from "./Container";
 
-export default function Nav() {
+export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
   function scrollToCta(e: React.MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
+    if (onJoinBeta) {
+      onJoinBeta();
+      return;
+    }
+
     document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" });
   }
 

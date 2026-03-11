@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
@@ -7,7 +8,9 @@ import Container from "./components/Container";
 import ColorSystemSection from "./components/ColorSystemSection";
 import Vision from "./components/Vision";
 import BuiltFor from "./components/BuiltFor";
+import Modal from "./components/Modal";
 import Waitlist from "./components/Waitlist";
+import WaitlistCard from "./components/WaitlistCard";
 import FAQ from "./components/FAQ";
 
 const PROBLEM_POINTS = [
@@ -95,10 +98,21 @@ const DEVELOPMENT_STATUS = [
 ] as const;
 
 export default function Home() {
+  const [isBetaModalOpen, setIsBetaModalOpen] = useState(false);
+
   return (
     <main className="min-h-screen bg-black text-white">
-      <Nav />
+      <Nav onJoinBeta={() => setIsBetaModalOpen(true)} />
       <Hero />
+
+      <Modal
+        open={isBetaModalOpen}
+        onClose={() => setIsBetaModalOpen(false)}
+        title="Join beta"
+        initialFocusSelector='input[name="EMAIL"]'
+      >
+        <WaitlistCard formIdBase="mc-embedded-modal" />
+      </Modal>
 
       <div className="py-4">
         <Container>
