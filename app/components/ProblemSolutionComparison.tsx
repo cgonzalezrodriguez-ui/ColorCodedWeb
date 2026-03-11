@@ -104,21 +104,87 @@ const problemCardBase =
 const problemIconBox =
   "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/50 transition group-hover:text-white/60";
 
+function SolutionCard({
+  title,
+  icon,
+  description,
+  accentColor,
+}: {
+  title: string;
+  icon: string;
+  description: string;
+  accentColor: string;
+}) {
+  return (
+    <div className="group relative rounded-3xl border border-white/10 bg-white/5 p-6 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-white/25 hover:bg-white/10 hover:shadow-lg">
+      <div
+        className="absolute inset-0 rounded-3xl opacity-[0.06] transition-opacity group-hover:opacity-10"
+        style={{
+          background: `radial-gradient(ellipse 80% 50% at 20% 30%, ${accentColor}, transparent)`,
+        }}
+        aria-hidden
+      />
+      <div className="relative">
+        <div className="flex items-center gap-3">
+          <div
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border text-xl transition group-hover:shadow-lg"
+            style={{
+              borderColor: `${accentColor}40`,
+              backgroundColor: `${accentColor}15`,
+              boxShadow: `0 0 20px ${accentColor}25`,
+            }}
+          >
+            <span aria-hidden>{icon}</span>
+          </div>
+          <h3 className="text-lg font-semibold text-white">{title}</h3>
+        </div>
+        <p className="mt-3 text-sm text-white/70 leading-relaxed">{description}</p>
+      </div>
+    </div>
+  );
+}
+
 export default function ProblemSolutionComparison() {
   return (
     <section id="problem" className="pb-20">
       <Container>
-        <h2 className="text-2xl font-semibold">The problem → The solution</h2>
-        <div className="mt-10 space-y-10">
-          {ROWS.map((row, index) => {
-            const accentColor = SOLUTION_ACCENT_COLORS[index % SOLUTION_ACCENT_COLORS.length];
-            return (
-              <div
-                key={row.problem.title}
-                className="grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_auto_1fr]"
-              >
-                {/* Problem card — monochrome */}
-                <div className={problemCardBase}>
+        {/* Column headers with long arrow (desktop) */}
+        <div className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-8 lg:items-center lg:mb-8">
+          <h2 className="text-xl font-semibold text-white">Problems</h2>
+          <div
+            className="flex min-w-[140px] items-center justify-center gap-2 px-4"
+            aria-hidden
+          >
+            <span className="h-px flex-1 max-w-[120px] bg-white/25" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="h-5 w-5 shrink-0 text-white/50"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </div>
+          <h2 className="text-xl font-semibold text-white text-right">
+            Solutions
+          </h2>
+        </div>
+
+        {/* Two columns: problems | solutions (desktop); stacked (mobile) */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr] lg:gap-16">
+          {/* Left column: Problems */}
+          <div>
+            <h2 className="text-xl font-semibold text-white lg:hidden">
+              Problems
+            </h2>
+            <div className="mt-4 space-y-6 lg:mt-0">
+              {ROWS.map((row) => (
+                <div key={row.problem.title} className={problemCardBase}>
                   <div className="flex items-center gap-3">
                     <div className={problemIconBox}>
                       <ProblemIcon title={row.problem.title} />
@@ -131,59 +197,53 @@ export default function ProblemSolutionComparison() {
                     {row.problem.description}
                   </p>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                <div
-                  className="flex justify-center py-2 text-white/40"
-                  aria-hidden
-                >
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    className="h-6 w-6 shrink-0"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13 7l5 5m0 0l-5 5m5-5H6"
-                    />
-                  </svg>
-                </div>
+          {/* Mobile divider */}
+          <div
+            className="flex items-center gap-2 lg:hidden"
+            aria-hidden
+          >
+            <span className="h-px flex-1 bg-white/10" />
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              className="h-4 w-4 shrink-0 text-white/30"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              />
+            </svg>
+            <span className="h-px flex-1 bg-white/10" />
+          </div>
 
-                {/* Solution card — colored accent */}
-                <div className="group relative rounded-3xl border border-white/10 bg-white/5 p-6 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-white/25 hover:bg-white/10 hover:shadow-lg">
-                  <div
-                    className="absolute inset-0 rounded-3xl opacity-[0.06] transition-opacity group-hover:opacity-10"
-                    style={{
-                      background: `radial-gradient(ellipse 80% 50% at 20% 30%, ${accentColor}, transparent)`,
-                    }}
-                    aria-hidden
-                  />
-                  <div className="relative">
-                    <div className="flex items-center gap-3">
-                      <div
-                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border text-xl transition group-hover:shadow-lg"
-                        style={{
-                          borderColor: `${accentColor}40`,
-                          backgroundColor: `${accentColor}15`,
-                          boxShadow: `0 0 20px ${accentColor}25`,
-                        }}
-                      >
-                        <span aria-hidden>{row.solution.icon}</span>
-                      </div>
-                      <h3 className="text-lg font-semibold text-white">
-                        {row.solution.title}
-                      </h3>
-                    </div>
-                    <p className="mt-3 text-sm text-white/70 leading-relaxed">
-                      {row.solution.description}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+          {/* Right column: Solutions */}
+          <div>
+            <h2 className="text-xl font-semibold text-white lg:hidden">
+              Solutions
+            </h2>
+            <div className="mt-4 space-y-6 lg:mt-0">
+              {ROWS.map((row, index) => (
+                <SolutionCard
+                  key={row.solution.title}
+                  title={row.solution.title}
+                  icon={row.solution.icon}
+                  description={row.solution.description}
+                  accentColor={
+                    SOLUTION_ACCENT_COLORS[
+                      index % SOLUTION_ACCENT_COLORS.length
+                    ]
+                  }
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </Container>
     </section>
