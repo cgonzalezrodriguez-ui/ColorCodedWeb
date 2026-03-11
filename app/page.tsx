@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
@@ -99,6 +99,11 @@ const DEVELOPMENT_STATUS = [
 
 export default function Home() {
   const [isBetaModalOpen, setIsBetaModalOpen] = useState(false);
+  const [betaModalSubmitted, setBetaModalSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (isBetaModalOpen) setBetaModalSubmitted(false);
+  }, [isBetaModalOpen]);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -109,9 +114,13 @@ export default function Home() {
         open={isBetaModalOpen}
         onClose={() => setIsBetaModalOpen(false)}
         title="Join beta"
-        initialFocusSelector='input[name="EMAIL"]'
+        initialFocusSelector={betaModalSubmitted ? undefined : 'input[name="EMAIL"]'}
       >
-        <WaitlistCard formIdBase="mc-embedded-modal" />
+        <WaitlistCard
+          formIdBase="mc-embedded-modal"
+          submitted={betaModalSubmitted}
+          onSubmit={() => setBetaModalSubmitted(true)}
+        />
       </Modal>
 
       <div className="py-4">
