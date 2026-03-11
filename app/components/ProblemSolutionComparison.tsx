@@ -148,14 +148,17 @@ export default function ProblemSolutionComparison() {
   return (
     <section id="problem" className="pb-20">
       <Container>
-        {/* Column headers with long arrow (desktop) */}
-        <div className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] lg:gap-8 lg:items-center lg:mb-8">
-          <h2 className="text-xl font-semibold text-white">Problems</h2>
+        {/* Same grid for header row and columns: Problems | long arrow | Solutions */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_14rem_1fr] lg:gap-x-8 lg:gap-y-8">
+          {/* Row 1: Headers + arrow (desktop only) */}
+          <h2 className="hidden text-center text-xl font-semibold text-white lg:block">
+            Problems
+          </h2>
           <div
-            className="flex min-w-[140px] items-center justify-center gap-2 px-4"
+            className="hidden items-center lg:flex"
             aria-hidden
           >
-            <span className="h-px flex-1 max-w-[120px] bg-white/25" />
+            <span className="h-px w-full min-w-0 flex-1 bg-white/25" />
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -170,14 +173,11 @@ export default function ProblemSolutionComparison() {
               />
             </svg>
           </div>
-          <h2 className="text-xl font-semibold text-white text-right">
+          <h2 className="hidden text-center text-xl font-semibold text-white lg:block">
             Solutions
           </h2>
-        </div>
 
-        {/* Two columns: problems | solutions (desktop); stacked (mobile) */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1fr] lg:gap-16">
-          {/* Left column: Problems */}
+          {/* Row 2: Left column — Problems */}
           <div>
             <h2 className="text-xl font-semibold text-white lg:hidden">
               Problems
@@ -199,31 +199,33 @@ export default function ProblemSolutionComparison() {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Mobile divider */}
-          <div
-            className="flex items-center gap-2 lg:hidden"
-            aria-hidden
-          >
-            <span className="h-px flex-1 bg-white/10" />
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="h-4 w-4 shrink-0 text-white/30"
+            {/* Mobile divider (between Problems and Solutions) */}
+            <div
+              className="flex items-center gap-2 pt-4 lg:hidden"
+              aria-hidden
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 14l-7 7m0 0l-7-7m7 7V3"
-              />
-            </svg>
-            <span className="h-px flex-1 bg-white/10" />
+              <span className="h-px flex-1 bg-white/10" />
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="h-4 w-4 shrink-0 text-white/30"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                />
+              </svg>
+              <span className="h-px flex-1 bg-white/10" />
+            </div>
           </div>
 
-          {/* Right column: Solutions */}
+          {/* Row 2: Empty middle (desktop only) */}
+          <div className="hidden lg:block" />
+
+          {/* Row 2: Right column — Solutions */}
           <div>
             <h2 className="text-xl font-semibold text-white lg:hidden">
               Solutions
