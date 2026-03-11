@@ -5,8 +5,7 @@ import Image from "next/image";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Container from "./components/Container";
-import TheProblem from "./components/TheProblem";
-import TheSolution from "./components/TheSolution";
+import ProblemSolutionComparison from "./components/ProblemSolutionComparison";
 import ColorSystemSection from "./components/ColorSystemSection";
 import Vision from "./components/Vision";
 import BuiltFor from "./components/BuiltFor";
@@ -118,11 +117,8 @@ export default function Home() {
       {/* Vision */}
       <Vision />
 
-      {/* Problem */}
-      <TheProblem />
-
-      {/* Solution */}
-      <TheSolution />
+      {/* Problem → Solution comparison */}
+      <ProblemSolutionComparison />
 
       {/* Color System (NEW) */}
       <ColorSystemSection />
