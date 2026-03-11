@@ -114,9 +114,6 @@ export default function Home() {
         </Container>
       </div>
 
-      {/* Problem */}
-      <TheProblem />
-
       {/* Product preview */}
       <section id="preview" className="pb-20">
         <Container>
@@ -140,6 +137,12 @@ export default function Home() {
       {/* Vision */}
       <Vision />
 
+      {/* Problem */}
+      <TheProblem />
+
+      {/* Color System (NEW) */}
+      <ColorSystemSection />
+
       {/* How it works */}
       <section id="how" className="pb-20">
         <Container>
@@ -161,9 +164,6 @@ export default function Home() {
           </div>
         </Container>
       </section>
-
-      {/* Color System (NEW) */}
-      <ColorSystemSection />
 
       {/* Built for */}
       <BuiltFor items={BUILT_FOR} />
