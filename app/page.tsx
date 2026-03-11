@@ -6,6 +6,7 @@ import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Container from "./components/Container";
 import TheProblem from "./components/TheProblem";
+import TheSolution from "./components/TheSolution";
 import ColorSystemSection from "./components/ColorSystemSection";
 import Vision from "./components/Vision";
 import BuiltFor from "./components/BuiltFor";
@@ -119,6 +120,9 @@ export default function Home() {
 
       {/* Problem */}
       <TheProblem />
+
+      {/* Solution */}
+      <TheSolution />
 
       {/* Color System (NEW) */}
       <ColorSystemSection />
