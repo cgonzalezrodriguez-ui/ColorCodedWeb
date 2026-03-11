@@ -114,26 +114,6 @@ export default function Home() {
         </Container>
       </div>
 
-      {/* Product preview */}
-      <section id="preview" className="pb-20">
-        <Container>
-          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-            <div className="overflow-hidden rounded-2xl bg-black/30">
-              <Image
-                src="/mary-had-a-little-lambfixed.jpg"
-                alt="Color-coded sheet music preview"
-                width={1200}
-                height={800}
-                className="w-full object-cover"
-              />
-            </div>
-            <p className="mt-4 text-center text-sm text-white/60">
-              Real-time note detection with consistent color mapping.
-            </p>
-          </div>
-        </Container>
-      </section>
-
       {/* Vision */}
       <Vision />
 
@@ -161,6 +141,26 @@ export default function Home() {
                 <div className="mt-2 text-sm text-white/60">{desc}</div>
               </div>
             ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Product preview */}
+      <section id="preview" className="pb-20">
+        <Container>
+          <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div className="overflow-hidden rounded-2xl bg-black/30">
+              <Image
+                src="/mary-had-a-little-lambfixed.jpg"
+                alt="Color-coded sheet music preview"
+                width={1200}
+                height={800}
+                className="w-full object-cover"
+              />
+            </div>
+            <p className="mt-4 text-center text-sm text-white/60">
+              Real-time note detection with consistent color mapping.
+            </p>
           </div>
         </Container>
       </section>
