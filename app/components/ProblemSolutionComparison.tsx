@@ -1,5 +1,7 @@
 import Container from "./Container";
 
+const SOLUTION_ACCENT_COLORS = ["#ef4444", "#3b82f6", "#22c55e"] as const;
+
 const ROWS = [
   {
     problem: {
@@ -97,68 +99,91 @@ function ProblemIcon({ title }: { title: string }) {
   );
 }
 
-const cardBase =
+const problemCardBase =
   "group rounded-3xl border border-white/10 bg-white/5 p-6 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-white/25 hover:bg-white/10 hover:shadow-lg hover:shadow-white/5";
-const iconBox =
-  "flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/70 transition group-hover:border-white/15 group-hover:text-white/80";
-const iconBoxSolution =
-  "flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-xl text-white/80 transition group-hover:border-white/15 group-hover:text-white";
+const problemIconBox =
+  "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-white/50 transition group-hover:text-white/60";
 
 export default function ProblemSolutionComparison() {
   return (
     <section id="problem" className="pb-20">
       <Container>
         <h2 className="text-2xl font-semibold">The problem → The solution</h2>
-        <div className="mt-10 space-y-6">
-          {ROWS.map((row) => (
-            <div
-              key={row.problem.title}
-              className="grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_auto_1fr]"
-            >
-              <div className={cardBase}>
-                <div className={iconBox}>
-                  <ProblemIcon title={row.problem.title} />
-                </div>
-                <div className="mt-4 text-sm font-medium text-white/85">
-                  {row.problem.title}
-                </div>
-                <div className="mt-2 text-sm text-white/60 leading-relaxed">
-                  {row.problem.description}
-                </div>
-              </div>
-
+        <div className="mt-10 space-y-10">
+          {ROWS.map((row, index) => {
+            const accentColor = SOLUTION_ACCENT_COLORS[index % SOLUTION_ACCENT_COLORS.length];
+            return (
               <div
-                className="flex justify-center text-white/40"
-                aria-hidden
+                key={row.problem.title}
+                className="grid grid-cols-1 items-center gap-4 md:grid-cols-[1fr_auto_1fr]"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="h-6 w-6 shrink-0"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13 7l5 5m0 0l-5 5m5-5H6"
-                  />
-                </svg>
-              </div>
+                {/* Problem card — monochrome */}
+                <div className={problemCardBase}>
+                  <div className="flex items-center gap-3">
+                    <div className={problemIconBox}>
+                      <ProblemIcon title={row.problem.title} />
+                    </div>
+                    <h3 className="text-lg font-semibold text-white">
+                      {row.problem.title}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-sm text-white/60 leading-relaxed">
+                    {row.problem.description}
+                  </p>
+                </div>
 
-              <div className={cardBase}>
-                <div className={iconBoxSolution}>
-                  <span aria-hidden>{row.solution.icon}</span>
+                <div
+                  className="flex justify-center py-2 text-white/40"
+                  aria-hidden
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    className="h-6 w-6 shrink-0"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M13 7l5 5m0 0l-5 5m5-5H6"
+                    />
+                  </svg>
                 </div>
-                <div className="mt-4 text-sm font-medium text-white/85">
-                  {row.solution.title}
-                </div>
-                <div className="mt-2 text-sm text-white/60 leading-relaxed">
-                  {row.solution.description}
+
+                {/* Solution card — colored accent */}
+                <div className="group relative rounded-3xl border border-white/10 bg-white/5 p-6 transition-all duration-200 ease-out hover:-translate-y-1 hover:border-white/25 hover:bg-white/10 hover:shadow-lg">
+                  <div
+                    className="absolute inset-0 rounded-3xl opacity-[0.06] transition-opacity group-hover:opacity-10"
+                    style={{
+                      background: `radial-gradient(ellipse 80% 50% at 20% 30%, ${accentColor}, transparent)`,
+                    }}
+                    aria-hidden
+                  />
+                  <div className="relative">
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border text-xl transition group-hover:shadow-lg"
+                        style={{
+                          borderColor: `${accentColor}40`,
+                          backgroundColor: `${accentColor}15`,
+                          boxShadow: `0 0 20px ${accentColor}25`,
+                        }}
+                      >
+                        <span aria-hidden>{row.solution.icon}</span>
+                      </div>
+                      <h3 className="text-lg font-semibold text-white">
+                        {row.solution.title}
+                      </h3>
+                    </div>
+                    <p className="mt-3 text-sm text-white/70 leading-relaxed">
+                      {row.solution.description}
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>
