@@ -107,11 +107,7 @@ export default function Home() {
       </Modal>
 
       <div className="py-4">
-        <Container>
-          <p className="text-center text-sm text-white/50">
-            Designed and approved by musicians.
-          </p>
-        </Container>
+        <Container></Container>
       </div>
 
       {/* Vision */}
