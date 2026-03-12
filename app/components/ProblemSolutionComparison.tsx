@@ -154,18 +154,15 @@ export default function ProblemSolutionComparison() {
           <h2 className="hidden text-center text-xl font-semibold text-white lg:block">
             Problems
           </h2>
-          <div
-            className="hidden items-center lg:flex"
-            aria-hidden
-          >
+          <div className="hidden items-center lg:flex" aria-hidden>
             <div className="relative flex w-full items-center justify-center">
-              <span className="h-[2px] w-full max-w-sm rounded-full bg-[linear-gradient(to_right,rgba(255,255,255,0.15),rgba(255,255,255,0.4),rgba(255,255,255,0.15))]" />
+              <span className="h-[3px] w-full max-w-md rounded-full bg-[linear-gradient(to_right,rgba(148,163,184,0.6),rgba(148,163,184,0.5),#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)]" />
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
-                className="absolute right-0 h-5 w-5 translate-x-2 text-white/60"
+                className="absolute right-0 h-5 w-5 translate-x-2 text-white/70"
               >
                 <path
                   strokeLinecap="round"
