@@ -88,15 +88,15 @@ export default function ColorSystemSection() {
             </p>
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-5">
-            <div className="rounded-xl bg-gradient-to-b from-white/5 via-slate-900/60 to-black/80 p-3">
-              <div className="relative mx-auto h-32 max-w-xl">
+          <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-black/40 px-4 py-5 sm:px-5">
+            <div className="rounded-xl bg-gradient-to-b from-white/5 via-slate-900/60 to-black/80 px-3 pb-3 pt-4 sm:px-4">
+              <div className="relative mx-auto h-36 w-full max-w-3xl">
                 {/* White keys: C D E F G A B */}
-                <div className="flex h-full rounded-xl border border-white/10 bg-black/80 px-[3px] pb-[4px] pt-[6px] shadow-inner shadow-black/80">
+                <div className="flex h-full rounded-xl border border-white/10 bg-black/80 px-[4px] pb-[6px] pt-[8px] shadow-inner shadow-black/80">
                   {NOTES.map((n) => (
                     <div
                       key={`key-${n.note}`}
-                      className="relative mx-[1.5px] flex flex-1 select-none flex-col items-center justify-between rounded-lg bg-[radial-gradient(circle_at_50%_0%,rgba(248,250,252,0.96),rgba(15,23,42,0.98))] shadow-[0_10px_24px_rgba(0,0,0,0.85)]"
+                      className="relative mx-[2px] flex flex-1 select-none flex-col items-center justify-between rounded-lg bg-[radial-gradient(circle_at_50%_0%,rgba(248,250,252,0.96),rgba(15,23,42,0.98))] shadow-[0_12px_26px_rgba(0,0,0,0.9)]"
                       aria-label={`Key ${n.note}`}
                     >
                       {/* Subtle colored top strip */}
