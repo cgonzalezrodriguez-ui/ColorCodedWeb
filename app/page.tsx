@@ -106,9 +106,7 @@ export default function Home() {
         />
       </Modal>
 
-      <div className="py-4">
-        <Container></Container>
-      </div>
+      <div className="py-4"></div>
 
       {/* Vision */}
       <Vision />
