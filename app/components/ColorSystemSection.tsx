@@ -17,15 +17,6 @@ const NOTES: Note[] = [
   { note: "B", colorName: "Violet", hex: "#A855F7" },
 ];
 
-const BLACK_KEY_LAYOUT = [
-  { colStart: 3, colorIndex: 0 }, // C♯ between C and D
-  { colStart: 5, colorIndex: 1 }, // D♯ between D and E
-  // no black key between E and F
-  { colStart: 9, colorIndex: 3 }, // F♯ between F and G
-  { colStart: 11, colorIndex: 4 }, // G♯ between G and A
-  { colStart: 13, colorIndex: 5 }, // A♯ between A and B
-] as const;
-
 function Chip({ hex }: { hex: string }) {
   return (
     <span
@@ -79,7 +70,7 @@ export default function ColorSystemSection() {
           </div>
         </div>
 
-        {/* Keyboard visual */}
+        {/* Simple keyboard visual */}
         <div className="mx-auto mt-16 max-w-5xl rounded-3xl border border-white/10 bg-white/5 p-8 shadow-sm">
           <div>
             <h3 className="text-lg font-semibold">How it looks on the keyboard</h3>
@@ -88,66 +79,29 @@ export default function ColorSystemSection() {
             </p>
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-black/40 px-3 py-5 sm:px-4">
-            <div className="rounded-xl bg-gradient-to-b from-white/5 via-slate-900/60 to-black/90 px-3 pb-3 pt-4 sm:px-4">
-              <div className="relative mx-auto h-40 w-full max-w-3xl">
-                {/* White keys: C D E F G A B */}
-                <div className="flex h-full rounded-xl border border-white/10 bg-black/90 px-[6px] pb-[8px] pt-[10px] shadow-inner shadow-black/90">
-                  {NOTES.map((n) => (
-                    <div
-                      key={`key-${n.note}`}
-                      className="relative mx-[1.25px] flex min-w-[40px] max-w-[64px] flex-1 select-none flex-col items-center justify-between rounded-lg bg-[radial-gradient(circle_at_50%_0%,rgba(248,250,252,0.97),rgba(15,23,42,0.99))] shadow-[0_14px_30px_rgba(0,0,0,0.95)]"
-                      aria-label={`Key ${n.note}`}
-                    >
-                      {/* Subtle colored top strip */}
-                      <div
-                        className="h-1.5 w-full rounded-t-lg"
-                        style={{ background: n.hex, opacity: 0.9 }}
-                      />
-                      {/* Interior detail line */}
-                      <div className="pointer-events-none absolute inset-x-2 top-3 h-[1px] rounded-full bg-black/10" />
-                      {/* Note label pill */}
-                      <div className="flex flex-1 items-end pb-2">
-                        <span className="rounded-full bg-black/80 px-2.5 py-0.5 text-[11px] font-semibold tracking-wide text-white/90">
-                          {n.note}
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Black keys overlay in correct pattern */}
+          <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-5">
+            {/* White keys row (C D E F G A B) */}
+            <div className="grid grid-cols-7 gap-2">
+              {NOTES.map((n) => (
                 <div
-                  className="pointer-events-none absolute inset-x-[8px] top-[6px] h-[65%]"
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(14, minmax(0, 1fr))",
-                  }}
+                  key={`key-${n.note}`}
+                  className="relative h-16 rounded-xl border border-white/10 bg-white/5"
                 >
-                  {BLACK_KEY_LAYOUT.map(({ colStart, colorIndex }) => {
-                    const color = NOTES[colorIndex].hex;
-                    return (
-                      <div
-                        key={`${colStart}-${colorIndex}`}
-                        style={{ gridColumnStart: colStart }}
-                        className="flex items-start justify-center pt-[2px]"
-                      >
-                        <div className="relative h-full w-5 rounded-b-md border border-white/15 bg-black shadow-[0_18px_34px_rgba(0,0,0,0.95)]">
-                          {/* Colored accent on top of black key */}
-                          <div
-                            className="absolute inset-x-[3px] top-1 h-1 rounded-full"
-                            style={{ background: color }}
-                          />
-                        </div>
-                      </div>
-                    );
-                  })}
+                  <div
+                    className="absolute inset-x-2 top-2 h-2 rounded-full"
+                    style={{ backgroundColor: n.hex }}
+                    aria-hidden="true"
+                  />
+                  <div className="absolute bottom-2 left-0 right-0 text-center text-xs text-white/70">
+                    {n.note}
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
 
+            {/* Optional: small note explaining sharps/flats */}
             <p className="mt-4 text-xs text-white/55">
-              *Sharps and flats appear on the black keys with matching color accents.
+              *Sharps and flats are shown as colored triangular markers.
             </p>
           </div>
         </div>
