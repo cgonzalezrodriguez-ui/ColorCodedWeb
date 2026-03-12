@@ -88,15 +88,15 @@ export default function ColorSystemSection() {
             </p>
           </div>
 
-          <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-black/40 px-4 py-5 sm:px-5">
-            <div className="rounded-xl bg-gradient-to-b from-white/5 via-slate-900/60 to-black/80 px-3 pb-3 pt-4 sm:px-4">
-              <div className="relative mx-auto h-36 w-full max-w-3xl">
+          <div className="mt-6 overflow-hidden rounded-2xl border border-white/10 bg-black/40 px-3 py-5 sm:px-4">
+            <div className="rounded-xl bg-gradient-to-b from-white/5 via-slate-900/60 to-black/90 px-3 pb-3 pt-4 sm:px-4">
+              <div className="relative mx-auto h-40 w-full max-w-3xl">
                 {/* White keys: C D E F G A B */}
-                <div className="flex h-full rounded-xl border border-white/10 bg-black/80 px-[4px] pb-[6px] pt-[8px] shadow-inner shadow-black/80">
+                <div className="flex h-full rounded-xl border border-white/10 bg-black/90 px-[6px] pb-[8px] pt-[10px] shadow-inner shadow-black/90">
                   {NOTES.map((n) => (
                     <div
                       key={`key-${n.note}`}
-                      className="relative mx-[2px] flex flex-1 select-none flex-col items-center justify-between rounded-lg bg-[radial-gradient(circle_at_50%_0%,rgba(248,250,252,0.96),rgba(15,23,42,0.98))] shadow-[0_12px_26px_rgba(0,0,0,0.9)]"
+                      className="relative mx-[1.25px] flex min-w-[40px] max-w-[64px] flex-1 select-none flex-col items-center justify-between rounded-lg bg-[radial-gradient(circle_at_50%_0%,rgba(248,250,252,0.97),rgba(15,23,42,0.99))] shadow-[0_14px_30px_rgba(0,0,0,0.95)]"
                       aria-label={`Key ${n.note}`}
                     >
                       {/* Subtle colored top strip */}
@@ -118,7 +118,7 @@ export default function ColorSystemSection() {
 
                 {/* Black keys overlay in correct pattern */}
                 <div
-                  className="pointer-events-none absolute inset-x-0 top-0 h-[60%]"
+                  className="pointer-events-none absolute inset-x-[8px] top-[6px] h-[65%]"
                   style={{
                     display: "grid",
                     gridTemplateColumns: "repeat(14, minmax(0, 1fr))",
@@ -132,10 +132,10 @@ export default function ColorSystemSection() {
                         style={{ gridColumnStart: colStart }}
                         className="flex items-start justify-center pt-[2px]"
                       >
-                        <div className="relative h-full w-6 rounded-b-md border border-white/10 bg-black/95 shadow-[0_16px_32px_rgba(0,0,0,0.9)]">
+                        <div className="relative h-full w-5 rounded-b-md border border-white/15 bg-black shadow-[0_18px_34px_rgba(0,0,0,0.95)]">
                           {/* Colored accent on top of black key */}
                           <div
-                            className="absolute inset-x-1 top-1 h-1 rounded-full"
+                            className="absolute inset-x-[3px] top-1 h-1 rounded-full"
                             style={{ background: color }}
                           />
                         </div>
