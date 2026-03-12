@@ -148,44 +148,42 @@ export default function ProblemSolutionComparison() {
   return (
     <section id="problem" className="pb-20">
       <Container>
-        {/* Same grid for header row and columns: Problems | long arrow | Solutions */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_16rem_1fr] lg:gap-x-10 lg:gap-y-8">
-          {/* Row 1: Headers + arrow (desktop only) */}
-          <h2 className="hidden text-center text-xl font-semibold text-white lg:block">
-            Problems
-          </h2>
-          <div className="hidden items-center lg:flex" aria-hidden>
-            <div className="relative flex w-full items-center justify-center">
-              <span className="h-[3px] w-full max-w-md rounded-full bg-[linear-gradient(to_right,rgba(148,163,184,0.6),rgba(148,163,184,0.5),#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)]" />
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className="absolute right-0 h-5 w-5 translate-x-2 text-white/70"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </div>
+        {/* Header row: Problems | (arrow column) | Solutions */}
+        <div className="hidden items-center justify-between gap-10 pb-8 lg:flex">
+          <div className="flex-1 text-center">
+            <h2 className="text-xl font-semibold text-white">Problems</h2>
           </div>
-          <h2 className="hidden text-center text-xl font-semibold text-white lg:block">
+          <div className="w-40" aria-hidden />
+          <div className="flex-1 text-center">
+            <h2 className="text-xl font-semibold text-white">
+              <span className="bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)] bg-clip-text text-transparent">
+                Solutions
+              </span>
+            </h2>
+          </div>
+        </div>
+
+        {/* Mobile headers */}
+        <div className="flex flex-col gap-2 pb-4 lg:hidden">
+          <h2 className="text-base font-semibold text-white/80">Problems</h2>
+          <h2 className="text-base font-semibold text-white/80">
             <span className="bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)] bg-clip-text text-transparent">
               Solutions
             </span>
           </h2>
+        </div>
 
-          {/* Row 2: Left column — Problems */}
-          <div>
-            <h2 className="text-xl font-semibold text-white lg:hidden">
-              Problems
-            </h2>
-            <div className="mt-4 space-y-6 lg:mt-0">
-              {ROWS.map((row) => (
-                <div key={row.problem.title} className={problemCardBase}>
+        {/* Rows: [problem] [arrow] [solution] */}
+        <div className="space-y-8">
+          {ROWS.map((row, index) => {
+            const accentColor = SOLUTION_ACCENT_COLORS[index % SOLUTION_ACCENT_COLORS.length];
+            return (
+              <div
+                key={row.problem.title}
+                className="grid grid-cols-1 items-center gap-4 lg:grid-cols-[1fr_9rem_1fr]"
+              >
+                {/* Problem card — monochrome */}
+                <div className={problemCardBase}>
                   <div className="flex items-center gap-3">
                     <div className={problemIconBox}>
                       <ProblemIcon title={row.problem.title} />
@@ -198,57 +196,55 @@ export default function ProblemSolutionComparison() {
                     {row.problem.description}
                   </p>
                 </div>
-              ))}
-            </div>
-            {/* Mobile divider (between Problems and Solutions) */}
-            <div
-              className="flex items-center gap-2 pt-4 lg:hidden"
-              aria-hidden
-            >
-              <span className="h-px flex-1 bg-white/10" />
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                className="h-4 w-4 shrink-0 text-white/30"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
-              <span className="h-px flex-1 bg-white/10" />
-            </div>
-          </div>
 
-          {/* Row 2: Empty middle (desktop only) */}
-          <div className="hidden lg:block" />
+                {/* Arrow connector between cards */}
+                <div className="flex items-center justify-center lg:py-0" aria-hidden>
+                  {/* Desktop: horizontal arrow */}
+                  <div className="hidden w-full max-w-[9rem] items-center lg:flex">
+                    <span className="h-[3px] w-full rounded-full bg-[linear-gradient(to_right,rgba(148,163,184,0.6),rgba(148,163,184,0.5),#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)]" />
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="ml-2 h-5 w-5 shrink-0 text-white/70"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </div>
 
-          {/* Row 2: Right column — Solutions */}
-          <div>
-            <h2 className="text-xl font-semibold text-white lg:hidden">
-              <span className="bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)] bg-clip-text text-transparent">
-                Solutions
-              </span>
-            </h2>
-            <div className="mt-4 space-y-6 lg:mt-0">
-              {ROWS.map((row, index) => (
+                  {/* Mobile: vertical/downward connector */}
+                  <div className="flex flex-col items-center lg:hidden">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      className="h-4 w-4 text-white/40"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 5v14m0 0l-5-5m5 5l5-5"
+                      />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Solution card — colored accent */}
                 <SolutionCard
-                  key={row.solution.title}
                   title={row.solution.title}
                   icon={row.solution.icon}
                   description={row.solution.description}
-                  accentColor={
-                    SOLUTION_ACCENT_COLORS[
-                      index % SOLUTION_ACCENT_COLORS.length
-                    ]
-                  }
+                  accentColor={accentColor}
                 />
-              ))}
-            </div>
-          </div>
+              </div>
+            );
+          })}
         </div>
       </Container>
     </section>
