@@ -149,7 +149,7 @@ export default function ProblemSolutionComparison() {
     <section id="problem" className="pb-20">
       <Container>
         {/* Same grid for header row and columns: Problems | long arrow | Solutions */}
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_14rem_1fr] lg:gap-x-8 lg:gap-y-8">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_16rem_1fr] lg:gap-x-10 lg:gap-y-8">
           {/* Row 1: Headers + arrow (desktop only) */}
           <h2 className="hidden text-center text-xl font-semibold text-white lg:block">
             Problems
@@ -158,23 +158,27 @@ export default function ProblemSolutionComparison() {
             className="hidden items-center lg:flex"
             aria-hidden
           >
-            <span className="h-px w-full min-w-0 flex-1 bg-white/25" />
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              className="h-5 w-5 shrink-0 text-white/50"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13 7l5 5m0 0l-5 5m5-5H6"
-              />
-            </svg>
+            <div className="relative flex w-full items-center justify-center">
+              <span className="h-[2px] w-full max-w-sm rounded-full bg-[linear-gradient(to_right,rgba(255,255,255,0.15),rgba(255,255,255,0.4),rgba(255,255,255,0.15))]" />
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                className="absolute right-0 h-5 w-5 translate-x-2 text-white/60"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                />
+              </svg>
+            </div>
           </div>
           <h2 className="hidden text-center text-xl font-semibold text-white lg:block">
-            Solutions
+            <span className="bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)] bg-clip-text text-transparent">
+              Solutions
+            </span>
           </h2>
 
           {/* Row 2: Left column — Problems */}
@@ -228,7 +232,9 @@ export default function ProblemSolutionComparison() {
           {/* Row 2: Right column — Solutions */}
           <div>
             <h2 className="text-xl font-semibold text-white lg:hidden">
-              Solutions
+              <span className="bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)] bg-clip-text text-transparent">
+                Solutions
+              </span>
             </h2>
             <div className="mt-4 space-y-6 lg:mt-0">
               {ROWS.map((row, index) => (
