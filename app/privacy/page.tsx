@@ -3,8 +3,8 @@ import Nav from "../components/Nav";
 import Container from "../components/Container";
 
 export const metadata = {
-  title: "Privacy Policy — ColorCoded",
-  description: "ColorCoded Privacy Policy. How we collect, use, and protect your data.",
+  title: "Privacy Policy — COLOR CODED",
+  description: "COLOR CODED privacy policy. What we collect, how we use it, and your choices.",
 };
 
 export default function PrivacyPage() {
@@ -15,155 +15,93 @@ export default function PrivacyPage() {
         <Container>
           <div className="mx-auto max-w-3xl">
             <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-              ColorCoded Privacy Policy
+              Privacy Policy
             </h1>
             <p className="mt-2 text-sm text-white/60">
-              Effective Date: March 13, 2026
+              Effective date: March 13, 2026
+            </p>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/85">
+              COLOR CODED respects your privacy. This page explains what information we collect, how we use it, and your choices.
             </p>
 
             <div className="mt-10 space-y-8 text-white/85">
-              <p className="leading-relaxed">
-                ColorCoded (&quot;we,&quot; &quot;our,&quot; or &quot;the app&quot;) is developed by ColorCoded. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.
-              </p>
-
               <section>
-                <h2 className="text-xl font-semibold text-white">Information we collect</h2>
-                <div className="mt-4 space-y-4">
-                  <div>
-                    <h3 className="text-base font-medium text-white/95">Account information</h3>
-                    <p className="mt-1 leading-relaxed">
-                      When you create an account or sign in, we collect your email address, display name, and authentication provider (Apple ID or Google account). This information is used solely to identify your account and enable cloud sync across your devices.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-base font-medium text-white/95">User content</h3>
-                    <p className="mt-1 leading-relaxed">
-                      When you use the app, the following data is created and stored:
-                    </p>
-                    <ul className="mt-2 list-inside list-disc space-y-1 pl-2 text-white/80">
-                      <li>Sheet music images you scan or import (PDF pages)</li>
-                      <li>Analysis results including detected noteheads, staff positions, pitch assignments, and fingering suggestions</li>
-                      <li>Your manual edits and corrections to note colors, fingering numbers, and notehead positions</li>
-                      <li>Library entries you save</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-base font-medium text-white/95">Usage data</h3>
-                    <p className="mt-1 leading-relaxed">
-                      We track the number of pages analyzed per day to enforce free-tier daily limits. This count is stored per account and resets daily.
-                    </p>
-                  </div>
-                  <div>
-                    <h3 className="text-base font-medium text-white/95">Purchase information</h3>
-                    <p className="mt-1 leading-relaxed">
-                      If you subscribe or purchase token packs, Apple handles all payment processing through your Apple ID. We never see or store your credit card or payment information. We store only whether your account has an active subscription and your current token balance.
-                    </p>
-                  </div>
-                </div>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-semibold text-white">How your data is stored</h2>
-                <p className="mt-4 leading-relaxed">
-                  Your data is stored using Google Firebase services:
-                </p>
-                <ul className="mt-2 list-inside list-disc space-y-1 pl-2 text-white/80">
-                  <li><strong className="text-white/90">Firebase Authentication:</strong> manages your sign-in credentials</li>
-                  <li><strong className="text-white/90">Cloud Firestore:</strong> stores your account info, library metadata, note data, and usage counts</li>
-                  <li><strong className="text-white/90">Firebase Cloud Storage:</strong> stores your sheet music images</li>
-                </ul>
-                <p className="mt-4 leading-relaxed">
-                  Data is also cached locally on your device for offline use. When you sign out, local data is cleared from the device.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-semibold text-white">How we use your data</h2>
-                <p className="mt-4 leading-relaxed">
-                  We use your data exclusively to:
-                </p>
-                <ul className="mt-2 list-inside list-disc space-y-1 pl-2 text-white/80">
-                  <li>Provide the core app functionality (scanning, analysis, color-coding, fingering suggestions)</li>
-                  <li>Sync your library across your devices</li>
-                  <li>Enforce free-tier usage limits</li>
-                  <li>Process promo code and token redemptions</li>
+                <h2 className="text-xl font-semibold text-white">1. Information we collect</h2>
+                <ul className="mt-4 list-inside list-disc space-y-2 pl-2 leading-relaxed text-white/80">
+                  <li>Account information such as name, email address, and login details if a user creates an account</li>
+                  <li>Usage information such as app interactions, pages visited, and feature usage</li>
+                  <li>Device and technical information such as browser type, device type, IP address, and operating system</li>
+                  <li>User-submitted content if users upload or submit material through the app</li>
                 </ul>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-white">What we do not do</h2>
-                <ul className="mt-4 list-inside list-disc space-y-1 pl-2 text-white/80">
-                  <li>We do not sell your data to anyone</li>
-                  <li>We do not share your data with third-party advertisers</li>
-                  <li>We do not use your data for ad targeting</li>
-                  <li>We do not track your location</li>
-                  <li>We do not access your contacts, camera roll, microphone, or any data beyond what you explicitly provide to the app</li>
-                  <li>We do not use third-party analytics or tracking SDKs</li>
+                <h2 className="text-xl font-semibold text-white">2. How we use information</h2>
+                <ul className="mt-4 list-inside list-disc space-y-2 pl-2 leading-relaxed text-white/80">
+                  <li>To provide and improve the app and website</li>
+                  <li>To personalize the user experience</li>
+                  <li>To communicate updates, support responses, and service announcements</li>
+                  <li>To monitor performance, fix bugs, and improve features</li>
+                  <li>To maintain safety, security, and prevent misuse</li>
                 </ul>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-white">Third-party services</h2>
-                <p className="mt-4 leading-relaxed">
-                  The app uses the following third-party services:
-                </p>
-                <ul className="mt-2 space-y-2 text-white/80">
-                  <li>
-                    <strong className="text-white/90">Firebase by Google</strong> (authentication, database, storage)<br />
-                    <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" className="text-white/70 underline hover:text-white">Privacy Policy: https://firebase.google.com/support/privacy</a>
-                  </li>
-                  <li>
-                    <strong className="text-white/90">Google Sign-In</strong> (optional sign-in method)<br />
-                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-white/70 underline hover:text-white">Privacy Policy: https://policies.google.com/privacy</a>
-                  </li>
-                  <li>
-                    <strong className="text-white/90">Apple StoreKit</strong> (in-app purchases and subscriptions). Apple handles all payment data under their own privacy policy: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-white/70 underline hover:text-white">https://www.apple.com/legal/privacy/</a>
-                  </li>
+                <h2 className="text-xl font-semibold text-white">3. Sharing of information</h2>
+                <ul className="mt-4 list-inside list-disc space-y-2 pl-2 leading-relaxed text-white/80">
+                  <li>We do not sell personal information</li>
+                  <li>We may share information with service providers that help us operate the app or website</li>
+                  <li>We may disclose information if required by law or to protect rights and safety</li>
                 </ul>
+              </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-white">4. Data retention</h2>
                 <p className="mt-4 leading-relaxed">
-                  No other third-party services receive your data.
+                  We keep information only as long as needed to provide services, comply with legal obligations, and resolve disputes.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-white">Data retention and deletion</h2>
+                <h2 className="text-xl font-semibold text-white">5. Your choices</h2>
+                <ul className="mt-4 list-inside list-disc space-y-2 pl-2 leading-relaxed text-white/80">
+                  <li>Users may contact us to request access, correction, or deletion of their information</li>
+                  <li>Users may opt out of non-essential communications</li>
+                </ul>
+              </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-white">6. Children&apos;s privacy</h2>
                 <p className="mt-4 leading-relaxed">
-                  Your data is stored as long as you maintain an account. You can delete individual library entries at any time from within the app. You can delete your entire account and all associated data from the Profile section of the app. Upon account deletion, all your data is permanently removed from our servers.
-                </p>
-                <p className="mt-4 leading-relaxed">
-                  To request data deletion via email, contact us at{" "}
-                  <a href="mailto:support@colorcoded.app" className="text-white underline hover:text-white/90">support@colorcoded.app</a>.
+                  COLOR CODED is not intended for children under 13, and we do not knowingly collect personal information from children under 13.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-white">Children&apos;s privacy</h2>
+                <h2 className="text-xl font-semibold text-white">7. Changes to this policy</h2>
                 <p className="mt-4 leading-relaxed">
-                  ColorCoded is not directed at children under 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please contact us at{" "}
-                  <a href="mailto:support@colorcoded.app" className="text-white underline hover:text-white/90">support@colorcoded.app</a> and we will delete it promptly.
+                  We may update this policy from time to time, and changes will be posted on this page.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-white">Changes to this policy</h2>
+                <h2 className="text-xl font-semibold text-white">8. Contact us</h2>
                 <p className="mt-4 leading-relaxed">
-                  We may update this Privacy Policy from time to time. Changes will be posted at this URL with an updated effective date. Your continued use of the app after changes are posted constitutes acceptance of the updated policy.
-                </p>
-              </section>
-
-              <section>
-                <h2 className="text-xl font-semibold text-white">Contact us</h2>
-                <p className="mt-4 leading-relaxed">
-                  If you have questions about this Privacy Policy or your data, contact us at:{" "}
-                  <a href="mailto:support@colorcoded.app" className="text-white underline hover:text-white/90">support@colorcoded.app</a>
+                  For privacy questions, contact:{" "}
+                  <a href="mailto:support@color-coded.app" className="text-white underline hover:text-white/90">
+                    support@color-coded.app
+                  </a>
                 </p>
               </section>
             </div>
 
             <div className="mt-12 border-t border-white/10 pt-8">
               <p className="text-sm text-white/60">
+                Effective date: March 13, 2026
+              </p>
+              <p className="mt-4 text-sm text-white/60">
                 <Link href="/support" className="text-white/80 underline hover:text-white">
-                  Support &amp; FAQ
+                  Support
                 </Link>
                 {" · "}
                 <Link href="/" className="text-white/80 underline hover:text-white">
@@ -178,7 +116,7 @@ export default function PrivacyPage() {
       <footer className="mt-auto border-t border-white/10 py-8">
         <Container>
           <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-white/50">
-            <span>© {new Date().getFullYear()} ColorCoded. All rights reserved.</span>
+            <span>© {new Date().getFullYear()} COLOR CODED. All rights reserved.</span>
             <nav className="flex gap-6">
               <Link href="/privacy" className="text-white/60 hover:text-white">Privacy</Link>
               <Link href="/support" className="text-white/60 hover:text-white">Support</Link>
