@@ -7,8 +7,7 @@ import { useState } from "react";
 import Container from "./Container";
 
 type MobileLink = { label: string; href: string; cta?: boolean };
-const MOBILE_LINKS: MobileLink[] = [
-  { label: "Home", href: "/" },
+const MOBILE_LINKS_BASE: MobileLink[] = [
   { label: "Vision", href: "/#vision" },
   { label: "How it works", href: "/#how-it-works" },
   { label: "FAQ", href: "/#faq" },
@@ -21,6 +20,10 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const mobileLinks: MobileLink[] = isHome
+    ? MOBILE_LINKS_BASE
+    : [{ label: "Home", href: "/" }, ...MOBILE_LINKS_BASE];
 
   function handleJoinBetaClick(e: React.MouseEvent<HTMLAnchorElement>) {
     if (isHome) {
@@ -54,6 +57,11 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
           {/* Desktop nav: hidden on mobile */}
           <div className="hidden items-center gap-6 md:flex">
             <nav className="flex gap-6 text-sm text-white/70">
+              {!isHome && (
+                <Link className="hover:text-white" href="/">
+                  Home
+                </Link>
+              )}
               <Link className="hover:text-white" href="/#vision">
                 Vision
               </Link>
@@ -106,7 +114,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
         aria-hidden={!mobileMenuOpen}
       >
         <nav className="flex flex-col py-4">
-          {MOBILE_LINKS.map(({ label, href, cta }) => (
+          {mobileLinks.map(({ label, href, cta }) => (
             <Link
               key={href + label}
               href={href}
