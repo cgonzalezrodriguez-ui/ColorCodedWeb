@@ -31,7 +31,7 @@ export default function Hero() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href="#how"
+              href="#how-it-works"
               className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90"
             >
               See how it works

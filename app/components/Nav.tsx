@@ -2,17 +2,22 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import Container from "./Container";
 
 export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
-  function scrollToCta(e: React.MouseEvent<HTMLAnchorElement>) {
-    e.preventDefault();
-    if (onJoinBeta) {
-      onJoinBeta();
-      return;
-    }
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
-    document.getElementById("cta")?.scrollIntoView({ behavior: "smooth" });
+  function handleJoinBetaClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    if (isHome) {
+      e.preventDefault();
+      if (onJoinBeta) {
+        onJoinBeta();
+        return;
+      }
+      document.getElementById("join-beta")?.scrollIntoView({ behavior: "smooth" });
+    }
   }
 
   return (
@@ -31,19 +36,29 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
 
           <div className="flex items-center gap-6">
             <nav className="flex gap-6 text-sm text-white/70">
-              <a className="hover:text-white" href="#vision">Vision</a>
-              <a className="hover:text-white" href="#how">How it works</a>
-              <a className="hover:text-white" href="#faq">FAQ</a>
-              <Link className="hover:text-white" href="/privacy">Privacy</Link>
-              <Link className="hover:text-white" href="/support">Support</Link>
+              <Link className="hover:text-white" href="/#vision">
+                Vision
+              </Link>
+              <Link className="hover:text-white" href="/#how-it-works">
+                How it works
+              </Link>
+              <Link className="hover:text-white" href="/#faq">
+                FAQ
+              </Link>
+              <Link className="hover:text-white" href="/privacy">
+                Privacy
+              </Link>
+              <Link className="hover:text-white" href="/support">
+                Support
+              </Link>
             </nav>
-            <a
-              href="#cta"
-              onClick={scrollToCta}
+            <Link
+              href="/#join-beta"
+              onClick={handleJoinBetaClick}
               className="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-white/90"
             >
               Join Beta
-            </a>
+            </Link>
           </div>
         </div>
       </Container>

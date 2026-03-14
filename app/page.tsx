@@ -118,7 +118,7 @@ export default function Home() {
       <ColorSystemSection />
 
       {/* How it works */}
-      <section id="how" className="pb-20">
+      <section id="how-it-works" className="pb-20">
         <Container>
           <h2 className="text-2xl font-semibold">How it works</h2>
           <p className="mt-4 max-w-3xl text-white/70">
