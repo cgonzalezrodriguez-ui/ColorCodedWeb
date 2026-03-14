@@ -8,6 +8,7 @@ import Container from "./Container";
 
 type MobileLink = { label: string; href: string; cta?: boolean };
 const MOBILE_LINKS: MobileLink[] = [
+  { label: "Home", href: "/" },
   { label: "Vision", href: "/#vision" },
   { label: "How it works", href: "/#how-it-works" },
   { label: "FAQ", href: "/#faq" },
