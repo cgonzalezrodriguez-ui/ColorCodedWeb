@@ -185,19 +185,6 @@ export default function Home() {
 
       {/* FAQ */}
       <FAQ />
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-10">
-        <Container>
-          <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-white/50">
-            <span>© {new Date().getFullYear()} COLOR CODED. All rights reserved.</span>
-            <nav className="flex gap-6">
-              <a href="/privacy" className="text-white/60 hover:text-white">Privacy</a>
-              <a href="/support" className="text-white/60 hover:text-white">Support</a>
-            </nav>
-          </div>
-        </Container>
-      </footer>
     </main>
   );
 }

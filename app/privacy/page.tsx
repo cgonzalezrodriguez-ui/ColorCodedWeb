@@ -112,19 +112,6 @@ export default function PrivacyPage() {
           </div>
         </Container>
       </div>
-
-      <footer className="mt-auto border-t border-white/10 py-8">
-        <Container>
-          <div className="flex flex-wrap items-center justify-between gap-4 text-sm text-white/50">
-            <span>© {new Date().getFullYear()} COLOR CODED. All rights reserved.</span>
-            <nav className="flex gap-6">
-              <Link href="/privacy" className="text-white/60 hover:text-white">Privacy</Link>
-              <Link href="/support" className="text-white/60 hover:text-white">Support</Link>
-              <Link href="/" className="text-white/60 hover:text-white">Home</Link>
-            </nav>
-          </div>
-        </Container>
-      </footer>
     </main>
   );
 }
