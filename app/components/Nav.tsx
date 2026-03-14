@@ -34,6 +34,8 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
               <a className="hover:text-white" href="#vision">Vision</a>
               <a className="hover:text-white" href="#how">How it works</a>
               <a className="hover:text-white" href="#faq">FAQ</a>
+              <Link className="hover:text-white" href="/privacy">Privacy</Link>
+              <Link className="hover:text-white" href="/support">Support</Link>
             </nav>
             <a
               href="#cta"
