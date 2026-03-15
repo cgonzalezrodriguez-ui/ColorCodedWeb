@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "COLOR CODED — Read piano music in color (TEST)..",
+  title: "Color Coded | Read piano music in color",
   description:
-    "COLOR CODED turns sheet music into a color-based system to help you recognize notes faster and play with confidence.",
+    "COLOR Coded turns sheet music into a color-based system to help you recognize notes faster and play with confidence.",
   icons: {
     icon: "/browsericon.png",
   },
