@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   title: "COLOR CODED — Read piano music in color (TEST)..",
   description:
     "COLOR CODED turns sheet music into a color-based system to help you recognize notes faster and play with confidence.",
+  icons: {
+    icon: "/browsericon.jpeg",
+  },
 };
 
 export default function RootLayout({
