@@ -4,18 +4,11 @@ export default function Hero() {
   return (
     <section className="pt-10 pb-20">
       <Container>
-        <div className="mb-8 w-full text-center">
-          <span className="text-5xl font-semibold leading-tight md:text-6xl">
-            <span className="text-red-500">C</span>
-            <span className="text-orange-500">O</span>
-            <span className="text-yellow-500">L</span>
-            <span className="text-green-500">O</span>
-            <span className="text-blue-500">R</span>{" "}
-            <span className="text-white">CODED</span>
-          </span>
-        </div>
         <div className="max-w-3xl">
-          <h1 className="text-5xl font-semibold leading-tight text-white md:text-6xl">
+          <p className="text-xs font-medium uppercase tracking-widest text-white/45">
+            COLOR CODED
+          </p>
+          <h1 className="mt-3 text-5xl font-semibold leading-tight text-white md:text-6xl">
             Read piano music
             <br />
             in{" "}
@@ -24,7 +17,7 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="mt-6 text-lg text-white/70">
+          <p className="mt-7 text-lg text-white/70">
             COLOR CODED turns sheet music into a color-based system that helps you
             recognize notes faster and play with confidence.
           </p>
@@ -37,14 +30,14 @@ export default function Hero() {
               See how it works
             </a>
             <a
-              href="#vision"
+              href="#join-beta"
               className="rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white hover:border-white/50"
             >
-              Our vision
+              Join Beta
             </a>
           </div>
 
-          <p className="mt-6 text-xs text-white/45">
+          <p className="mt-7 text-xs text-white/45">
             Built for beginners, returning players, and anyone who learns visually.
           </p>
         </div>
