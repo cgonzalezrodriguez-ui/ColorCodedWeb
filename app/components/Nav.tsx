@@ -40,48 +40,56 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
     setMobileMenuOpen(false);
   }
 
+  const navLinkClass = "text-sm text-white/70 hover:text-white whitespace-nowrap";
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 py-6 shadow-[0_1px_0_0_rgba(255,255,255,0.05)] backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 py-5 shadow-[0_1px_0_0_rgba(255,255,255,0.05)] backdrop-blur-sm md:py-5">
       <Container>
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center shrink-0">
+        <div className="flex items-center justify-between md:justify-start">
+          {/* Left: logo, anchored toward left edge */}
+          <Link href="/" className="-ml-1 flex shrink-0 items-center md:-ml-0.5">
             <Image
               src="/logofixed.jpg"
               alt="C CODED"
               width={120}
               height={40}
-              className="h-10 w-auto"
+              className="h-9 w-auto md:h-10"
             />
           </Link>
 
-          {/* Desktop nav: hidden on mobile */}
-          <div className="hidden items-center gap-6 md:flex">
-            <nav className="flex gap-6 text-sm text-white/70">
-              {!isHome && (
-                <Link className="hover:text-white" href="/">
-                  Home
-                </Link>
-              )}
-              <Link className="hover:text-white" href="/#vision">
-                Vision
+          {/* Center: Vision, How it works, FAQ — visually centered */}
+          <nav
+            className="hidden flex-1 justify-center gap-8 md:flex"
+            aria-label="Primary"
+          >
+            <Link className={navLinkClass} href="/#vision">
+              Vision
+            </Link>
+            <Link className={navLinkClass} href="/#how-it-works">
+              How it works
+            </Link>
+            <Link className={navLinkClass} href="/#faq">
+              FAQ
+            </Link>
+          </nav>
+
+          {/* Right: Privacy, Support, Join Beta */}
+          <div className="hidden items-center gap-7 md:flex md:shrink-0 md:pl-4">
+            {!isHome && (
+              <Link className={navLinkClass} href="/">
+                Home
               </Link>
-              <Link className="hover:text-white" href="/#how-it-works">
-                How it works
-              </Link>
-              <Link className="hover:text-white" href="/#faq">
-                FAQ
-              </Link>
-              <Link className="hover:text-white" href="/privacy">
-                Privacy
-              </Link>
-              <Link className="hover:text-white" href="/support">
-                Support
-              </Link>
-            </nav>
+            )}
+            <Link className={navLinkClass} href="/privacy">
+              Privacy
+            </Link>
+            <Link className={navLinkClass} href="/support">
+              Support
+            </Link>
             <Link
               href="/#join-beta"
               onClick={handleJoinBetaClick}
-              className="rounded-full bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-white/90"
+              className="rounded-lg bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-white/90"
             >
               Join Beta
             </Link>
