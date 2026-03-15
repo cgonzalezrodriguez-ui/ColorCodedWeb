@@ -79,7 +79,13 @@ function PreviewColorize() {
     { color: "bg-blue-500", left: "76%", top: "28%" },
   ];
   return (
-    <div className="flex h-full min-h-[280px] flex-col justify-center rounded-xl border border-white/10 bg-white/[0.02] p-6 sm:min-h-[320px]">
+    <div
+      className="relative flex h-full min-h-[280px] flex-col justify-center overflow-hidden rounded-xl border border-white/10 p-6 sm:min-h-[320px]"
+      style={{
+        background: "linear-gradient(180deg, rgba(239,68,68,0.03) 0%, transparent 25%, transparent 75%, rgba(59,130,246,0.03) 100%)",
+        boxShadow: "inset 0 0 80px -20px rgba(239,68,68,0.06), inset 0 0 80px -20px rgba(59,130,246,0.06)",
+      }}
+    >
       <div className="relative mx-auto h-24 w-full max-w-[220px]">
         {[20, 35, 50, 65, 80].map((y) => (
           <div
@@ -91,17 +97,19 @@ function PreviewColorize() {
         {notes.map(({ color, left, top }) => (
           <div
             key={left}
-            className={`absolute h-4 w-4 rounded-full ${color} shadow-sm ring-1 ring-white/10`}
+            className={`absolute h-4 w-4 rounded-full ${color} shadow-md ring-1 ring-white/15 ring-offset-2 ring-offset-black/50`}
             style={{ left, top }}
           />
         ))}
       </div>
-      <div
-        className="mx-auto mt-4 h-1.5 w-24 rounded-full opacity-90"
-        style={{ background: GRADIENT }}
-        aria-hidden
-      />
-      <p className="mt-3 text-center text-xs text-white/50">One note, one color</p>
+      <div className="mt-6 flex flex-col items-center gap-2">
+        <div
+          className="h-1 w-32 max-w-full rounded-full opacity-70"
+          style={{ background: GRADIENT }}
+          aria-hidden
+        />
+        <p className="text-center text-xs text-white/50">Pitch → color mapping</p>
+      </div>
     </div>
   );
 }
@@ -207,16 +215,9 @@ export default function HowItWorks() {
             className={`
               overflow-hidden rounded-2xl border bg-white/[0.04] shadow-[0_24px_48px_rgba(0,0,0,0.35)]
               lg:min-h-[360px]
-              ${activeStep === 2 ? "border-white/15 ring-1 ring-white/10" : "border-white/10"}
+              ${activeStep === 2 ? "border-white/12" : "border-white/10"}
             `}
           >
-            {activeStep === 2 && (
-              <div
-                className="h-1 w-full opacity-90"
-                style={{ background: GRADIENT }}
-                aria-hidden
-              />
-            )}
             <div className="p-6 sm:p-8">
               <PreviewPanel activeIndex={activeStep} />
             </div>
