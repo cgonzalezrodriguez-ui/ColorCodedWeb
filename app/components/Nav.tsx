@@ -43,7 +43,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
   const navLinkClass = "text-sm text-white/70 hover:text-white whitespace-nowrap";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 py-5 shadow-[0_1px_0_0_rgba(255,255,255,0.05)] backdrop-blur-sm md:py-5">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 py-3 shadow-[0_1px_0_0_rgba(255,255,255,0.05)] backdrop-blur-sm md:py-3.5">
       <Container>
         <div className="flex items-center justify-between">
           {/* Left group: logo + primary nav (Vision, How it works, FAQ) */}
@@ -54,7 +54,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
                 alt="C CODED"
                 width={96}
                 height={32}
-                className="h-7 w-auto md:h-8"
+                className="h-6 w-auto md:h-7"
               />
             </Link>
             <nav
@@ -89,7 +89,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
             <Link
               href="/#join-beta"
               onClick={handleJoinBetaClick}
-              className="rounded-lg bg-white px-5 py-2.5 text-sm font-medium text-black hover:bg-white/90"
+              className="rounded-lg bg-white px-5 py-2 text-sm font-medium text-black hover:bg-white/90"
             >
               Join Beta
             </Link>
