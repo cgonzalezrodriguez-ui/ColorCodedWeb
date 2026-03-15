@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "COLOR CODED turns sheet music into a color-based system to help you recognize notes faster and play with confidence.",
   icons: {
-    icon: "/browsericon.jpeg",
+    icon: "/browsericon.png",
   },
 };
 
