@@ -45,36 +45,36 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-black/95 py-5 shadow-[0_1px_0_0_rgba(255,255,255,0.05)] backdrop-blur-sm md:py-5">
       <Container>
-        <div className="flex items-center justify-between md:justify-start">
-          {/* Left: logo, anchored toward left edge */}
-          <Link href="/" className="-ml-1 flex shrink-0 items-center md:-ml-0.5">
-            <Image
-              src="/logofixed.jpg"
-              alt="C CODED"
-              width={120}
-              height={40}
-              className="h-9 w-auto md:h-10"
-            />
-          </Link>
+        <div className="flex items-center justify-between">
+          {/* Left group: logo + primary nav (Vision, How it works, FAQ) */}
+          <div className="flex items-center gap-8">
+            <Link href="/" className="-ml-1 flex shrink-0 items-center md:-ml-0.5">
+              <Image
+                src="/logofixed.jpg"
+                alt="C CODED"
+                width={120}
+                height={40}
+                className="h-9 w-auto md:h-10"
+              />
+            </Link>
+            <nav
+              className="hidden items-center gap-8 md:flex"
+              aria-label="Primary"
+            >
+              <Link className={navLinkClass} href="/#vision">
+                Vision
+              </Link>
+              <Link className={navLinkClass} href="/#how-it-works">
+                How it works
+              </Link>
+              <Link className={navLinkClass} href="/#faq">
+                FAQ
+              </Link>
+            </nav>
+          </div>
 
-          {/* Center: Vision, How it works, FAQ — visually centered */}
-          <nav
-            className="hidden flex-1 justify-center gap-8 md:flex"
-            aria-label="Primary"
-          >
-            <Link className={navLinkClass} href="/#vision">
-              Vision
-            </Link>
-            <Link className={navLinkClass} href="/#how-it-works">
-              How it works
-            </Link>
-            <Link className={navLinkClass} href="/#faq">
-              FAQ
-            </Link>
-          </nav>
-
-          {/* Right: Privacy, Support, Join Beta */}
-          <div className="hidden items-center gap-7 md:flex md:shrink-0 md:pl-4">
+          {/* Right group: Privacy, Support, Join Beta */}
+          <div className="hidden items-center gap-7 md:ml-auto md:flex md:shrink-0">
             {!isHome && (
               <Link className={navLinkClass} href="/">
                 Home
