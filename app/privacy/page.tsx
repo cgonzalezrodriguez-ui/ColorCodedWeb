@@ -21,7 +21,7 @@ export default function PrivacyPage() {
               Effective Date: March 13, 2026
             </p>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/85">
-              ColorCoded (&quot;we,&quot; &quot;our,&quot; or &quot;the app&quot;) is developed by Damian Gonzalez and Braden Boucher. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data.
+              ColorCoded (&quot;we,&quot; &quot;our,&quot; or &quot;the app&quot;) is developed and mantained by Braden Boucher. This Privacy Policy explains what information we collect, how we use it, and your rights regarding your data when using the app.
             </p>
 
             <div className="mt-10 space-y-8 text-white/85">
