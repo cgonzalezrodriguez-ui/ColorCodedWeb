@@ -52,9 +52,9 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
               <Image
                 src="/logofixed.jpg"
                 alt="C CODED"
-                width={120}
-                height={40}
-                className="h-9 w-auto md:h-10"
+                width={96}
+                height={32}
+                className="h-7 w-auto md:h-8"
               />
             </Link>
             <nav
