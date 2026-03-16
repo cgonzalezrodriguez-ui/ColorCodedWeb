@@ -85,8 +85,12 @@ function PreviewDetect() {
 
 function PreviewColorize() {
   return (
-    <div className="flex h-full min-h-[280px] flex-col items-center justify-center rounded-xl border border-white/10 bg-white/[0.02] p-6 sm:min-h-[320px]">
-      <p className="text-center text-sm text-white/45">Colorized result</p>
+    <div className="flex h-full min-h-[280px] flex-col items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] p-6 sm:min-h-[320px]">
+      <img
+        src="/mary-had-a-little-lambfixed.jpg"
+        alt="Colorized sheet music example"
+        className="max-h-[260px] w-auto max-w-full object-contain sm:max-h-[300px]"
+      />
     </div>
   );
 }
