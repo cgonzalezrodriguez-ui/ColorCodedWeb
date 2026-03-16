@@ -29,9 +29,18 @@ body {
 .hero-bg {
   background-color: #000;
   background-image:
-    radial-gradient(ellipse 90% 120% at 0% 50%, rgba(239, 68, 68, 0.06) 0%, transparent 50%),
-    radial-gradient(ellipse 85% 100% at 100% 45%, rgba(59, 130, 246, 0.05) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 80% at 15% 95%, rgba(34, 197, 94, 0.04) 0%, transparent 45%),
-    radial-gradient(ellipse 60% 70% at 88% 15%, rgba(139, 92, 246, 0.04) 0%, transparent 45%);
-  background-repeat: no-repeat;
+  radial-gradient(ellipse 120% 140% at 0% 50%, rgba(239, 68, 68, 0.12) 0%, transparent 60%),
+  radial-gradient(ellipse 120% 140% at 100% 40%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
+  radial-gradient(ellipse 100% 120% at 20% 95%, rgba(34, 197, 94, 0.10) 0%, transparent 60%),
+  radial-gradient(ellipse 100% 120% at 85% 10%, rgba(139, 92, 246, 0.10) 0%, transparent 60%),
+  radial-gradient(ellipse 80% 100% at 60% 70%, rgba(234, 179, 8, 0.08) 0%, transparent 55%);
+background-repeat: no-repeat;
+}
+
+/* Subtle glow behind the hero rainbow "color" text */
+.hero-rainbow-glow {
+  text-shadow:
+    0 0 12px rgba(239, 68, 68, 0.18),
+    0 0 24px rgba(59, 130, 246, 0.12),
+    0 0 36px rgba(34, 197, 94, 0.08);
 }
