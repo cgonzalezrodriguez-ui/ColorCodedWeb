@@ -25,13 +25,13 @@ export default function Hero() {
           <div className="mt-9 flex flex-wrap gap-3">
             <a
               href="#how-it-works"
-              className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90"
+              className="rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white hover:border-white/50"
             >
               See how it works
             </a>
             <a
               href="#join-beta"
-              className="rounded-full border border-white/25 px-6 py-3 text-sm font-medium text-white hover:border-white/50"
+              className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90"
             >
               Join Beta
             </a>
