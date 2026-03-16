@@ -40,35 +40,6 @@ function PreviewUpload() {
 }
 
 function PreviewDetect() {
-  return (
-    <div className="flex h-full min-h-[280px] flex-col justify-center rounded-xl border border-white/10 bg-white/[0.02] p-6 sm:min-h-[320px]">
-      <div className="relative mx-auto h-24 w-full max-w-[200px]">
-        {[22, 38, 54, 70, 86].map((y) => (
-          <div
-            key={y}
-            className="absolute left-0 right-0 border-b border-white/12"
-            style={{ top: `${y}%` }}
-          />
-        ))}
-        {[
-          { left: "18%", top: "32%" },
-          { left: "42%", top: "52%" },
-          { left: "66%", top: "32%" },
-          { left: "82%", top: "52%" },
-        ].map(({ left, top }) => (
-          <div
-            key={left}
-            className="absolute h-4 w-4 rounded-full border-2 border-white/25 bg-transparent"
-            style={{ left, top }}
-          />
-        ))}
-      </div>
-      <p className="mt-6 text-center text-xs text-white/45">Detecting noteheads and pitch…</p>
-    </div>
-  );
-}
-
-function PreviewColorize() {
   const notes = [
     { color: "bg-red-500", left: "12%", top: "28%" },
     { color: "bg-orange-500", left: "28%", top: "50%" },
@@ -108,6 +79,14 @@ function PreviewColorize() {
         />
         <p className="text-center text-xs text-white/50">Pitch → color mapping</p>
       </div>
+    </div>
+  );
+}
+
+function PreviewColorize() {
+  return (
+    <div className="flex h-full min-h-[280px] flex-col items-center justify-center rounded-xl border border-white/10 bg-white/[0.02] p-6 sm:min-h-[320px]">
+      <p className="text-center text-sm text-white/45">Colorized result</p>
     </div>
   );
 }
