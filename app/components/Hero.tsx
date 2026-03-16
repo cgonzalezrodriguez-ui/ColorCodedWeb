@@ -2,7 +2,7 @@ import Container from "./Container";
 
 export default function Hero() {
   return (
-    <section className="pt-20 pb-20 md:pt-28 md:pb-24">
+    <section className="hero-bg pt-20 pb-20 md:pt-28 md:pb-24">
       <Container>
         <div className="max-w-3xl">
           <p className="text-xs font-medium uppercase tracking-widest text-white/45">
