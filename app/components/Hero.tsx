@@ -22,16 +22,16 @@ export default function Hero() {
             recognize notes faster and play with confidence.
           </p>
 
-          <div className="mt-9 flex flex-wrap gap-3">
+          <div className="mt-9 flex flex-wrap gap-5">
             <a
               href="#how-it-works"
-              className="rounded-full border border-white/25 bg-transparent px-6 py-3 text-sm font-medium text-white hover:border-white/50 hover:bg-white/5"
+              className="rounded-full border border-white/30 bg-transparent px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:border-white/70"
             >
               See how it works
             </a>
             <a
               href="#join-beta"
-              className="rounded-full bg-white px-6 py-3 text-sm font-medium text-black shadow-[0_2px_12px_rgba(0,0,0,0.25)] hover:bg-white/95 hover:shadow-[0_4px_16px_rgba(0,0,0,0.3)]"
+              className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-black shadow-[0_4px_20px_rgba(0,0,0,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_8px_28px_rgba(0,0,0,0.45)]"
             >
               Join Beta
             </a>
