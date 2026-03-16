@@ -12,7 +12,7 @@ export default function Hero() {
             Read piano music
             <br className="lg:hidden" />
             {" "}in{" "}
-            <span className="hero-rainbow-glow bg-clip-text text-transparent bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6)]">
+            <span className="hero-rainbow-text hero-rainbow-glow bg-clip-text text-transparent">
               color.
             </span>
           </h1>
