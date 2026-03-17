@@ -86,7 +86,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       <Nav onJoinBeta={() => setIsBetaModalOpen(true)} />
-      <Hero />
+      <Hero onJoinBeta={() => setIsBetaModalOpen(true)} />
 
       <Modal
         open={isBetaModalOpen}

@@ -1,7 +1,9 @@
+"use client";
+
 import Container from "./Container";
 import HeroProductPreview from "./HeroProductPreview";
 
-export default function Hero() {
+export default function Hero({ onJoinBeta }: { onJoinBeta?: () => void }) {
   return (
     <section className="hero-bg pt-20 pb-20 md:pt-28 md:pb-24">
       <Container>
@@ -33,6 +35,10 @@ export default function Hero() {
               </a>
               <a
                 href="#join-beta"
+                onClick={(e) => {
+                  e.preventDefault();
+                  onJoinBeta?.();
+                }}
                 className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-black shadow-[0_4px_20px_rgba(0,0,0,0.35)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_8px_28px_rgba(0,0,0,0.45)]"
               >
                 Join Beta
