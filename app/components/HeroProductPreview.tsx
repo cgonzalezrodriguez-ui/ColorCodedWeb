@@ -18,10 +18,13 @@ export default function HeroProductPreview() {
 
   return (
     <div
-      className="w-full max-w-md rounded-2xl border border-white/10 bg-black/40 p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] lg:shrink-0"
+      className="w-full max-w-md rounded-2xl border border-white/10 bg-black/40 p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-transform duration-200 hover:-translate-y-0.5 lg:shrink-0"
       aria-label="Product preview: before and after"
+      onClick={() => setShowBefore((prev) => !prev)}
+      role="button"
+      tabIndex={0}
     >
-      <div className="flex flex-col gap-1.5">
+      <div className="flex cursor-pointer flex-col gap-1.5">
         <p className="text-xs font-medium uppercase tracking-wider text-white/45">
           {currentLabel}
         </p>
