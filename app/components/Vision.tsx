@@ -7,6 +7,9 @@ const SHEET_MUSIC_IMAGE_SRC = "/sheet-musicF.png";
 const KEYBOARD_COLORS = ["#EF4444", "#F97316", "#EAB308", "#22C55E", "#3B82F6", "#6366F1", "#A855F7"];
 const KEYBOARD_NOTES = ["C", "D", "E", "F", "G", "A", "B"];
 
+/** Black keys sit in gaps between white keys; no black key between E and F (index 2). */
+const BLACK_KEY_AFTER_WHITE_INDEX = [0, 1, 3, 4, 5];
+
 export default function Vision() {
   return (
     <section
@@ -90,22 +93,42 @@ export default function Vision() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
                   </svg>
                 </div>
-                {/* Keyboard mockup */}
+                {/* Keyboard mockup — piano layout with black keys above gaps */}
                 <div className="rounded-2xl border border-white/10 bg-black/40 p-4">
                   <p className="mb-3 text-xs font-medium uppercase tracking-wider text-white/40">
                     Color-coded keys
                   </p>
-                  <div className="flex gap-1">
-                    {KEYBOARD_COLORS.map((hex, i) => (
-                      <div
-                        key={i}
-                        className="flex h-12 flex-1 select-none items-center justify-center rounded-md text-lg font-bold text-white/95"
-                        style={{ backgroundColor: hex }}
-                        aria-label={`Key ${KEYBOARD_NOTES[i] ?? ""}`}
-                      >
-                        {KEYBOARD_NOTES[i]}
-                      </div>
-                    ))}
+                  <div className="relative flex flex-col">
+                    {/* Black keys — same flex/gap as white keys so each sits in the gap between two white keys */}
+                    <div
+                      className="pointer-events-none relative z-10 flex gap-1"
+                      style={{ height: "2rem", marginBottom: "-0.75rem" }}
+                      aria-hidden
+                    >
+                      {KEYBOARD_NOTES.map((_, slotIndex) => (
+                        <div key={slotIndex} className="flex flex-1 justify-end">
+                          {BLACK_KEY_AFTER_WHITE_INDEX.includes(slotIndex) ? (
+                            <div
+                              className="h-8 w-5 shrink-0 translate-x-1/2 rounded-b rounded-t-sm bg-black shadow-[0_1px_0_0_rgba(255,255,255,0.08)]"
+                              style={{ minWidth: "1.25rem" }}
+                            />
+                          ) : null}
+                        </div>
+                      ))}
+                    </div>
+                    {/* White keys row */}
+                    <div className="flex gap-1">
+                      {KEYBOARD_COLORS.map((hex, i) => (
+                        <div
+                          key={i}
+                          className="flex h-12 flex-1 select-none items-center justify-center rounded-b-md rounded-t-md text-lg font-bold text-white/95"
+                          style={{ backgroundColor: hex }}
+                          aria-label={`Key ${KEYBOARD_NOTES[i] ?? ""}`}
+                        >
+                          {KEYBOARD_NOTES[i]}
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
