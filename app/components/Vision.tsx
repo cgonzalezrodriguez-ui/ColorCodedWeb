@@ -98,30 +98,14 @@ export default function Vision() {
                   <p className="mb-3 text-xs font-medium uppercase tracking-wider text-white/40">
                     Color-coded keys
                   </p>
-                  <div className="relative flex flex-col">
-                    {/* Black keys — same flex/gap as white keys so each sits in the gap between two white keys */}
-                    <div
-                      className="pointer-events-none relative z-10 flex gap-1"
-                      style={{ height: "2rem", marginBottom: "-0.75rem" }}
-                      aria-hidden
-                    >
-                      {KEYBOARD_NOTES.map((_, slotIndex) => (
-                        <div key={slotIndex} className="flex flex-1 justify-end">
-                          {BLACK_KEY_AFTER_WHITE_INDEX.includes(slotIndex) ? (
-                            <div
-                              className="h-8 w-5 shrink-0 translate-x-1/2 rounded-b rounded-t-sm bg-black shadow-[0_1px_0_0_rgba(255,255,255,0.08)]"
-                              style={{ minWidth: "1.25rem" }}
-                            />
-                          ) : null}
-                        </div>
-                      ))}
-                    </div>
-                    {/* White keys row */}
-                    <div className="flex gap-1">
+                  {/* Shared container for white + black keys so black keys can be larger but clipped at the top edge */}
+                  <div className="relative overflow-hidden">
+                    {/* White keys row (colored rectangles) */}
+                    <div className="flex h-12 gap-1">
                       {KEYBOARD_COLORS.map((hex, i) => (
                         <div
                           key={i}
-                          className="flex h-12 flex-1 select-none items-center justify-center rounded-b-md rounded-t-md text-lg font-bold text-white/95"
+                          className="flex flex-1 select-none items-center justify-center rounded-b-md rounded-t-md text-lg font-bold text-white/95"
                           style={{ backgroundColor: hex }}
                           aria-label={`Key ${KEYBOARD_NOTES[i] ?? ""}`}
                         >
@@ -129,6 +113,21 @@ export default function Vision() {
                         </div>
                       ))}
                     </div>
+
+                    {/* Black keys — absolutely positioned within the shared container so they stay clipped at the top boundary */}
+                    {KEYBOARD_NOTES.map((_, slotIndex) =>
+                      BLACK_KEY_AFTER_WHITE_INDEX.includes(slotIndex) ? (
+                        <div
+                          key={`black-${slotIndex}`}
+                          className="pointer-events-none absolute top-0 h-9 w-7 -translate-x-1/2 rounded-b-md rounded-t-sm bg-black shadow-[0_1px_0_0_rgba(255,255,255,0.1)]"
+                          style={{
+                            left: `${((slotIndex + 1) / KEYBOARD_NOTES.length) * 100}%`,
+                            minWidth: "1.75rem",
+                          }}
+                          aria-hidden
+                        />
+                      ) : null,
+                    )}
                   </div>
                 </div>
               </div>
