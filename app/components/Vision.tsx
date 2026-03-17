@@ -119,7 +119,7 @@ export default function Vision() {
                       BLACK_KEY_AFTER_WHITE_INDEX.includes(slotIndex) ? (
                         <div
                           key={`black-${slotIndex}`}
-                          className="pointer-events-none absolute top-0 h-9 w-7 -translate-x-1/2 rounded-b-md rounded-t-sm bg-black shadow-[0_1px_0_0_rgba(255,255,255,0.1)]"
+                          className="pointer-events-none absolute top-0 h-9 w-7 -translate-x-1/2 rounded-b-md bg-black shadow-[0_1px_0_0_rgba(255,255,255,0.1)]"
                           style={{
                             left: `${((slotIndex + 1) / KEYBOARD_NOTES.length) * 100}%`,
                             minWidth: "1.75rem",
