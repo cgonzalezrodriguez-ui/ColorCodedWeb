@@ -50,7 +50,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
           <div className="flex items-center gap-8">
             <Link href="/" className="-ml-1 flex shrink-0 items-center md:-ml-0.5">
               <Image
-                src="/logofixed.jpg"
+                src="/logofixed.png"
                 alt="C CODED"
                 width={96}
                 height={32}
