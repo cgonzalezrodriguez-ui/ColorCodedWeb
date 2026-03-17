@@ -40,10 +40,10 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
     setMobileMenuOpen(false);
   }
 
-  const navLinkClass = "text-sm text-white/70 hover:text-white whitespace-nowrap";
+  const navLinkClass = "text-sm text-white/80 hover:text-white whitespace-nowrap";
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/70 py-3 shadow-[0_1px_0_0_rgba(255,255,255,0.05)] backdrop-blur-md md:py-3.5">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/35 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.45)] backdrop-blur-lg md:py-3.5">
       <Container>
         <div className="flex items-center justify-between">
           {/* Left group: logo + primary nav (Vision, How it works, FAQ) */}
