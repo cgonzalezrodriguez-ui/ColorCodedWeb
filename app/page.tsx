@@ -1,76 +1,61 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
+import useReveal from "./hooks/useReveal";
+import useScrollFade from "./hooks/useScrollFade";
 import Nav from "./components/Nav";
-import Hero from "./components/Hero";
 import Container from "./components/Container";
-import ProblemSolutionComparison from "./components/ProblemSolutionComparison";
-import HowItWorks from "./components/HowItWorks";
-import StickerTip from "./components/StickerTip";
-import BuiltFor from "./components/BuiltFor";
 import Modal from "./components/Modal";
-import Waitlist from "./components/Waitlist";
 import WaitlistCard from "./components/WaitlistCard";
 import FAQ from "./components/FAQ";
-import Feedback from "./components/Feedback";
+import Footer from "./components/Footer";
 
-const BUILT_FOR = [
-  {
-    icon: "\u{1F3B9}",
-    title: "Beginners",
-    summary: "Skip the decoding. Start playing sooner.",
-    expanded: "Instead of translating symbols to note names to keys, color lets beginners connect what they see on the page to what they play.",
-  },
-  {
-    icon: "\u{1F441}",
-    title: "Visual learners",
-    summary: "See the pattern, skip the lookup.",
-    expanded: "Consistent color mapping turns note recognition into something you see at a glance instead of something you figure out.",
-  },
-  {
-    icon: "\u{1F3B5}",
-    title: "Returning players",
-    summary: "Get back into it without starting over.",
-    expanded: "You remember how music feels. Color bridges the gap while your reading fluency catches up.",
-  },
-  {
-    icon: "\u{1F468}\u{200D}\u{1F3EB}",
-    title: "Teachers",
-    summary: "A visual layer for early instruction.",
-    expanded: "Use it to keep students engaged while they build note-to-key recognition.",
-  },
-  {
-    icon: "\u{1F46A}",
-    title: "Parents",
-    summary: "Help with practice even if you don't read music.",
-    expanded: "Color gives you a way to follow along and support your kid without needing to know the notes yourself.",
-  },
-  {
-    icon: "\u{1F3AF}",
-    title: "Self-taught players",
-    summary: "Stay in flow longer when practicing alone.",
-    expanded: "Less stopping to figure out notes means longer, more productive practice sessions.",
-  },
+const COLORS = [
+  { note: "C", name: "Red", hex: "#EF4444" },
+  { note: "D", name: "Orange", hex: "#F97316" },
+  { note: "E", name: "Yellow", hex: "#EAB308" },
+  { note: "F", name: "Green", hex: "#22C55E" },
+  { note: "G", name: "Blue", hex: "#3B82F6" },
+  { note: "A", name: "Indigo", hex: "#6366F1" },
+  { note: "B", name: "Violet", hex: "#A855F7" },
 ];
 
-const DEVELOPMENT_STATUS = [
-  { title: "Status", description: "Actively building toward first release." },
-  { title: "Current focus", description: "Note detection accuracy and clean color output." },
-  { title: "What's next", description: "Better uploads, fingering improvements, and smoother practice flow." },
-] as const;
+const BUILT_FOR = [
+  { icon: "\u{1F3B9}", title: "Beginners", line: "Skip the decoding. Start playing sooner." },
+  { icon: "\u{1F441}", title: "Visual learners", line: "See the pattern, skip the lookup." },
+  { icon: "\u{1F3B5}", title: "Returning players", line: "Get back into it without starting over." },
+  { icon: "\u{1F468}\u{200D}\u{1F3EB}", title: "Teachers", line: "A visual layer for early instruction." },
+  { icon: "\u{1F46A}", title: "Parents", line: "Help with practice, even if you don't read music." },
+  { icon: "\u{1F3AF}", title: "Self-taught", line: "Stay in flow longer when practicing alone." },
+];
+
+const PAIN_POINTS = [
+  { title: "Too much translation", desc: "Symbols to names, names to keys. Every note is a mini puzzle.", icon: "\u{1F9E9}" },
+  { title: "Slow feedback", desc: "Stop-and-start practice instead of building flow.", icon: "\u{23F1}" },
+  { title: "Early dropout", desc: "The hardest part should be the music, not the notation.", icon: "\u{1F4C9}" },
+];
+
+const SOLUTIONS = [
+  { title: "Instant recognition", desc: "Each note is a consistent color. See it, play it.", icon: "\u{1F3A8}", hex: "#EF4444" },
+  { title: "Direct mapping", desc: "Same colors on the page and the keyboard.", icon: "\u{1F3B9}", hex: "#3B82F6" },
+  { title: "Practice in flow", desc: "Less decoding, more playing.", icon: "\u{1F3B6}", hex: "#22C55E" },
+];
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalSubmitted, setModalSubmitted] = useState(false);
+  const fadeRef = useRef<HTMLDivElement>(null);
+  const fadeProgress = useScrollFade(fadeRef);
+
+  useReveal();
 
   useEffect(() => {
     if (isModalOpen) setModalSubmitted(false);
   }, [isModalOpen]);
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white overflow-x-hidden">
       <Nav onJoinBeta={() => setIsModalOpen(true)} />
-      <Hero />
 
       <Modal
         open={isModalOpen}
@@ -78,42 +63,203 @@ export default function Home() {
         title="Get updates"
         initialFocusSelector={modalSubmitted ? undefined : 'input[name="EMAIL"]'}
       >
-        <WaitlistCard
-          formIdBase="mc-embedded-modal"
-          submitted={modalSubmitted}
-          onSubmit={() => setModalSubmitted(true)}
-        />
+        <WaitlistCard formIdBase="mc-embedded-modal" submitted={modalSubmitted} onSubmit={() => setModalSubmitted(true)} />
       </Modal>
 
-      <div className="py-4"></div>
+      {/* SCENE 1 — HERO */}
+      <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+        <div className="glow-orb absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-red-500/[0.06] blur-[100px]" />
+        <div className="glow-orb-alt absolute -right-32 top-1/3 h-80 w-80 rounded-full bg-blue-500/[0.06] blur-[100px]" />
+        <div className="glow-orb absolute bottom-1/4 left-1/3 h-72 w-72 rounded-full bg-violet-500/[0.04] blur-[100px]" />
 
-      <ProblemSolutionComparison />
-
-      <HowItWorks />
-
-      <StickerTip />
-
-      <BuiltFor items={BUILT_FOR} />
-
-      <section id="status" className="pb-20">
         <Container>
-          <h2 className="text-2xl font-semibold">Development status</h2>
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {DEVELOPMENT_STATUS.map((item) => (
-              <div key={item.title} className="rounded-3xl border border-white/10 bg-white/5 p-6">
-                <div className="text-sm text-white/80">{item.title}</div>
-                <div className="mt-2 text-sm text-white/60">{item.description}</div>
+          <div className="mx-auto max-w-4xl text-center">
+            <h1 className="hero-animate text-5xl font-bold leading-[1.1] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
+              Read piano music<br />in{" "}
+              <span className="hero-rainbow-text hero-rainbow-glow bg-clip-text text-transparent">color.</span>
+            </h1>
+            <p className="hero-animate hero-animate-delay-1 mx-auto mt-8 max-w-lg text-lg text-white/45 sm:text-xl">
+              Upload sheet music. Get back color-coded notes, pitch labels, and fingering — automatically.
+            </p>
+            <div className="hero-animate hero-animate-delay-2 mt-10 flex flex-wrap justify-center gap-4">
+              <a href="#the-problem" className="group rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06]">
+                See how it works <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-y-1">&darr;</span>
+              </a>
+              <a href="#updates" className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]">Get notified</a>
+            </div>
+            <p className="hero-animate hero-animate-delay-3 mt-12 text-xs tracking-wide text-white/25">LAUNCHING SOON ON iOS</p>
+            <div className="hero-animate hero-animate-delay-4 mt-16 flex justify-center">
+              <div className="flex h-10 w-6 items-start justify-center rounded-full border border-white/15 p-1.5">
+                <div className="h-2 w-1 animate-bounce rounded-full bg-white/40" />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* SCENE 2 — THE PROBLEM */}
+      <section id="the-problem" className="wash-problem py-16 sm:py-20">
+        <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <Container>
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The problem</p>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Sheet music wasn&apos;t designed to be easy to learn.</h2>
+          </div>
+          <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-3">
+            {PAIN_POINTS.map((item, i) => (
+              <div key={item.title} className={`reveal-left reveal-delay-${i + 1} rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7`}>
+                <div className="text-3xl">{item.icon}</div>
+                <h3 className="mt-4 text-base font-semibold text-white/90">{item.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/40">{item.desc}</p>
               </div>
             ))}
           </div>
         </Container>
       </section>
 
-      <Waitlist />
+      {/* SCENE 3 — SCROLL-DRIVEN CROSSFADE */}
+      <section id="transformation" className="wash-solution py-16 sm:py-20">
+        <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <Container>
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The solution</p>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+              So we made it easier to{" "}
+              <span className="hero-rainbow-text bg-clip-text text-transparent">see.</span>
+            </h2>
+            <p className="mt-4 text-base text-white/40">Scroll down to add color.</p>
+          </div>
+          <div ref={fadeRef} className="reveal-scale reveal-delay-1 relative mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl border border-white/[0.08] bg-white shadow-2xl shadow-black/50">
+            <img src="/mary-before.png" alt="Original sheet music" className="block w-full" />
+            <img
+              src="/mary-after.png"
+              alt="Color-coded sheet music"
+              className="absolute top-0 left-0 w-full transition-none"
+              style={{ opacity: fadeProgress }}
+            />
+          </div>
+          <div className="mt-6 flex items-center justify-center gap-4">
+            <span className={`rounded-full px-5 py-2 text-xs font-semibold tracking-wide transition-all duration-300 ${fadeProgress < 0.5 ? "bg-white/10 text-white border border-white/20" : "bg-transparent text-white/25 border border-transparent"}`}>BEFORE</span>
+            <div className="h-1 w-24 overflow-hidden rounded-full bg-white/10">
+              <div className="h-full rounded-full bg-gradient-to-r from-red-500 via-green-500 to-violet-500 transition-none" style={{ width: `${fadeProgress * 100}%` }} />
+            </div>
+            <span className={`rounded-full px-5 py-2 text-xs font-semibold tracking-wide transition-all duration-300 ${fadeProgress >= 0.5 ? "bg-white/10 border border-white/20" : "bg-transparent border border-transparent"}`}>
+              <span className={`transition-all duration-300 ${fadeProgress >= 0.5 ? "hero-rainbow-text bg-clip-text text-transparent" : "text-white/25"}`}>AFTER</span>
+            </span>
+          </div>
+        </Container>
+      </section>
 
-      <Feedback />
+      {/* SCENE 4 — SOLUTIONS */}
+      <section className="wash-changes py-16 sm:py-20">
+        <Container>
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">What changes.</h2>
+          </div>
+          <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-3">
+            {SOLUTIONS.map((item, i) => (
+              <div key={item.title} className={`reveal-right reveal-delay-${i + 1} group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 transition-all duration-300 hover:border-white/15 hover:bg-white/[0.04]`}>
+                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full opacity-[0.07] blur-2xl transition-opacity duration-300 group-hover:opacity-[0.12]" style={{ backgroundColor: item.hex }} />
+                <div className="relative">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl text-xl" style={{ backgroundColor: item.hex + "20" }}>{item.icon}</div>
+                  <h3 className="mt-4 text-base font-semibold text-white/90">{item.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-white/40">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* SCENE 5 — COLOR SYSTEM */}
+      <section className="wash-system py-16 sm:py-20">
+        <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <Container>
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The system</p>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Seven notes. Seven colors.</h2>
+            <p className="mt-4 text-base text-white/40">One mapping that repeats every octave.</p>
+          </div>
+          <div className="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-4 sm:gap-5">
+            {COLORS.map(({ note, hex }, i) => (
+              <div key={note} className="note-pop flex flex-col items-center gap-3" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className="piano-key flex h-16 w-16 items-center justify-center rounded-2xl text-lg font-bold text-white shadow-xl sm:h-20 sm:w-20 sm:text-2xl" style={{ backgroundColor: hex, boxShadow: `0 8px 40px ${hex}40` }}>{note}</div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* SCENE 6 — STICKERS */}
+      <section className="wash-stickers py-16 sm:py-20">
+        <Container>
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">Beyond the screen</p>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Put color on your keys.</h2>
+            <p className="mt-4 max-w-lg mx-auto text-base text-white/40">Add stickers to your piano. Same note, same color — on the page and under your fingers.</p>
+          </div>
+          <div className="reveal-scale reveal-delay-1 mx-auto mt-10 max-w-lg">
+            <div className="flex gap-1.5 sm:gap-2">
+              {COLORS.map(({ note, hex }) => (
+                <div key={note} className="piano-key flex flex-1 flex-col items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] py-6 transition-colors hover:bg-white/[0.05]">
+                  <div className="h-5 w-5 rounded-full shadow-lg ring-1 ring-white/10 sm:h-6 sm:w-6" style={{ backgroundColor: hex, boxShadow: `0 4px 20px ${hex}30` }} />
+                  <span className="text-xs font-semibold text-white/50 sm:text-sm">{note}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* SCENE 7 — BUILT FOR */}
+      <section className="py-16 sm:py-20">
+        <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <Container>
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Built for</h2>
+          </div>
+          <div className="mx-auto mt-12 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {BUILT_FOR.map((item, i) => (
+              <div key={item.title} className={`reveal reveal-delay-${Math.min(i + 1, 6)} group rounded-2xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/15 hover:bg-white/[0.04] hover:-translate-y-1`}>
+                <div className="text-3xl transition-transform duration-300 group-hover:scale-110">{item.icon}</div>
+                <h3 className="mt-4 text-sm font-semibold text-white/90">{item.title}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-white/40">{item.line}</p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* SCENE 8 — SIGNUP */}
+      <section id="updates" className="wash-signup py-16 sm:py-20">
+        <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className="pointer-events-none absolute inset-0 overflow-hidden">
+          <div className="glow-orb-alt absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/[0.04] blur-[120px]" />
+        </div>
+        <Container>
+          <div className="reveal relative mx-auto max-w-xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Stay in the loop.</h2>
+            <p className="mt-4 text-base text-white/40">Sign up and we will email you when it is ready to download.</p>
+            <div className="mt-10">
+              <WaitlistCard formIdBase="mc-embedded-inline" />
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* SCENE 9 — FEEDBACK */}
+      <section className="reveal py-20">
+        <Container>
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="text-2xl font-semibold text-white">Have feedback?</h2>
+            <p className="mt-3 text-sm text-white/40">Suggestions, ideas, or things that feel off — we want to hear it.</p>
+            <a href="mailto:support@color-coded.app" className="mt-6 inline-block rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white/70 transition-all duration-300 hover:border-white/30 hover:bg-white/[0.04] hover:text-white">Send us a message</a>
+          </div>
+        </Container>
+      </section>
 
       <FAQ />
+      <Footer />
     </main>
   );
 }

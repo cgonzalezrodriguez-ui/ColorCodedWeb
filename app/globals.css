@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ededed;
 }
 
 @theme inline {
@@ -12,32 +12,88 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #ededed;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  overflow-x: hidden;
 }
 
-/* Hero section: subtle radial glows on black (COLOR CODED palette), atmospheric only */
-.hero-bg {
-  background-color: #000;
-  background-image:
-  radial-gradient(ellipse 120% 140% at 0% 50%, rgba(239, 68, 68, 0.12) 0%, transparent 60%),
-  radial-gradient(ellipse 120% 140% at 100% 40%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
-  radial-gradient(ellipse 100% 120% at 20% 95%, rgba(34, 197, 94, 0.10) 0%, transparent 60%),
-  radial-gradient(ellipse 100% 120% at 85% 10%, rgba(139, 92, 246, 0.10) 0%, transparent 60%),
-  radial-gradient(ellipse 80% 100% at 60% 70%, rgba(234, 179, 8, 0.08) 0%, transparent 55%);
-background-repeat: no-repeat;
+/* ── Scroll reveal system ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Rainbow gradient for hero "color" text: red → orange → yellow → green → blue → violet */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+.reveal-delay-7 { transition-delay: 0.7s; }
+
+/* ── Hero animations ── */
+@keyframes hero-fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes hero-glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.7; }
+}
+
+.hero-animate {
+  animation: hero-fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+.hero-animate-delay-1 { animation-delay: 0.2s; }
+.hero-animate-delay-2 { animation-delay: 0.4s; }
+.hero-animate-delay-3 { animation-delay: 0.6s; }
+.hero-animate-delay-4 { animation-delay: 0.8s; }
+
+/* ── Rainbow text ── */
 .hero-rainbow-text {
   background-image: linear-gradient(
     to right,
@@ -50,11 +106,134 @@ background-repeat: no-repeat;
   );
 }
 
-/* Very subtle glow behind the hero rainbow "color" text */
 .hero-rainbow-glow {
   text-shadow:
-    0 0 20px rgba(244, 63, 94, 0.12),
-    0 0 40px rgba(251, 146, 60, 0.08),
-    0 0 60px rgba(56, 189, 248, 0.08),
-    0 0 80px rgba(167, 139, 250, 0.06);
+    0 0 30px rgba(244, 63, 94, 0.15),
+    0 0 60px rgba(251, 146, 60, 0.1),
+    0 0 90px rgba(56, 189, 248, 0.1),
+    0 0 120px rgba(167, 139, 250, 0.08);
+}
+
+/* ── Crossfade ── */
+.crossfade-overlay {
+  transition: opacity 1.2s ease-in-out;
+}
+
+/* ── Floating glow orbs ── */
+@keyframes float-slow {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+@keyframes float-slower {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-40px, 25px) scale(1.1); }
+}
+
+.glow-orb {
+  animation: float-slow 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.glow-orb-alt {
+  animation: float-slower 25s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* ── Color note bounce ── */
+@keyframes note-pop {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.note-pop {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.note-pop.visible {
+  animation: note-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ── Divider line ── */
+@keyframes line-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.line-grow.visible {
+  animation: line-grow 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform-origin: center;
+}
+
+/* ── Keyboard key hover ── */
+.piano-key {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.piano-key:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 30px rgba(255,255,255,0.1);
+}
+
+/* ── Section color washes ── */
+.wash-problem {
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(239, 68, 68, 0.06) 0%, transparent 70%);
+}
+
+.wash-solution {
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 50%, rgba(239, 68, 68, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(59, 130, 246, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 60%, rgba(34, 197, 94, 0.04) 0%, transparent 50%);
+}
+
+.wash-changes {
+  background:
+    radial-gradient(ellipse 70% 50% at 20% 40%, rgba(239, 68, 68, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 50% 60%, rgba(59, 130, 246, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 80% 40%, rgba(34, 197, 94, 0.04) 0%, transparent 60%);
+}
+
+.wash-system {
+  background: radial-gradient(ellipse 90% 70% at 50% 50%, rgba(99, 102, 241, 0.06) 0%, transparent 70%);
+}
+
+.wash-stickers {
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(168, 85, 247, 0.05) 0%, transparent 70%);
+}
+
+.wash-builtin {
+  background:
+    radial-gradient(ellipse 60% 50% at 25% 40%, rgba(249, 115, 22, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 75% 60%, rgba(34, 197, 94, 0.04) 0%, transparent 60%);
+}
+
+.wash-signup {
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(139, 92, 246, 0.07) 0%, transparent 70%);
+}
+
+/* ── Stronger section washes ── */
+.wash-problem {
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(239, 68, 68, 0.15) 0%, transparent 70%) !important;
+}
+
+.wash-solution {
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 50%, rgba(239, 68, 68, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 60%, rgba(34, 197, 94, 0.10) 0%, transparent 50%) !important;
+}
+
+.wash-system {
+  background: radial-gradient(ellipse 90% 70% at 50% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 70%) !important;
+}
+
+.wash-stickers {
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(168, 85, 247, 0.12) 0%, transparent 70%) !important;
+}
+
+.wash-signup {
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, rgba(139, 92, 246, 0.18) 0%, transparent 70%) !important;
 }
