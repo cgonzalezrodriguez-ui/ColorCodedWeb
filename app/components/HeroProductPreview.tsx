@@ -27,8 +27,10 @@ export default function HeroProductPreview() {
         </p>
         <div className="relative overflow-hidden rounded-xl bg-white/5 px-2 pb-2 pt-1">
           <div
-            className={`transition-opacity duration-700 ${
-              showBefore ? "opacity-100" : "opacity-0"
+            className={`transform-gpu filter transition-all duration-700 ease-out ${
+              showBefore
+                ? "opacity-100 scale-100 blur-0"
+                : "opacity-0 scale-105 blur-sm"
             }`}
           >
             <Image
@@ -41,8 +43,10 @@ export default function HeroProductPreview() {
             />
           </div>
           <div
-            className={`absolute inset-x-2 bottom-2 top-1 transition-opacity duration-700 ${
-              showBefore ? "opacity-0" : "opacity-100"
+            className={`absolute inset-x-2 bottom-2 top-1 transform-gpu filter transition-all duration-700 ease-out ${
+              showBefore
+                ? "opacity-0 scale-95 blur-sm"
+                : "opacity-100 scale-100 blur-0"
             }`}
           >
             <Image
