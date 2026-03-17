@@ -18,7 +18,7 @@ export default function HeroProductPreview() {
 
   return (
     <div
-      className="w-full max-w-md rounded-2xl border border-white/10 bg-black/40 p-3 shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-250 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_20px_45px_rgba(0,0,0,0.65)] hover:brightness-110 lg:shrink-0"
+      className="w-full max-w-md rounded-2xl border border-white/10 bg-black/40 p-3 shadow-[0_10px_30px_rgba(0,0,0,0.55)] transition-all duration-250 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-[0_26px_60px_rgba(0,0,0,0.8)] hover:brightness-110 lg:shrink-0"
       aria-label="Product preview: before and after"
       onClick={() => setShowBefore((prev) => !prev)}
       role="button"
