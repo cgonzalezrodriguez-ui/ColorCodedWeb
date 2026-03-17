@@ -3,7 +3,7 @@ import WaitlistCard from "./WaitlistCard";
 
 export default function Waitlist() {
   return (
-    <section id="join-beta" className="pb-20">
+    <section id="updates" className="pb-20">
       <Container>
         <WaitlistCard formIdBase="mc-embedded" />
       </Container>

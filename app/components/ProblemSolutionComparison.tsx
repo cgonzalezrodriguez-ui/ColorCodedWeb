@@ -151,13 +151,13 @@ export default function ProblemSolutionComparison() {
         {/* Header row: Problems | (arrow column) | Solutions */}
         <div className="hidden items-center justify-between gap-10 pb-8 lg:flex">
           <div className="flex-1 text-center">
-            <h2 className="text-xl font-semibold text-white">Problems</h2>
+            <h2 className="text-xl font-semibold text-white">Sheet music</h2>
           </div>
           <div className="w-40" aria-hidden />
           <div className="flex-1 text-center">
             <h2 className="text-xl font-semibold text-white">
               <span className="bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)] bg-clip-text text-transparent">
-                Solutions
+                Color Coded
               </span>
             </h2>
           </div>
@@ -165,10 +165,10 @@ export default function ProblemSolutionComparison() {
 
         {/* Mobile headers */}
         <div className="flex flex-col gap-2 pb-4 lg:hidden">
-          <h2 className="text-base font-semibold text-white/80">Problems</h2>
+          <h2 className="text-base font-semibold text-white/80">Sheet music</h2>
           <h2 className="text-base font-semibold text-white/80">
             <span className="bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)] bg-clip-text text-transparent">
-              Solutions
+              Color Coded
             </span>
           </h2>
         </div>

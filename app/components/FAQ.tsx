@@ -12,7 +12,7 @@ const FAQ_ITEMS = [
   {
     question: "When is the app launching?",
     answer:
-      "We're building the first release now. This site will update as we get closer.",
+      "We're working toward a first release now. Sign up above and we'll email you when it's ready.",
   },
   {
     question: "Do I need to know how to read sheet music?",
@@ -35,9 +35,9 @@ const FAQ_ITEMS = [
       "You can upload photos or PDFs of standard sheet music. COLOR CODED detects noteheads and maps them to the color system automatically.",
   },
   {
-    question: "Will the beta version be free?",
+    question: "Will it be free?",
     answer:
-      "Yes. Early beta testers will be able to try the first version of COLOR CODED and help shape the product through feedback.",
+      "The initial version will be free to use. Pricing details for future features will be shared closer to launch.",
   },
 ] as const;
 

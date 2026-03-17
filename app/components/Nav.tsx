@@ -8,12 +8,11 @@ import Container from "./Container";
 
 type MobileLink = { label: string; href: string; cta?: boolean };
 const MOBILE_LINKS_BASE: MobileLink[] = [
-  { label: "Vision", href: "/#vision" },
   { label: "How it works", href: "/#how-it-works" },
   { label: "FAQ", href: "/#faq" },
   { label: "Privacy", href: "/privacy" },
   { label: "Support", href: "/support" },
-  { label: "Join Beta", href: "/#join-beta", cta: true },
+  { label: "Get Updates", href: "/#updates", cta: true },
 ];
 
 export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
@@ -32,7 +31,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
         onJoinBeta();
         return;
       }
-      document.getElementById("join-beta")?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("updates")?.scrollIntoView({ behavior: "smooth" });
     }
   }
 
@@ -61,9 +60,6 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
               className="hidden items-center gap-8 md:flex"
               aria-label="Primary"
             >
-              <Link className={navLinkClass} href="/#vision">
-                Vision
-              </Link>
               <Link className={navLinkClass} href="/#how-it-works">
                 How it works
               </Link>
@@ -87,11 +83,11 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
               Support
             </Link>
             <Link
-              href="/#join-beta"
+              href="/#updates"
               onClick={handleJoinBetaClick}
               className="rounded-lg bg-white px-5 py-2 text-sm font-medium text-black hover:bg-white/90"
             >
-              Join Beta
+              Get Updates
             </Link>
           </div>
 
@@ -127,7 +123,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
               key={href + label}
               href={href}
               onClick={(e) => {
-                if (label === "Join Beta") handleJoinBetaClick(e as React.MouseEvent<HTMLAnchorElement>);
+                if (label === "Get Updates") handleJoinBetaClick(e as React.MouseEvent<HTMLAnchorElement>);
                 closeMobileMenu();
               }}
               className={

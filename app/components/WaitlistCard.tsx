@@ -12,9 +12,9 @@ export default function WaitlistCard({
 }) {
   return (
     <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center sm:p-8">
-      <h2 className="text-2xl font-semibold">Be first to try COLOR CODED</h2>
+      <h2 className="text-2xl font-semibold">Stay in the loop</h2>
       <p className="mt-4 mx-auto max-w-2xl text-white/70">
-        Join the beta and experience a simpler way to read piano music.
+        Sign up to hear when COLOR CODED is ready to download.
       </p>
       {submitted ? (
         <div className="mt-8 flex flex-col items-center">
@@ -37,7 +37,7 @@ export default function WaitlistCard({
             </svg>
           </div>
           <p className="mt-4 text-sm text-white/80" role="status" aria-live="polite">
-            You&apos;re on the list! We&apos;ll notify you when COLOR CODED is ready.
+            You&apos;re on the list. We&apos;ll email you when it&apos;s ready.
           </p>
         </div>
       ) : (
@@ -64,7 +64,7 @@ export default function WaitlistCard({
             id={`${formIdBase}-subscribe`}
             className="w-full shrink-0 rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90 sm:w-auto"
           >
-            Join the Beta
+            Notify me
           </button>
         </form>
       )}
