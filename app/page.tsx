@@ -10,6 +10,9 @@ import WaitlistCard from "./components/WaitlistCard";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import StickerShop from "./components/StickerShop";
+import Vision from "./components/Vision";
+import AppShowcaseEdit from "./components/AppShowcaseEdit";
+import AppShowcaseLibrary from "./components/AppShowcaseLibrary";
 
 const COLORS = [
   { note: "C", name: "Red", hex: "#E0292E" },
@@ -93,6 +96,8 @@ export default function Home() {
         </Container>
       </section>
 
+      <Vision />
+
       {/* SCENE 2 — THE PROBLEM */}
       <section id="the-problem" className="wash-problem py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -146,26 +151,11 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* SCENE 4 — SOLUTIONS */}
-      <section className="wash-changes py-16 sm:py-20">
-        <Container>
-          <div className="reveal mx-auto max-w-2xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">What changes.</h2>
-          </div>
-          <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-3">
-            {SOLUTIONS.map((item, i) => (
-              <div key={item.title} className={`reveal-right reveal-delay-${i + 1} group relative overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7 transition-all duration-300 hover:border-white/15 hover:bg-white/[0.04]`}>
-                <div className="absolute -right-6 -top-6 h-24 w-24 rounded-full opacity-[0.07] blur-2xl transition-opacity duration-300 group-hover:opacity-[0.12]" style={{ backgroundColor: item.hex }} />
-                <div className="relative">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl text-xl" style={{ backgroundColor: item.hex + "20" }}>{item.icon}</div>
-                  <h3 className="mt-4 text-base font-semibold text-white/90">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-white/40">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* APP SHOWCASE */}
+
+
+      <AppShowcaseEdit />
+      <AppShowcaseLibrary />
 
       {/* SCENE 5 — COLOR SYSTEM */}
       <section className="wash-system py-16 sm:py-20">
