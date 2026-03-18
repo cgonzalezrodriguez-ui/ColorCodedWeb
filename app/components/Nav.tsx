@@ -47,14 +47,15 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
         <div className="flex items-center justify-between">
           {/* Left group: logo + primary nav (Vision, How it works, FAQ) */}
           <div className="flex items-center gap-8">
-            <Link href="/" className="-ml-1 flex shrink-0 items-center md:-ml-0.5">
+            <Link href="/" className="-ml-1 flex shrink-0 items-center gap-2 md:-ml-0.5">
               <Image
-                src="/logofixed.jpg"
-                alt="C CODED"
+                src="/piano-logo.png"
+                alt="Color Coded"
                 width={96}
                 height={32}
-                className="h-6 w-auto md:h-7"
+                className="h-8 w-auto md:h-10"
               />
+              <span className="text-3xl font-bold tracking-tight text-white">ColorCoded</span>
             </Link>
             <nav
               className="hidden items-center gap-8 md:flex"

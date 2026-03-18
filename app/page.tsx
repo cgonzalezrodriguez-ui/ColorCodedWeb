@@ -9,15 +9,16 @@ import Modal from "./components/Modal";
 import WaitlistCard from "./components/WaitlistCard";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
+import StickerShop from "./components/StickerShop";
 
 const COLORS = [
-  { note: "C", name: "Red", hex: "#EF4444" },
-  { note: "D", name: "Orange", hex: "#F97316" },
-  { note: "E", name: "Yellow", hex: "#EAB308" },
-  { note: "F", name: "Green", hex: "#22C55E" },
-  { note: "G", name: "Blue", hex: "#3B82F6" },
-  { note: "A", name: "Indigo", hex: "#6366F1" },
-  { note: "B", name: "Violet", hex: "#A855F7" },
+  { note: "C", name: "Red", hex: "#E0292E" },
+  { note: "D", name: "Orange", hex: "#F28014" },
+  { note: "E", name: "Yellow", hex: "#F7D11F" },
+  { note: "F", name: "Green", hex: "#33B83D" },
+  { note: "G", name: "Cyan", hex: "#00ADC7" },
+  { note: "A", name: "Indigo", hex: "#1F5CEB" },
+  { note: "B", name: "Violet", hex: "#B838DB" },
 ];
 
 const BUILT_FOR = [
@@ -36,9 +37,9 @@ const PAIN_POINTS = [
 ];
 
 const SOLUTIONS = [
-  { title: "Instant recognition", desc: "Each note is a consistent color. See it, play it.", icon: "\u{1F3A8}", hex: "#EF4444" },
-  { title: "Direct mapping", desc: "Same colors on the page and the keyboard.", icon: "\u{1F3B9}", hex: "#3B82F6" },
-  { title: "Practice in flow", desc: "Less decoding, more playing.", icon: "\u{1F3B6}", hex: "#22C55E" },
+  { title: "Instant recognition", desc: "Each note is a consistent color. See it, play it.", icon: "\u{1F3A8}", hex: "#E0292E" },
+  { title: "Direct mapping", desc: "Same colors on the page and the keyboard.", icon: "\u{1F3B9}", hex: "#1F5CEB" },
+  { title: "Practice in flow", desc: "Less decoding, more playing.", icon: "\u{1F3B6}", hex: "#33B83D" },
 ];
 
 export default function Home() {
@@ -79,7 +80,7 @@ export default function Home() {
               <span className="hero-rainbow-text hero-rainbow-glow bg-clip-text text-transparent">color.</span>
             </h1>
             <p className="hero-animate hero-animate-delay-1 mx-auto mt-8 max-w-lg text-lg text-white/45 sm:text-xl">
-              Upload sheet music. Get back color-coded notes, pitch labels, and fingering — automatically.
+              Upload sheet music. Get back color-coded notes, pitch labels, and fingering.
             </p>
             <div className="hero-animate hero-animate-delay-2 mt-10 flex flex-wrap justify-center gap-4">
               <a href="#the-problem" className="group rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06]">
@@ -88,12 +89,7 @@ export default function Home() {
               <a href="#updates" className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]">Get notified</a>
             </div>
             <p className="hero-animate hero-animate-delay-3 mt-12 text-xs tracking-wide text-white/25">LAUNCHING SOON ON iOS</p>
-            <div className="hero-animate hero-animate-delay-4 mt-16 flex justify-center">
-              <div className="flex h-10 w-6 items-start justify-center rounded-full border border-white/15 p-1.5">
-                <div className="h-2 w-1 animate-bounce rounded-full bg-white/40" />
-              </div>
             </div>
-          </div>
         </Container>
       </section>
 
@@ -211,6 +207,8 @@ export default function Home() {
         </Container>
       </section>
 
+
+      <StickerShop />
       {/* SCENE 7 — BUILT FOR */}
       <section className="py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />

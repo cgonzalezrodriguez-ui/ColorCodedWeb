@@ -97,12 +97,12 @@ body {
 .hero-rainbow-text {
   background-image: linear-gradient(
     to right,
-    #f43f5e 0%,
-    #fb923c 18%,
-    #facc15 36%,
-    #4ade80 54%,
-    #38bdf8 72%,
-    #a78bfa 100%
+    #E0292E 0%,
+    #F28014 18%,
+    #F7D11F 36%,
+    #33B83D 54%,
+    #00ADC7 72%,
+    #B838DB 100%
   );
 }
 

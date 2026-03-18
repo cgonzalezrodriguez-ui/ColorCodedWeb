@@ -8,13 +8,13 @@ type Note = {
 };
 
 const NOTES: Note[] = [
-  { note: "C", colorName: "Red",    hex: "#EF4444" },
-  { note: "D", colorName: "Orange", hex: "#F97316" },
-  { note: "E", colorName: "Yellow", hex: "#EAB308" },
-  { note: "F", colorName: "Green",  hex: "#22C55E" },
-  { note: "G", colorName: "Blue",   hex: "#3B82F6" },
-  { note: "A", colorName: "Indigo", hex: "#6366F1" },
-  { note: "B", colorName: "Violet", hex: "#A855F7" },
+  { note: "C", colorName: "Red",    hex: "#E0292E" },
+  { note: "D", colorName: "Orange", hex: "#F28014" },
+  { note: "E", colorName: "Yellow", hex: "#F7D11F" },
+  { note: "F", colorName: "Green",  hex: "#33B83D" },
+  { note: "G", colorName: "Blue",   hex: "#1F5CEB" },
+  { note: "A", colorName: "Indigo", hex: "#1F5CEB" },
+  { note: "B", colorName: "Violet", hex: "#B838DB" },
 ];
 
 function Chip({ hex }: { hex: string }) {

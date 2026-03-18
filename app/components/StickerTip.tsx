@@ -1,13 +1,13 @@
 import Container from "./Container";
 
 const COLORS = [
-  { note: "C", hex: "#EF4444" },
-  { note: "D", hex: "#F97316" },
-  { note: "E", hex: "#EAB308" },
-  { note: "F", hex: "#22C55E" },
-  { note: "G", hex: "#3B82F6" },
-  { note: "A", hex: "#6366F1" },
-  { note: "B", hex: "#A855F7" },
+  { note: "C", hex: "#E0292E" },
+  { note: "D", hex: "#F28014" },
+  { note: "E", hex: "#F7D11F" },
+  { note: "F", hex: "#33B83D" },
+  { note: "G", hex: "#1F5CEB" },
+  { note: "A", hex: "#1F5CEB" },
+  { note: "B", hex: "#B838DB" },
 ];
 
 export default function StickerTip() {

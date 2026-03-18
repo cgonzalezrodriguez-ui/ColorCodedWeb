@@ -4,7 +4,7 @@ import Container from "./Container";
 /** Sheet music image for the Vision section upper panel (file in public/images/). */
 const SHEET_MUSIC_IMAGE_SRC = "/sheet-musicF.png";
 
-const KEYBOARD_COLORS = ["#EF4444", "#F97316", "#EAB308", "#22C55E", "#3B82F6", "#6366F1", "#A855F7"];
+const KEYBOARD_COLORS = ["#E0292E", "#F28014", "#F7D11F", "#33B83D", "#1F5CEB", "#1F5CEB", "#B838DB"];
 const KEYBOARD_NOTES = ["C", "D", "E", "F", "G", "A", "B"];
 
 export default function Vision() {
