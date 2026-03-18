@@ -17,11 +17,11 @@ export const metadata: Metadata = {
   description: "COLOR Coded turns sheet music into a color-based system to help you recognize notes faster and play with confidence.",
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png" },
+      { url: "/favicon-new.png", type: "image/png" },
       { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
       { url: "/icon-512.png", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/favicon.png",
+    shortcut: "/favicon-new.png",
     apple: [
       { url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" },
     ],
