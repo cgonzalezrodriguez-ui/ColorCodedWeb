@@ -38,7 +38,7 @@ export default function HeroProductPreview() {
           >
             <Image
               src="/mary-black.png"
-              alt="Sheet music before COLOR CODED"
+              alt="Sheet music before ColorCoded"
               width={640}
               height={853}
               className="h-auto w-full object-contain"
@@ -54,7 +54,7 @@ export default function HeroProductPreview() {
           >
             <Image
               src="/mary-had-a-little-lambfixed.jpg"
-              alt="Sheet music after COLOR CODED with color-coded notes"
+              alt="Sheet music after ColorCoded with color-coded notes"
               width={640}
               height={853}
               className="h-auto w-full object-contain"

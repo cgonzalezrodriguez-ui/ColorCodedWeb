@@ -157,7 +157,7 @@ export default function ProblemSolutionComparison() {
           <div className="flex-1 text-center">
             <h2 className="text-xl font-semibold text-white">
               <span className="bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)] bg-clip-text text-transparent">
-                Color Coded
+                ColorCoded
               </span>
             </h2>
           </div>
@@ -168,7 +168,7 @@ export default function ProblemSolutionComparison() {
           <h2 className="text-base font-semibold text-white/80">Sheet music</h2>
           <h2 className="text-base font-semibold text-white/80">
             <span className="bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)] bg-clip-text text-transparent">
-              Color Coded
+              ColorCoded
             </span>
           </h2>
         </div>

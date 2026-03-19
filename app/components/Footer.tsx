@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between md:gap-8">
           {/* Left: brand + tagline */}
           <div className="max-w-sm">
-            <p className="font-semibold tracking-tight text-white">COLOR CODED</p>
+            <p className="font-semibold tracking-tight text-white">ColorCoded</p>
             <p className="mt-2 text-sm text-white/70">
               Helping musicians read piano music in color.
             </p>
@@ -51,7 +51,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 border-t border-white/10 pt-6 text-center text-sm text-white/50">
-          © 2026 COLOR CODED. All rights reserved.
+          © 2026 ColorCoded. All rights reserved.
         </div>
       </Container>
     </footer>

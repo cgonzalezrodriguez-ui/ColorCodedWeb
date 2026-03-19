@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Container from "../components/Container";
 
 export const metadata = {
-  title: "Privacy Policy — COLOR CODED",
+  title: "Privacy Policy — ColorCoded",
   description: "ColorCoded privacy policy. What we collect, how we use it, and your rights.",
 };
 

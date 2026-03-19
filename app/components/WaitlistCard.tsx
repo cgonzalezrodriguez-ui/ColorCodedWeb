@@ -14,7 +14,7 @@ export default function WaitlistCard({
     <div className="rounded-3xl border border-white/10 bg-white/5 p-6 text-center sm:p-8">
       <h2 className="text-2xl font-semibold">Stay in the loop</h2>
       <p className="mt-4 mx-auto max-w-2xl text-white/70">
-        Sign up to hear when COLOR CODED is ready to download.
+        Sign up to hear when ColorCoded is ready to download.
       </p>
       {submitted ? (
         <div className="mt-8 flex flex-col items-center">

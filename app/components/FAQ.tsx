@@ -17,22 +17,22 @@ const FAQ_ITEMS = [
   {
     question: "Do I need to know how to read sheet music?",
     answer:
-      "No. COLOR CODED is designed to make reading sheet music more intuitive. The color system helps connect notes on the page to keys on the keyboard, so beginners can start recognizing patterns faster while still learning traditional notation.",
+      "No. ColorCoded is designed to make reading sheet music more intuitive. The color system helps connect notes on the page to keys on the keyboard, so beginners can start recognizing patterns faster while still learning traditional notation.",
   },
   {
     question: "Does this replace traditional sheet music?",
     answer:
-      "No. COLOR CODED is meant to support traditional notation, not replace it. The goal is to reduce the initial friction of reading music so learners can focus more on rhythm, expression, and practice.",
+      "No. ColorCoded is meant to support traditional notation, not replace it. The goal is to reduce the initial friction of reading music so learners can focus more on rhythm, expression, and practice.",
   },
   {
-    question: "What devices will COLOR CODED work on?",
+    question: "What devices will ColorCoded work on?",
     answer:
       "The first version will launch on iOS. Future versions may expand to other platforms depending on feedback from early users.",
   },
   {
     question: "What type of sheet music can I upload?",
     answer:
-      "You can upload photos or PDFs of standard sheet music. COLOR CODED detects noteheads and maps them to the color system automatically.",
+      "You can upload photos or PDFs of standard sheet music. ColorCoded detects noteheads and maps them to the color system automatically.",
   },
   {
     question: "Will it be free?",

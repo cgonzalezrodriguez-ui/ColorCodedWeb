@@ -34,7 +34,7 @@ export default function Vision() {
                 Music reading should feel direct and encouraging.
               </p>
               <p className="max-w-xl leading-relaxed">
-                COLOR CODED adds a consistent color layer to sheet music and
+                ColorCoded adds a consistent color layer to sheet music and
                 maps it to the keyboard, reducing the need for constant
                 translation.
               </p>

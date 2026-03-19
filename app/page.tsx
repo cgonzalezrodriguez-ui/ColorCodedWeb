@@ -171,25 +171,6 @@ export default function Home() {
       </section>
 
       {/* ── STICKERS ── */}
-      <section className="wash-stickers py-16 sm:py-20">
-        <Container>
-          <div className="reveal mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">Beyond the screen</p>
-            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Put color on your keys.</h2>
-            <p className="mt-4 max-w-lg mx-auto text-base text-white/40">Add stickers to your piano. Same note, same color — on the page and under your fingers.</p>
-          </div>
-          <div className="reveal-scale reveal-delay-1 mx-auto mt-10 max-w-lg">
-            <div className="flex gap-1.5 sm:gap-2">
-              {COLORS.map(({ note, hex }) => (
-                <div key={note} className="piano-key flex flex-1 flex-col items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] py-6 transition-colors hover:bg-white/[0.05]">
-                  <div className="h-5 w-5 rounded-full shadow-lg ring-1 ring-white/10 sm:h-6 sm:w-6" style={{ backgroundColor: hex, boxShadow: `0 4px 20px ${hex}30` }} />
-                  <span className="text-xs font-semibold text-white/50 sm:text-sm">{note}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
 
       <StickerShop />
 

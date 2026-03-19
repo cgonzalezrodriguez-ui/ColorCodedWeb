@@ -66,7 +66,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
             <Link href="/" className="-ml-1 flex shrink-0 items-center gap-2 md:-ml-0.5">
               <Image
                 src="/piano-logo.png"
-                alt="Color Coded"
+                alt="ColorCoded"
                 width={96}
                 height={32}
                 className="h-8 w-auto md:h-10"

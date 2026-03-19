@@ -27,7 +27,7 @@ export default function TheSolution() {
       <Container>
         <h2 className="text-2xl font-semibold">The solution</h2>
         <p className="mt-5 max-w-3xl text-white/70">
-          COLOR CODED removes the translation step and lets players recognize notes
+          ColorCoded removes the translation step and lets players recognize notes
           instantly.
         </p>
         <div className="mt-10 grid gap-4 md:grid-cols-3">

@@ -74,7 +74,7 @@ export default function HowItWorks() {
               }`}
             >
               <span className="bg-[linear-gradient(to_right,#ef4444,#f97316,#eab308,#22c55e,#3b82f6,#6366f1,#a855f7)] bg-clip-text text-transparent">
-                Color Coded
+                ColorCoded
               </span>
             </span>
           </div>
