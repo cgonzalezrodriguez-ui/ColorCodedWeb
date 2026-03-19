@@ -34,15 +34,9 @@ const BUILT_FOR = [
 ];
 
 const PAIN_POINTS = [
-  { title: "Too much translation", desc: "Symbols to names, names to keys. Every note is a mini puzzle.", icon: "\u{1F9E9}" },
-  { title: "Slow feedback", desc: "Stop-and-start practice instead of building flow.", icon: "\u{23F1}" },
-  { title: "Early dropout", desc: "The hardest part should be the music, not the notation.", icon: "\u{1F4C9}" },
-];
-
-const SOLUTIONS = [
-  { title: "Instant recognition", desc: "Each note is a consistent color. See it, play it.", icon: "\u{1F3A8}", hex: "#E0292E" },
-  { title: "Direct mapping", desc: "Same colors on the page and the keyboard.", icon: "\u{1F3B9}", hex: "#1F5CEB" },
-  { title: "Practice in flow", desc: "Less decoding, more playing.", icon: "\u{1F3B6}", hex: "#33B83D" },
+  { title: "See it, play it", desc: "Stop decoding symbols. Colors connect the page to the keys instantly.", icon: "🎨" },
+  { title: "Stay in the flow", desc: "Less stopping to figure out notes. More actual playing.", icon: "🎵" },
+  { title: "Progress you can feel", desc: "The hard part should be the music, not the notation.", icon: "🚀" },
 ];
 
 export default function Home() {
@@ -70,7 +64,7 @@ export default function Home() {
         <WaitlistCard formIdBase="mc-embedded-modal" submitted={modalSubmitted} onSubmit={() => setModalSubmitted(true)} />
       </Modal>
 
-      {/* SCENE 1 — HERO */}
+      {/* ── HERO ── */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
         <div className="glow-orb absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-red-500/[0.06] blur-[100px]" />
         <div className="glow-orb-alt absolute -right-32 top-1/3 h-80 w-80 rounded-full bg-blue-500/[0.06] blur-[100px]" />
@@ -92,19 +86,17 @@ export default function Home() {
               <a href="#updates" className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]">Get notified</a>
             </div>
             <p className="hero-animate hero-animate-delay-3 mt-12 text-xs tracking-wide text-white/25">LAUNCHING SOON ON iOS</p>
-            </div>
+          </div>
         </Container>
       </section>
 
-      <Vision />
-
-      {/* SCENE 2 — THE PROBLEM */}
+      {/* ── THE PROBLEM ── */}
       <section id="the-problem" className="wash-problem py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <Container>
           <div className="reveal mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The problem</p>
-            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Sheet music wasn&apos;t designed to be easy to learn.</h2>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">What if reading music just clicked?</h2>
           </div>
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-3">
             {PAIN_POINTS.map((item, i) => (
@@ -118,7 +110,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* SCENE 3 — SCROLL-DRIVEN CROSSFADE */}
+      {/* ── CROSSFADE ── */}
       <section id="transformation" className="wash-solution py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <Container>
@@ -151,13 +143,16 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* APP SHOWCASE */}
-
-
+      {/* ── SCAN / EDIT / PLAY ── */}
       <AppShowcaseEdit />
+
+      {/* ── VISION ── */}
+      <Vision />
+
+      {/* ── PUBLIC LIBRARY ── */}
       <AppShowcaseLibrary />
 
-      {/* SCENE 5 — COLOR SYSTEM */}
+      {/* ── COLOR SYSTEM ── */}
       <section className="wash-system py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <Container>
@@ -176,7 +171,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* SCENE 6 — STICKERS */}
+      {/* ── STICKERS ── */}
       <section className="wash-stickers py-16 sm:py-20">
         <Container>
           <div className="reveal mx-auto max-w-2xl text-center">
@@ -197,9 +192,9 @@ export default function Home() {
         </Container>
       </section>
 
-
       <StickerShop />
-      {/* SCENE 7 — BUILT FOR */}
+
+      {/* ── BUILT FOR ── */}
       <section className="py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <Container>
@@ -218,7 +213,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* SCENE 8 — SIGNUP */}
+      {/* ── SIGNUP ── */}
       <section id="updates" className="wash-signup py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -235,7 +230,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* SCENE 9 — FEEDBACK */}
+      {/* ── FEEDBACK ── */}
       <section className="reveal py-20">
         <Container>
           <div className="mx-auto max-w-2xl text-center">
