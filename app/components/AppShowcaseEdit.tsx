@@ -19,9 +19,30 @@ function PhoneFrame({ src, alt, className }: { src: string; alt: string; classNa
 }
 
 const STEPS = [
-  { num: "1", title: "Scan", desc: "Upload or photograph sheet music. The app detects notes automatically — but no scanner is perfect." },
-  { num: "2", title: "Edit", desc: "Select any note to fix, move, or delete. Clean up false detections in a couple taps." },
-  { num: "3", title: "Play", desc: "Your score is ready — color-coded noteheads with pitch labels and fingering suggestions." },
+  {
+    num: "1",
+    title: "Scan",
+    desc: "Upload or photograph sheet music. The app detects notes automatically — but no scanner is perfect.",
+    src: "/sim-step1-raw.png",
+    alt: "Scanned score with some false detections",
+    rotate: "-2deg",
+  },
+  {
+    num: "2",
+    title: "Edit",
+    desc: "Select any note to fix, move, or delete. Clean up false detections in a couple taps.",
+    src: "/sim-step2-edit.png",
+    alt: "Editing view showing lasso selection",
+    rotate: "0deg",
+  },
+  {
+    num: "3",
+    title: "Play",
+    desc: "Your score is ready — color-coded noteheads with pitch labels and fingering suggestions.",
+    src: "/sim-step3-final.png",
+    alt: "Final color-coded score with fingering",
+    rotate: "2deg",
+  },
 ];
 
 export default function AppShowcaseEdit() {
@@ -40,56 +61,24 @@ export default function AppShowcaseEdit() {
           </p>
         </div>
 
-        {/* Phones row */}
-        <div className="mx-auto mt-16 grid max-w-5xl grid-cols-3 items-start gap-4 lg:gap-8">
-          {/* Phone 1 — Scan */}
-          <div className="reveal reveal-delay-1 flex justify-center">
-            <div
-              className="transition-transform duration-500 ease-out"
-              style={{ transform: "rotate(-2deg)" }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "rotate(0deg) scale(1.05)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "rotate(-2deg)"; }}
-            >
-              <PhoneFrame src="/sim-step1-raw.png" alt="Scanned score with some false detections" />
-            </div>
-          </div>
-
-          {/* Phone 2 — Edit (two stacked, fan apart on hover) */}
-          <div className="reveal reveal-delay-2 flex justify-center">
-            <div className="group relative h-[420px] w-48 sm:h-[480px] sm:w-56 lg:w-60 cursor-pointer">
-              {/* Back phone (editor) — fans right */}
-              <div className="absolute left-1/2 top-0 -translate-x-1/2 transition-all duration-500 ease-out group-hover:-translate-x-[20%] group-hover:rotate-3">
-                <PhoneFrame src="/sim-editor.png" alt="Editor view with color wheel and toolbar" />
+        <div className="mx-auto mt-16 flex max-w-5xl flex-col items-center gap-16 sm:flex-row sm:items-start sm:justify-center sm:gap-8">
+          {STEPS.map((step, i) => (
+            <div key={step.num} className={`reveal reveal-delay-${i + 1} flex flex-col items-center text-center`}>
+              <div
+                className="transition-transform duration-500 ease-out"
+                style={{ transform: `rotate(${step.rotate})` }}
+                onMouseEnter={(e) => { e.currentTarget.style.transform = "rotate(0deg) scale(1.05)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.transform = `rotate(${step.rotate})`; }}
+              >
+                <PhoneFrame src={step.src} alt={step.alt} />
               </div>
-              {/* Front phone (delete view) — fans left */}
-              <div className="absolute left-1/2 top-4 -translate-x-1/2 z-10 transition-all duration-500 ease-out group-hover:-translate-x-[80%] group-hover:-rotate-3">
-                <PhoneFrame src="/sim-step2-edit.png" alt="Editing view showing note deletion" />
+              <div className="mt-8">
+                <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-sm font-bold text-white/70">
+                  {step.num}
+                </div>
+                <h3 className="mt-3 text-lg font-semibold text-white">{step.title}</h3>
+                <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/45">{step.desc}</p>
               </div>
-            </div>
-          </div>
-
-          {/* Phone 3 — Play */}
-          <div className="reveal reveal-delay-3 flex justify-center">
-            <div
-              className="transition-transform duration-500 ease-out"
-              style={{ transform: "rotate(2deg)" }}
-              onMouseEnter={(e) => { e.currentTarget.style.transform = "rotate(0deg) scale(1.05)"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.transform = "rotate(2deg)"; }}
-            >
-              <PhoneFrame src="/sim-step3-final.png" alt="Final color-coded score with fingering" />
-            </div>
-          </div>
-        </div>
-
-        {/* Labels row — always aligned */}
-        <div className="mx-auto mt-10 grid max-w-5xl grid-cols-3 gap-4 lg:gap-8">
-          {STEPS.map((step) => (
-            <div key={step.num} className="flex flex-col items-center text-center">
-              <div className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/15 bg-white/5 text-sm font-bold text-white/70">
-                {step.num}
-              </div>
-              <h3 className="mt-3 text-lg font-semibold text-white">{step.title}</h3>
-              <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/45">{step.desc}</p>
             </div>
           ))}
         </div>
