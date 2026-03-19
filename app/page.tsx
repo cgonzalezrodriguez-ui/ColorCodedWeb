@@ -13,6 +13,7 @@ import StickerShop from "./components/StickerShop";
 import Vision from "./components/Vision";
 import AppShowcaseEdit from "./components/AppShowcaseEdit";
 import AppShowcaseLibrary from "./components/AppShowcaseLibrary";
+import HeroBackgroundLayer from "./components/HeroBackgroundLayer";
 
 const COLORS = [
   { note: "C", name: "Red", hex: "#E0292E" },
@@ -66,12 +67,10 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-        <div className="glow-orb absolute -left-32 top-1/4 h-96 w-96 rounded-full bg-red-500/[0.06] blur-[100px]" />
-        <div className="glow-orb-alt absolute -right-32 top-1/3 h-80 w-80 rounded-full bg-blue-500/[0.06] blur-[100px]" />
-        <div className="glow-orb absolute bottom-1/4 left-1/3 h-72 w-72 rounded-full bg-violet-500/[0.04] blur-[100px]" />
+        <HeroBackgroundLayer />
 
         <Container>
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="relative z-[2] mx-auto max-w-4xl text-center">
             <h1 className="hero-animate text-5xl font-bold leading-[1.1] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
               Read piano music<br />in{" "}
               <span className="hero-rainbow-text hero-rainbow-glow bg-clip-text text-transparent">color.</span>
