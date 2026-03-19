@@ -12,7 +12,7 @@ const NOTES: Note[] = [
   { note: "D", colorName: "Orange", hex: "#F28014" },
   { note: "E", colorName: "Yellow", hex: "#F7D11F" },
   { note: "F", colorName: "Green",  hex: "#33B83D" },
-  { note: "G", colorName: "Blue",   hex: "#1F5CEB" },
+  { note: "G", colorName: "Cyan",   hex: "#00ADC7" },
   { note: "A", colorName: "Indigo", hex: "#1F5CEB" },
   { note: "B", colorName: "Violet", hex: "#B838DB" },
 ];
@@ -75,7 +75,7 @@ export default function ColorSystemSection() {
           <div>
             <h3 className="text-lg font-semibold">How it looks on the keyboard</h3>
             <p className="mt-1 text-sm text-white/70">
-              Colors repeat every octave — the same note always looks the same.
+              Colors repeat every octave - the same note always looks the same.
             </p>
           </div>
 

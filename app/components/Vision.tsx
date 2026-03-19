@@ -73,7 +73,7 @@ export default function Vision() {
                 <div className="absolute -left-[2px] top-32 h-10 w-[3px] rounded-l-sm bg-[#2a2a2a]" />
                 <div className="absolute -left-[2px] top-44 h-10 w-[3px] rounded-l-sm bg-[#2a2a2a]" />
 
-                {/* Screen — screenshot includes its own status bar */}
+                {/* Screen - screenshot includes its own status bar */}
                 <div className="overflow-hidden rounded-[2.7rem]">
                   <img
                     src="/sim-arabesque.png"

@@ -7,7 +7,7 @@ const ROWS = [
     problem: {
       title: "Too much translation",
       description:
-        "Beginners often have to decode symbols into note names, then find keys — every note becomes a mini puzzle.",
+        "Beginners often have to decode symbols into note names, then find keys - every note becomes a mini puzzle.",
     },
     solution: {
       title: "Instant color recognition",
@@ -182,7 +182,7 @@ export default function ProblemSolutionComparison() {
                 key={row.problem.title}
                 className="grid grid-cols-1 items-center gap-4 lg:grid-cols-[1fr_9rem_1fr]"
               >
-                {/* Problem card — monochrome */}
+                {/* Problem card - monochrome */}
                 <div className={problemCardBase}>
                   <div className="flex items-center gap-3">
                     <div className={problemIconBox}>
@@ -235,7 +235,7 @@ export default function ProblemSolutionComparison() {
                   </div>
                 </div>
 
-                {/* Solution card — colored accent */}
+                {/* Solution card - colored accent */}
                 <SolutionCard
                   title={row.solution.title}
                   icon={row.solution.icon}

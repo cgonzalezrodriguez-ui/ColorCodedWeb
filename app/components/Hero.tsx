@@ -17,7 +17,7 @@ export default function Hero() {
           </h1>
           <p className="mt-6 max-w-xl text-lg text-white/65">
             Upload sheet music. Get back color-coded notes, pitch labels, and
-            fingering suggestions — automatically.
+            fingering suggestions - automatically.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a href="#how-it-works" className="rounded-full border border-white/25 bg-transparent px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:border-white/60">How it works</a>

@@ -94,7 +94,7 @@ export default function Home() {
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <Container>
           <div className="reveal mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The problem</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">Why ColorCoded</p>
             <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">What if reading music just clicked?</h2>
           </div>
           <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-3">
@@ -109,6 +109,24 @@ export default function Home() {
         </Container>
       </section>
 
+
+      {/* ── COLOR SYSTEM ── */}
+      <section className="wash-system py-16 sm:py-20">
+        <Container>
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The system</p>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Seven notes. Seven colors.</h2>
+            <p className="mt-4 text-base text-white/40">One mapping that repeats every octave.</p>
+          </div>
+          <div className="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-4 sm:gap-5">
+            {COLORS.map(({ note, hex }, i) => (
+              <div key={note} className="note-pop flex flex-col items-center gap-3" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className="piano-key flex h-16 w-16 items-center justify-center rounded-2xl text-lg font-bold text-white shadow-xl sm:h-20 sm:w-20 sm:text-2xl" style={{ backgroundColor: hex, boxShadow: `0 8px 40px ${hex}40` }}>{note}</div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
       {/* ── CROSSFADE ── */}
       <section id="transformation" className="wash-solution py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -116,8 +134,8 @@ export default function Home() {
           <div className="reveal mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The solution</p>
             <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              So we made it easier to{" "}
-              <span className="hero-rainbow-text bg-clip-text text-transparent">see.</span>
+              See the{" "}
+              <span className="hero-rainbow-text bg-clip-text text-transparent">difference.</span>
             </h2>
             <p className="mt-4 text-base text-white/40">Scroll down to add color.</p>
           </div>
@@ -151,25 +169,6 @@ export default function Home() {
       {/* ── PUBLIC LIBRARY ── */}
       <AppShowcaseLibrary />
 
-      {/* ── COLOR SYSTEM ── */}
-      <section className="wash-system py-16 sm:py-20">
-        <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        <Container>
-          <div className="reveal mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The system</p>
-            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Seven notes. Seven colors.</h2>
-            <p className="mt-4 text-base text-white/40">One mapping that repeats every octave.</p>
-          </div>
-          <div className="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-4 sm:gap-5">
-            {COLORS.map(({ note, hex }, i) => (
-              <div key={note} className="note-pop flex flex-col items-center gap-3" style={{ animationDelay: `${i * 0.1}s` }}>
-                <div className="piano-key flex h-16 w-16 items-center justify-center rounded-2xl text-lg font-bold text-white shadow-xl sm:h-20 sm:w-20 sm:text-2xl" style={{ backgroundColor: hex, boxShadow: `0 8px 40px ${hex}40` }}>{note}</div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       {/* ── STICKERS ── */}
 
       <StickerShop />
@@ -201,8 +200,6 @@ export default function Home() {
         </div>
         <Container>
           <div className="reveal relative mx-auto max-w-xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Stay in the loop.</h2>
-            <p className="mt-4 text-base text-white/40">Sign up and we will email you when it is ready to download.</p>
             <div className="mt-10">
               <WaitlistCard formIdBase="mc-embedded-inline" />
             </div>
@@ -215,7 +212,7 @@ export default function Home() {
         <Container>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl font-semibold text-white">Have feedback?</h2>
-            <p className="mt-3 text-sm text-white/40">Suggestions, ideas, or things that feel off — we want to hear it.</p>
+            <p className="mt-3 text-sm text-white/40">Suggestions, ideas, or things that feel off - we want to hear it.</p>
             <a href="mailto:support@color-coded.app" className="mt-6 inline-block rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white/70 transition-all duration-300 hover:border-white/30 hover:bg-white/[0.04] hover:text-white">Send us a message</a>
           </div>
         </Container>

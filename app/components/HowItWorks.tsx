@@ -22,7 +22,7 @@ export default function HowItWorks() {
           </h2>
           <p className="mt-4 text-base text-white/60">
             Upload a photo or PDF. The app detects notes, assigns colors, and adds
-            pitch labels and fingering — all automatically.
+            pitch labels and fingering - all automatically.
           </p>
         </header>
 
@@ -42,7 +42,7 @@ export default function HowItWorks() {
           <div className="relative overflow-hidden rounded-2xl border border-white/10 shadow-xl shadow-black/30">
             <img
               src="/mary-before.png"
-              alt="Original sheet music — Mary Had a Little Lamb"
+              alt="Original sheet music - Mary Had a Little Lamb"
               className="block w-full"
             />
             <img

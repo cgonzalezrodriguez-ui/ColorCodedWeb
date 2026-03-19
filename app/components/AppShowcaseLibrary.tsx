@@ -17,7 +17,7 @@ export default function AppShowcaseLibrary() {
             </h2>
             <div className="mt-6 space-y-4 text-white/70">
               <p className="max-w-xl leading-relaxed">
-                Don&apos;t have sheet music on hand? No problem. The public library has pre-scanned pieces ready to open — from beginner études to intermediate classics.
+                Don&apos;t have sheet music on hand? No problem. The public library has pre-scanned pieces ready to open - from beginner études to intermediate classics.
               </p>
               <p className="max-w-xl leading-relaxed">
                 Pick a piece, tap, and start reading in color. No scanning required.

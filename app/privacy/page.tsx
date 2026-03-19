@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Container from "../components/Container";
 
 export const metadata = {
-  title: "Privacy Policy — ColorCoded",
+  title: "Privacy Policy - ColorCoded",
   description: "ColorCoded privacy policy. What we collect, how we use it, and your rights.",
 };
 
@@ -95,15 +95,15 @@ export default function PrivacyPage() {
                 </p>
                 <ul className="mt-2 space-y-2 text-white/80">
                   <li>
-                    <strong className="text-white/90">Firebase by Google</strong> (authentication, database, storage) —{" "}
+                    <strong className="text-white/90">Firebase by Google</strong> (authentication, database, storage) -{" "}
                     <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" className="text-white/80 underline hover:text-white">https://firebase.google.com/support/privacy</a>
                   </li>
                   <li>
-                    <strong className="text-white/90">Google Sign-In</strong> (optional sign-in method) —{" "}
+                    <strong className="text-white/90">Google Sign-In</strong> (optional sign-in method) -{" "}
                     <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-white/80 underline hover:text-white">https://policies.google.com/privacy</a>
                   </li>
                   <li>
-                    <strong className="text-white/90">Apple StoreKit</strong> (in-app purchases and subscriptions) —{" "}
+                    <strong className="text-white/90">Apple StoreKit</strong> (in-app purchases and subscriptions) -{" "}
                     <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" className="text-white/80 underline hover:text-white">https://www.apple.com/legal/privacy/</a>
                   </li>
                 </ul>

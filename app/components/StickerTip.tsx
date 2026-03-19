@@ -5,7 +5,7 @@ const COLORS = [
   { note: "D", hex: "#F28014" },
   { note: "E", hex: "#F7D11F" },
   { note: "F", hex: "#33B83D" },
-  { note: "G", hex: "#1F5CEB" },
+  { note: "G", hex: "#00ADC7" },
   { note: "A", hex: "#1F5CEB" },
   { note: "B", hex: "#B838DB" },
 ];
@@ -17,7 +17,7 @@ export default function StickerTip() {
         <div className="mx-auto max-w-3xl rounded-3xl border border-white/10 bg-white/5 p-8 sm:p-10 text-center">
           <p className="text-sm font-medium tracking-wide text-white/50">Take it off-screen</p>
           <h2 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">Add colored stickers to your keys.</h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-white/60">Match the colors on your sheet music to the keys on your keyboard. Same note, same color — on the page and under your fingers.</p>
+          <p className="mx-auto mt-4 max-w-xl text-base text-white/60">Match the colors on your sheet music to the keys on your keyboard. Same note, same color - on the page and under your fingers.</p>
           <div className="mx-auto mt-8 flex max-w-md gap-1.5 sm:gap-2">
             {COLORS.map(({ note, hex }) => (
               <div key={note} className="flex flex-1 flex-col items-center gap-2 rounded-lg border border-white/10 bg-white/[0.03] py-4 sm:rounded-xl sm:py-5">

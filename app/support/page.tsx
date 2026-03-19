@@ -3,7 +3,7 @@ import Nav from "../components/Nav";
 import Container from "../components/Container";
 
 export const metadata = {
-  title: "Support — ColorCoded",
+  title: "Support - ColorCoded",
   description: "ColorCoded support: getting started, FAQ, subscriptions, and token packs.",
 };
 

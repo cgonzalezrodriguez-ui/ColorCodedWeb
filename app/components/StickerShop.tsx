@@ -25,7 +25,7 @@ const KEY_COLORS = [
   { note: "D", hex: "#F28014" },
   { note: "E", hex: "#F7D11F" },
   { note: "F", hex: "#33B83D" },
-  { note: "G", hex: "#1F5CEB" },
+  { note: "G", hex: "#00ADC7" },
   { note: "A", hex: "#1F5CEB" },
   { note: "B", hex: "#B838DB" },
 ];

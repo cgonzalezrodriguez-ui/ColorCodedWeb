@@ -22,7 +22,7 @@ const STEPS = [
   {
     num: "1",
     title: "Scan",
-    desc: "Upload or photograph sheet music. The app detects notes automatically — but no scanner is perfect.",
+    desc: "Upload or photograph sheet music. The app detects notes automatically - but no scanner is perfect.",
     src: "/sim-step1-raw.png",
     alt: "Scanned score with some false detections",
     rotate: "-2deg",
@@ -38,7 +38,7 @@ const STEPS = [
   {
     num: "3",
     title: "Play",
-    desc: "Your score is ready — color-coded noteheads with pitch labels and fingering suggestions.",
+    desc: "Your score is ready - color-coded noteheads with pitch labels and fingering suggestions.",
     src: "/sim-step3-final.png",
     alt: "Final color-coded score with fingering",
     rotate: "2deg",

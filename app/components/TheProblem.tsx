@@ -4,7 +4,7 @@ const PROBLEM_POINTS = [
   {
     title: "Too much translation",
     description:
-      "Beginners often have to decode symbols into note names, then find keys — every note becomes a mini puzzle.",
+      "Beginners often have to decode symbols into note names, then find keys - every note becomes a mini puzzle.",
   },
   {
     title: "Slow feedback loops",
@@ -82,7 +82,7 @@ export default function TheProblem() {
       <Container>
         <h2 className="text-2xl font-semibold">The problem</h2>
         <p className="mt-5 max-w-3xl text-white/70">
-          For many beginners, reading sheet music isn’t just learning notes — it’s
+          For many beginners, reading sheet music isn’t just learning notes - it’s
           translating multiple layers at once.
           <br />
           That cognitive load slows practice and makes progress feel harder than it
