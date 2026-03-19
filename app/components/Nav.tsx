@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "./Container";
 
 type MobileLink = { label: string; href: string; cta?: boolean };
@@ -19,6 +19,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const mobileLinks: MobileLink[] = isHome
     ? MOBILE_LINKS_BASE
@@ -31,7 +32,11 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
         onJoinBeta();
         return;
       }
-      document.getElementById("updates")?.scrollIntoView({ behavior: "smooth" });
+      const el = document.getElementById("updates");
+      if (el) {
+        const y = el.getBoundingClientRect().top + window.scrollY - 80; // clear sticky header
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
     }
   }
 
@@ -41,8 +46,19 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
 
   const navLinkClass = "text-sm text-white/70 hover:text-white whitespace-nowrap";
 
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-black/70 py-3 shadow-[0_1px_0_0_rgba(255,255,255,0.05)] backdrop-blur-md md:py-3.5">
+    <header
+      className={`sticky top-0 z-50 border-b border-white/5 py-3 shadow-[0_1px_0_0_rgba(255,255,255,0.05)] backdrop-blur-[10px] md:py-3.5 ${
+        isScrolled ? "bg-black/45" : "bg-black/20"
+      }`}
+    >
       <Container>
         <div className="flex items-center justify-between">
           {/* Left group: logo + primary nav (Vision, How it works, FAQ) */}
@@ -115,7 +131,9 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
 
       {/* Mobile menu panel */}
       <div
-        className={`md:hidden ${mobileMenuOpen ? "visible opacity-100" : "invisible opacity-0"} absolute left-0 right-0 top-full z-40 border-b border-white/10 bg-black/98 shadow-lg backdrop-blur-sm transition-[visibility,opacity] duration-200 ease-out`}
+        className={`md:hidden ${
+          mobileMenuOpen ? "visible opacity-100" : "invisible opacity-0"
+        } absolute left-0 right-0 top-full z-40 border-b border-white/5 bg-black/80 shadow-lg backdrop-blur-[10px] transition-[visibility,opacity] duration-200 ease-out`}
         aria-hidden={!mobileMenuOpen}
       >
         <nav className="flex flex-col py-4">
@@ -144,7 +162,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
         <button
           type="button"
           aria-label="Close menu"
-          className="fixed inset-0 z-30 bg-black/50 md:hidden"
+          className="fixed inset-0 z-30 bg-black/40 md:hidden"
           onClick={closeMobileMenu}
         />
       )}
