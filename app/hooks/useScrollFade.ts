@@ -35,7 +35,7 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): numbe
       ([entry]) => {
         if (entry.isIntersecting && !hasTriggered.current) {
           hasTriggered.current = true;
-          const duration = 2000;
+          const duration = 5000;
           const startTime = performance.now();
 
           const animate = (now: number) => {
