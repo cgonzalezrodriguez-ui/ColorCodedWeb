@@ -7,15 +7,16 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): { pro
   const [autoProgress, setAutoProgress] = useState(0);
   const hasTriggered = useRef(false);
   const isLocked = useRef(false);
+  const durationRef = useRef(5000);
 
   const reset = useCallback(() => {
     hasTriggered.current = false;
     isLocked.current = true;
+    durationRef.current = 2000;
     setAutoProgress(0);
     setScrollProgress(0);
   }, []);
 
-  // Scroll-driven progress
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -35,7 +36,6 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): { pro
     return () => window.removeEventListener("scroll", onScroll);
   }, [ref]);
 
-  // Auto-play on first intersection
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -44,7 +44,7 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): { pro
       ([entry]) => {
         if (entry.isIntersecting && !hasTriggered.current) {
           hasTriggered.current = true;
-          const duration = 5000;
+          const duration = durationRef.current;
           const startTime = performance.now();
 
           const animate = (now: number) => {
@@ -54,6 +54,7 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): { pro
             setAutoProgress(eased);
             if (t >= 1) {
               isLocked.current = false;
+              durationRef.current = 5000;
             }
             if (t < 1) requestAnimationFrame(animate);
           };
