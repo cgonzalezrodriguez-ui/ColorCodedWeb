@@ -84,7 +84,6 @@ export default function Home() {
 
       {/* ── CROSSFADE ── */}
       <section id="transformation" className="wash-solution py-16 sm:py-20">
-        <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <Container>
           <div className="reveal mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The solution</p>
@@ -92,7 +91,6 @@ export default function Home() {
               See the{" "}
               <span className="hero-rainbow-text bg-clip-text text-transparent">difference.</span>
             </h2>
-            <p className="mt-4 text-base text-white/40">Scroll down to add color.</p>
           </div>
           <div ref={fadeRef} className="reveal-scale reveal-delay-1 relative mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl border border-white/[0.08] bg-white shadow-2xl shadow-black/50">
             <img src="/mary-before.png" alt="Original sheet music" className="block w-full" />
