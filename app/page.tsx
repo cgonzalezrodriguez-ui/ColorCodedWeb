@@ -49,6 +49,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white overflow-x-hidden">
+      <HeroBackgroundLayer />
       <Nav onJoinBeta={() => setIsModalOpen(true)} />
 
       <Modal
@@ -62,7 +63,6 @@ export default function Home() {
 
       {/* ── HERO ── */}
       <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-        <HeroBackgroundLayer />
 
         <Container>
           <div className="relative z-[2] mx-auto max-w-4xl text-center">
@@ -169,7 +169,6 @@ export default function Home() {
       <section id="updates" className="wash-signup py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
-          <div className="glow-orb-alt absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/[0.04] blur-[120px]" />
         </div>
         <Container>
           <div className="reveal relative mx-auto max-w-xl text-center">

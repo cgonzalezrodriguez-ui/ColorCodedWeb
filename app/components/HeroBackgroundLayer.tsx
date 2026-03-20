@@ -26,8 +26,8 @@ linear-gradient(to bottom, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.05) 40%, rgba
 
   return (
     <>
-      <div aria-hidden className="pointer-events-none absolute inset-0 z-0" style={style} />
-      <div aria-hidden className="pointer-events-none absolute inset-0 z-[1]" style={vignetteStyle} />
+      <div aria-hidden className="pointer-events-none fixed inset-0 z-0" style={style} />
+      <div aria-hidden className="pointer-events-none fixed inset-0 z-[1]" style={vignetteStyle} />
     </>
   );
 }
