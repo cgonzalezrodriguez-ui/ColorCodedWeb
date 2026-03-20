@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 export default function useReveal() {
   useEffect(() => {
-    const selectors = ".reveal, .reveal-scale, .reveal-left, .reveal-right, .note-pop, .line-grow";
+    const selectors = ".reveal, .reveal-scale, .reveal-pop, .reveal-left, .reveal-right, .note-pop, .line-grow";
     const exitTimers = new Map<Element, number>();
 
     const observer = new IntersectionObserver(
