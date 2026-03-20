@@ -48,7 +48,7 @@ export default function Home() {
   }, [isModalOpen]);
 
   return (
-    <main className="min-h-screen bg-black text-white overflow-x-hidden">
+    <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
       <HeroBackgroundLayer />
       <Nav onJoinBeta={() => setIsModalOpen(true)} />
 
@@ -62,7 +62,7 @@ export default function Home() {
       </Modal>
 
       {/* ── HERO ── */}
-      <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
+      <section className="relative flex min-h-screen items-center justify-center">
 
         <Container>
           <div className="relative z-[2] mx-auto max-w-4xl text-center">
