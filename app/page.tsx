@@ -77,7 +77,7 @@ export default function Home() {
               </a>
               <a href="#updates" className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]">Get notified</a>
             </div>
-            <p className="hero-animate hero-animate-delay-3 mt-12 text-xs tracking-wide text-white/25">LAUNCHING SOON ON iOS</p>
+            <p className="hero-animate hero-animate-delay-3 mt-6 text-xs tracking-wide text-white/25">LAUNCHING SOON ON iOS</p>
           </div>
         </Container>
       </section>
