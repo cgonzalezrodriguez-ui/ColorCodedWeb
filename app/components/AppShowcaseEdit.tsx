@@ -43,6 +43,14 @@ const STEPS = [
     alt: "Final color-coded score with fingering",
     rotate: "2deg",
   },
+  {
+    num: "4",
+    title: "Share",
+    desc: "Export as a PDF to print, AirDrop to an iPad, or save to your personal library for later.",
+    src: "/sim-step4-share.png",
+    alt: "Share sheet showing print and export options",
+    rotate: "-1deg",
+  },
 ];
 
 export default function AppShowcaseEdit() {
@@ -54,10 +62,10 @@ export default function AppShowcaseEdit() {
             How it works
           </p>
           <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Scan. Edit. Play.
+            Scan. Edit. Play. Share.
           </h2>
           <p className="mt-4 text-base text-white/40">
-            Three steps from paper to color-coded music.
+            Four steps from paper to color-coded music.
           </p>
         </div>
 

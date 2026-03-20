@@ -68,7 +68,7 @@ export default function Home() {
               <span className="hero-rainbow-text hero-rainbow-glow bg-clip-text text-transparent">color.</span>
             </h1>
             <p className="hero-animate hero-animate-delay-1 mx-auto mt-8 max-w-lg text-lg text-white/45 sm:text-xl">
-              Upload sheet music. Get back color-coded notes, pitch labels, and fingering.
+              Reading sheet music is hard for beginners. ColorCoded makes it visual - so you spend less time decoding and more time playing.
             </p>
             <div className="hero-animate hero-animate-delay-2 mt-10 flex flex-wrap justify-center gap-4">
               <a href="#transformation" onClick={() => resetFade()} className="group rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06]">
