@@ -26,7 +26,7 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): {
   }, []);
 
   const toggle = useCallback(() => {
-    if (!isComplete) return;
+    
     setManualState((prev) => (prev === 0 ? 1 : 0));
   }, [isComplete]);
 
