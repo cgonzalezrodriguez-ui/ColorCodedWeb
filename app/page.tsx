@@ -91,7 +91,7 @@ export default function Home() {
               <span className="hero-rainbow-text bg-clip-text text-transparent">difference.</span>
             </h2>
           </div>
-          <div ref={fadeRef} onClick={toggleFade} className="reveal-scale reveal-delay-1 relative mx-auto mt-12 max-w-4xl cursor-pointer overflow-hidden rounded-3xl border border-white/[0.08] bg-white shadow-2xl shadow-black/50">
+          <div ref={fadeRef} onClick={toggleFade} className="reveal-scale reveal-delay-1 relative mx-auto mt-12 max-w-[900px] cursor-pointer overflow-hidden rounded-3xl border border-white/[0.08] bg-white shadow-2xl shadow-black/50">
             <img src="/mary-before.png" alt="Original sheet music" className="block w-full" />
             <img
               src="/mary-after.png"
