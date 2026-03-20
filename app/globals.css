@@ -243,20 +243,4 @@ body {
 }
 
 
-/* -- Full-page tiling color wash -- */
-.page-bg {
-  background-color: #000;
-  background-image:
-    /* ── top half (original) ── */
-    radial-gradient(ellipse 140% 30% at -15% 25%, rgba(239, 68, 68, 0.22) 0%, rgba(249, 115, 22, 0.18) 40%, transparent 65%),
-    radial-gradient(ellipse 135% 32% at 115% 27%, rgba(59, 130, 246, 0.22) 0%, rgba(168, 85, 247, 0.16) 42%, transparent 68%),
-    radial-gradient(ellipse 120% 25% at 55% 40%, rgba(234, 179, 8, 0.06) 0%, rgba(34, 197, 94, 0.04) 35%, transparent 55%),
-    radial-gradient(ellipse 130% 25% at 50% 48%, rgba(34, 197, 94, 0.07) 0%, transparent 60%),
-    /* ── bottom half (mirrored) ── */
-    radial-gradient(ellipse 140% 30% at -15% 75%, rgba(239, 68, 68, 0.22) 0%, rgba(249, 115, 22, 0.18) 40%, transparent 65%),
-    radial-gradient(ellipse 135% 32% at 115% 73%, rgba(59, 130, 246, 0.22) 0%, rgba(168, 85, 247, 0.16) 42%, transparent 68%),
-    radial-gradient(ellipse 120% 25% at 55% 60%, rgba(234, 179, 8, 0.06) 0%, rgba(34, 197, 94, 0.04) 35%, transparent 55%),
-    radial-gradient(ellipse 130% 25% at 50% 52%, rgba(34, 197, 94, 0.07) 0%, transparent 60%);
-  background-size: 100% 400vh;
-  background-repeat: repeat-y;
-}
+
