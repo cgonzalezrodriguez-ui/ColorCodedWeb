@@ -71,7 +71,7 @@ export default function AppShowcaseEdit() {
 
         <div className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-16 sm:grid-cols-2 sm:gap-12">
           {STEPS.map((step, i) => (
-            <div key={step.num} className={`reveal reveal-delay-${i + 1} flex flex-col items-center text-center`}>
+            <div key={step.num} className={`reveal-scale reveal-delay-${i + 1} flex flex-col items-center text-center`}>
               <div
                 className="transition-transform duration-500 ease-out"
                 style={{ transform: `rotate(${step.rotate})` }}
