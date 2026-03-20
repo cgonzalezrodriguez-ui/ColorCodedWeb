@@ -10,7 +10,6 @@ import WaitlistCard from "./components/WaitlistCard";
 import FAQ from "./components/FAQ";
 import Footer from "./components/Footer";
 import StickerShop from "./components/StickerShop";
-import Vision from "./components/Vision";
 import AppShowcaseEdit from "./components/AppShowcaseEdit";
 import AppShowcaseLibrary from "./components/AppShowcaseLibrary";
 
@@ -128,7 +127,6 @@ export default function Home() {
       <AppShowcaseLibrary />
 
       {/* ── VISION ── */}
-      <Vision />
 
       {/* ── STICKERS ── */}
       <StickerShop />
