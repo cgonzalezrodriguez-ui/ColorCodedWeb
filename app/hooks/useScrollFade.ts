@@ -6,9 +6,11 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): { pro
   const [scrollProgress, setScrollProgress] = useState(0);
   const [autoProgress, setAutoProgress] = useState(0);
   const hasTriggered = useRef(false);
+  const isLocked = useRef(false);
 
   const reset = useCallback(() => {
     hasTriggered.current = false;
+    isLocked.current = true;
     setAutoProgress(0);
     setScrollProgress(0);
   }, []);
@@ -19,6 +21,7 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): { pro
     if (!el) return;
 
     const onScroll = () => {
+      if (isLocked.current) return;
       const rect = el.getBoundingClientRect();
       const windowH = window.innerHeight;
       const start = windowH * 0.7;
@@ -49,6 +52,9 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): { pro
             const t = Math.min(elapsed / duration, 1);
             const eased = t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
             setAutoProgress(eased);
+            if (t >= 1) {
+              isLocked.current = false;
+            }
             if (t < 1) requestAnimationFrame(animate);
           };
 
