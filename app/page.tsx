@@ -103,15 +103,6 @@ export default function Home() {
               style={{ opacity: fadeProgress }}
             />
           </div>
-          <div className="mt-6 flex items-center justify-center gap-4">
-            <span className={`rounded-full px-5 py-2 text-xs font-semibold tracking-wide transition-all duration-300 ${fadeProgress < 0.5 ? "bg-white/10 text-white border border-white/20" : "bg-transparent text-white/25 border border-transparent"}`}>BEFORE</span>
-            <div className="h-1 w-24 overflow-hidden rounded-full bg-white/10">
-              <div className="h-full rounded-full bg-gradient-to-r from-red-500 via-green-500 to-violet-500 transition-none" style={{ width: `${fadeProgress * 100}%` }} />
-            </div>
-            <span className={`rounded-full px-5 py-2 text-xs font-semibold tracking-wide transition-all duration-300 ${fadeProgress >= 0.5 ? "bg-white/10 border border-white/20" : "bg-transparent border border-transparent"}`}>
-              <span className={`transition-all duration-300 ${fadeProgress >= 0.5 ? "hero-rainbow-text bg-clip-text text-transparent" : "text-white/25"}`}>AFTER</span>
-            </span>
-          </div>
         </Container>
       </section>
 
