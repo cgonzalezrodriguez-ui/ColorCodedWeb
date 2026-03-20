@@ -27,7 +27,7 @@ const FAQ_ITEMS = [
   {
     question: "What devices will ColorCoded work on?",
     answer:
-      "The first version will launch on iOS. Future versions may expand to other platforms depending on feedback from early users.",
+      "ColorCoded is launching on iPhone first. iPad support is planned.",
   },
   {
     question: "What type of sheet music can I upload?",
@@ -35,9 +35,19 @@ const FAQ_ITEMS = [
       "You can upload photos or PDFs of standard sheet music. ColorCoded detects noteheads and maps them to the color system automatically.",
   },
   {
-    question: "Will it be free?",
+    question: "Is ColorCoded free?",
     answer:
-      "The initial version will be free to use. Pricing details for future features will be shared closer to launch.",
+      "You get 10 free scans per day. If you need more, subscription plans and token packs are available. Core features like editing, the color system, and the public library are always free.",
+  },
+  {
+    question: "How accurate is the note detection?",
+    answer:
+      "It works well on clean, printed sheet music. Handwritten scores and low-quality photos may need more manual cleanup. That's why the editor exists - you can fix anything the scanner misses.",
+  },
+  {
+    question: "Can I use it while practicing at the piano?",
+    answer:
+      "Yes. You can prop your phone on the piano stand, AirDrop the colored PDF to an iPad, or print it out. Whatever works best for your setup.",
   },
 ] as const;
 
