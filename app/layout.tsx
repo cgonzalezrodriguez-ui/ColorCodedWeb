@@ -15,6 +15,17 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ColorCoded | Read piano music in color",
   description: "ColorCoded turns sheet music into a color-based system to help you recognize notes faster and play with confidence.",
+  openGraph: {
+    title: "ColorCoded | Read piano music in color",
+    description: "Reading sheet music is hard for beginners. ColorCoded makes it visual.",
+    images: [{ url: "/mary-after.png", width: 900, height: 480 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ColorCoded | Read piano music in color",
+    description: "Reading sheet music is hard for beginners. ColorCoded makes it visual.",
+    images: ["/mary-after.png"],
+  },
 };
 
 export default function RootLayout({
