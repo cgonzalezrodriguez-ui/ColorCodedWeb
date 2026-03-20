@@ -2,10 +2,12 @@ import type { CSSProperties } from "react";
 
 export default function HeroBackgroundLayer() {
   const backgroundImage = `
-radial-gradient(ellipse 150% 95% at -15% 35%, rgba(239, 68, 68, 0.28) 0%, rgba(249, 115, 22, 0.24) 40%, rgba(249, 115, 22, 0.0) 68%),
-radial-gradient(ellipse 145% 100% at 115% 38%, rgba(59, 130, 246, 0.28) 0%, rgba(168, 85, 247, 0.22) 42%, rgba(168, 85, 247, 0.0) 72%),
-radial-gradient(ellipse 135% 85% at 55% 84%, rgba(234, 179, 8, 0.16) 0%, rgba(34, 197, 94, 0.12) 45%, rgba(34, 197, 94, 0.0) 66%),
-radial-gradient(ellipse 145% 85% at 50% 98%, rgba(34, 197, 94, 0.09) 0%, rgba(34, 197, 94, 0.0) 65%)
+radial-gradient(ellipse 150% 40% at -15% 8%, rgba(239, 68, 68, 0.28) 0%, rgba(249, 115, 22, 0.22) 40%, transparent 70%),
+radial-gradient(ellipse 145% 40% at 115% 8%, rgba(59, 130, 246, 0.26) 0%, rgba(168, 85, 247, 0.20) 42%, transparent 72%),
+radial-gradient(ellipse 120% 30% at 50% 35%, rgba(34, 197, 94, 0.14) 0%, rgba(59, 130, 246, 0.10) 50%, transparent 70%),
+radial-gradient(ellipse 130% 30% at 30% 55%, rgba(59, 130, 246, 0.12) 0%, rgba(99, 102, 241, 0.08) 50%, transparent 70%),
+radial-gradient(ellipse 130% 30% at 70% 75%, rgba(168, 85, 247, 0.14) 0%, rgba(139, 92, 246, 0.10) 50%, transparent 70%),
+radial-gradient(ellipse 140% 25% at 50% 95%, rgba(139, 92, 246, 0.16) 0%, transparent 65%)
 `;
 
   const style: CSSProperties = {
@@ -26,8 +28,8 @@ linear-gradient(to bottom, rgba(0, 0, 0, 0.22) 0%, rgba(0, 0, 0, 0.05) 40%, rgba
 
   return (
     <>
-      <div aria-hidden className="pointer-events-none fixed inset-0 z-0" style={style} />
-      <div aria-hidden className="pointer-events-none fixed inset-0 z-[1]" style={vignetteStyle} />
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-0 h-full" style={style} />
+      <div aria-hidden className="pointer-events-none absolute inset-0 z-[1] h-full" style={vignetteStyle} />
     </>
   );
 }
