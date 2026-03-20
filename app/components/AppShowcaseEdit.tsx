@@ -69,7 +69,7 @@ export default function AppShowcaseEdit() {
           </p>
         </div>
 
-        <div className="mx-auto mt-16 flex max-w-5xl flex-col items-center gap-16 sm:flex-row sm:items-start sm:justify-center sm:gap-8">
+        <div className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-16 sm:grid-cols-2 sm:gap-12">
           {STEPS.map((step, i) => (
             <div key={step.num} className={`reveal reveal-delay-${i + 1} flex flex-col items-center text-center`}>
               <div
