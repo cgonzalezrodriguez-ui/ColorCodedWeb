@@ -1,10 +1,8 @@
 import Container from "./Container";
-import HeroBackgroundLayer from "./HeroBackgroundLayer";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden pt-20 pb-20 md:pt-28 md:pb-24">
-      <HeroBackgroundLayer />
       <Container>
         <div className="relative z-[2] max-w-3xl">
           <h1 className="text-5xl font-semibold leading-tight text-white md:text-6xl">
