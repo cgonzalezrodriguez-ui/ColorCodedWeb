@@ -34,11 +34,6 @@ const BUILT_FOR = [
   { icon: "\u{1F3AF}", title: "Self-taught", line: "Stay in flow longer when practicing alone." },
 ];
 
-const PAIN_POINTS = [
-  { title: "See it, play it", desc: "Stop decoding symbols. Colors connect the page to the keys instantly.", icon: "🎨" },
-  { title: "Stay in the flow", desc: "Less stopping to figure out notes. More actual playing.", icon: "🎵" },
-  { title: "Progress you can feel", desc: "The hard part should be the music, not the notation.", icon: "🚀" },
-];
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -79,7 +74,7 @@ export default function Home() {
               Upload sheet music. Get back color-coded notes, pitch labels, and fingering.
             </p>
             <div className="hero-animate hero-animate-delay-2 mt-10 flex flex-wrap justify-center gap-4">
-              <a href="#the-problem" className="group rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06]">
+              <a href="#transformation" className="group rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06]">
                 See how it works <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-y-1">&darr;</span>
               </a>
               <a href="#updates" className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]">Get notified</a>
@@ -89,44 +84,6 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── THE PROBLEM ── */}
-      <section id="the-problem" className="wash-problem py-16 sm:py-20">
-        <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        <Container>
-          <div className="reveal mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">Why ColorCoded</p>
-            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">What if reading music just clicked?</h2>
-          </div>
-          <div className="mx-auto mt-12 grid max-w-4xl gap-5 sm:grid-cols-3">
-            {PAIN_POINTS.map((item, i) => (
-              <div key={item.title} className={`reveal-left reveal-delay-${i + 1} rounded-2xl border border-white/[0.06] bg-white/[0.02] p-7`}>
-                <div className="text-3xl">{item.icon}</div>
-                <h3 className="mt-4 text-base font-semibold text-white/90">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/40">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-
-      {/* ── COLOR SYSTEM ── */}
-      <section className="wash-system py-16 sm:py-20">
-        <Container>
-          <div className="reveal mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The system</p>
-            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Seven notes. Seven colors.</h2>
-            <p className="mt-4 text-base text-white/40">One mapping that repeats every octave.</p>
-          </div>
-          <div className="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-4 sm:gap-5">
-            {COLORS.map(({ note, hex }, i) => (
-              <div key={note} className="note-pop flex flex-col items-center gap-3" style={{ animationDelay: `${i * 0.1}s` }}>
-                <div className="piano-key flex h-16 w-16 items-center justify-center rounded-2xl text-lg font-bold text-white shadow-xl sm:h-20 sm:w-20 sm:text-2xl" style={{ backgroundColor: hex, boxShadow: `0 8px 40px ${hex}40` }}>{note}</div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
       {/* ── CROSSFADE ── */}
       <section id="transformation" className="wash-solution py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -160,18 +117,33 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* ── COLOR SYSTEM ── */}
+      <section className="wash-system py-16 sm:py-20">
+        <Container>
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The system</p>
+            <h2 className="mt-5 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">Seven notes. Seven colors.</h2>
+            <p className="mt-4 text-base text-white/40">One mapping that repeats every octave.</p>
+          </div>
+          <div className="mx-auto mt-12 flex max-w-3xl flex-wrap justify-center gap-4 sm:gap-5">
+            {COLORS.map(({ note, hex }, i) => (
+              <div key={note} className="note-pop flex flex-col items-center gap-3" style={{ animationDelay: `${i * 0.1}s` }}>
+                <div className="piano-key flex h-16 w-16 items-center justify-center rounded-2xl text-lg font-bold text-white shadow-xl sm:h-20 sm:w-20 sm:text-2xl" style={{ backgroundColor: hex, boxShadow: `0 8px 40px ${hex}40` }}>{note}</div>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
       {/* ── SCAN / EDIT / PLAY ── */}
       <AppShowcaseEdit />
-
-      {/* ── VISION ── */}
 
       {/* ── PUBLIC LIBRARY ── */}
       <AppShowcaseLibrary />
 
+      {/* ── VISION ── */}
       <Vision />
 
       {/* ── STICKERS ── */}
-
       <StickerShop />
 
       {/* ── BUILT FOR ── */}
