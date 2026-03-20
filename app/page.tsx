@@ -164,10 +164,11 @@ export default function Home() {
       <AppShowcaseEdit />
 
       {/* ── VISION ── */}
-      <Vision />
 
       {/* ── PUBLIC LIBRARY ── */}
       <AppShowcaseLibrary />
+
+      <Vision />
 
       {/* ── STICKERS ── */}
 
