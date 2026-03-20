@@ -2,12 +2,19 @@
 
 import { useEffect, useState, useRef, useCallback, type RefObject } from "react";
 
-export default function useScrollFade(ref: RefObject<HTMLElement | null>): { progress: number; reset: () => void } {
+export default function useScrollFade(ref: RefObject<HTMLElement | null>): {
+  progress: number;
+  reset: () => void;
+  toggle: () => void;
+  isComplete: boolean;
+} {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [autoProgress, setAutoProgress] = useState(0);
+  const [manualState, setManualState] = useState<null | 0 | 1>(null);
   const hasTriggered = useRef(false);
   const isLocked = useRef(false);
   const durationRef = useRef(5000);
+  const isComplete = autoProgress >= 1;
 
   const reset = useCallback(() => {
     hasTriggered.current = false;
@@ -15,7 +22,13 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): { pro
     durationRef.current = 2000;
     setAutoProgress(0);
     setScrollProgress(0);
+    setManualState(null);
   }, []);
+
+  const toggle = useCallback(() => {
+    if (!isComplete) return;
+    setManualState((prev) => (prev === 0 ? 1 : 0));
+  }, [isComplete]);
 
   useEffect(() => {
     const el = ref.current;
@@ -69,5 +82,8 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): { pro
     return () => observer.disconnect();
   }, [ref]);
 
-  return { progress: Math.max(scrollProgress, autoProgress), reset };
+  const base = Math.max(scrollProgress, autoProgress);
+  const progress = manualState !== null ? manualState : base;
+
+  return { progress, reset, toggle, isComplete };
 }

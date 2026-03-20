@@ -37,7 +37,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalSubmitted, setModalSubmitted] = useState(false);
   const fadeRef = useRef<HTMLDivElement>(null);
-  const { progress: fadeProgress, reset: resetFade } = useScrollFade(fadeRef);
+  const { progress: fadeProgress, reset: resetFade, toggle: toggleFade, isComplete: fadeComplete } = useScrollFade(fadeRef);
 
   useReveal();
 
@@ -91,7 +91,7 @@ export default function Home() {
               <span className="hero-rainbow-text bg-clip-text text-transparent">difference.</span>
             </h2>
           </div>
-          <div ref={fadeRef} className="reveal-scale reveal-delay-1 relative mx-auto mt-12 max-w-4xl overflow-hidden rounded-3xl border border-white/[0.08] bg-white shadow-2xl shadow-black/50">
+          <div ref={fadeRef} onClick={toggleFade} className="reveal-scale reveal-delay-1 relative mx-auto mt-12 max-w-4xl cursor-pointer overflow-hidden rounded-3xl border border-white/[0.08] bg-white shadow-2xl shadow-black/50">
             <img src="/mary-before.png" alt="Original sheet music" className="block w-full" />
             <img
               src="/mary-after.png"
@@ -100,6 +100,7 @@ export default function Home() {
               style={{ opacity: fadeProgress }}
             />
           </div>
+          <p className={`mt-4 text-center text-xs text-white/30 transition-opacity duration-500 ${fadeComplete ? "opacity-100" : "opacity-0"}`}>Tap to compare</p>
         </Container>
       </section>
 
