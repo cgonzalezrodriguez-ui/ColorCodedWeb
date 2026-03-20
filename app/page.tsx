@@ -13,7 +13,6 @@ import StickerShop from "./components/StickerShop";
 import Vision from "./components/Vision";
 import AppShowcaseEdit from "./components/AppShowcaseEdit";
 import AppShowcaseLibrary from "./components/AppShowcaseLibrary";
-import HeroBackgroundLayer from "./components/HeroBackgroundLayer";
 
 const COLORS = [
   { note: "C", name: "Red", hex: "#E0292E" },
@@ -48,8 +47,7 @@ export default function Home() {
   }, [isModalOpen]);
 
   return (
-    <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
-      <HeroBackgroundLayer />
+    <main className="min-h-screen bg-black text-white overflow-x-hidden">
       <Nav onJoinBeta={() => setIsModalOpen(true)} />
 
       <Modal
