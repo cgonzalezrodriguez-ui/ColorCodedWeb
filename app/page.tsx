@@ -100,7 +100,7 @@ export default function Home() {
               style={{ opacity: fadeProgress }}
             />
           </div>
-          <p className={`mt-4 text-center text-xs text-white/30 transition-opacity duration-500 ${fadeComplete ? "opacity-100" : "opacity-0"}`}>Tap to compare</p>
+          <p className={`mt-4 text-center text-xs text-white/30`}>Tap to compare</p>
         </Container>
       </section>
 
