@@ -1,11 +1,17 @@
 "use client";
 
-import { useEffect, useState, useRef, type RefObject } from "react";
+import { useEffect, useState, useRef, useCallback, type RefObject } from "react";
 
-export default function useScrollFade(ref: RefObject<HTMLElement | null>): number {
+export default function useScrollFade(ref: RefObject<HTMLElement | null>): { progress: number; reset: () => void } {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [autoProgress, setAutoProgress] = useState(0);
   const hasTriggered = useRef(false);
+
+  const reset = useCallback(() => {
+    hasTriggered.current = false;
+    setAutoProgress(0);
+    setScrollProgress(0);
+  }, []);
 
   // Scroll-driven progress
   useEffect(() => {
@@ -47,7 +53,6 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): numbe
           };
 
           requestAnimationFrame(animate);
-          observer.disconnect();
         }
       },
       { threshold: 0.3 }
@@ -57,5 +62,5 @@ export default function useScrollFade(ref: RefObject<HTMLElement | null>): numbe
     return () => observer.disconnect();
   }, [ref]);
 
-  return Math.max(scrollProgress, autoProgress);
+  return { progress: Math.max(scrollProgress, autoProgress), reset };
 }

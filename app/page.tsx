@@ -37,7 +37,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalSubmitted, setModalSubmitted] = useState(false);
   const fadeRef = useRef<HTMLDivElement>(null);
-  const fadeProgress = useScrollFade(fadeRef);
+  const { progress: fadeProgress, reset: resetFade } = useScrollFade(fadeRef);
 
   useReveal();
 
@@ -71,7 +71,7 @@ export default function Home() {
               Upload sheet music. Get back color-coded notes, pitch labels, and fingering.
             </p>
             <div className="hero-animate hero-animate-delay-2 mt-10 flex flex-wrap justify-center gap-4">
-              <a href="#transformation" className="group rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06]">
+              <a href="#transformation" onClick={() => resetFade()} className="group rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06]">
                 See how it works <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-y-1">&darr;</span>
               </a>
               <a href="#updates" className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]">Get notified</a>
