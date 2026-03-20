@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ColorCoded | Read piano music in color",
     description: "Reading sheet music is hard for beginners. ColorCoded makes it visual.",
-    images: [{ url: "/mary-after.png", width: 900, height: 480 }],
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "ColorCoded | Read piano music in color",
     description: "Reading sheet music is hard for beginners. ColorCoded makes it visual.",
-    images: ["/mary-after.png"],
+    images: ["/og-image.png"],
   },
 };
 
