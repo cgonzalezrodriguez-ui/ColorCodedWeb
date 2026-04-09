@@ -100,7 +100,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
               Support
             </Link>
             <Link
-              href="/#updates"
+              href="https://apps.apple.com/us/app/colorcoded-music/id6759799607" target="_blank" rel="noopener noreferrer"
               onClick={handleJoinBetaClick}
               className="rounded-lg bg-white px-5 py-2 text-sm font-medium text-black hover:bg-white/90"
             >

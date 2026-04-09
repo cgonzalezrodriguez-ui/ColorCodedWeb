@@ -74,9 +74,9 @@ export default function Home() {
               <a href="#transformation" onClick={() => resetFade()} className="group rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06]">
                 See how it works <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-y-1">&darr;</span>
               </a>
-              <a href="#updates" className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]">Get notified</a>
+              <a href="https://apps.apple.com/us/app/colorcoded-music/id6759799607" target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]">Download for iOS</a>
             </div>
-            <p className="hero-animate hero-animate-delay-3 mt-6 text-xs tracking-wide text-white/25">LAUNCHING SOON ON iOS</p>
+            <p className="hero-animate hero-animate-delay-3 mt-6 text-xs tracking-wide text-white/25">AVAILABLE NOW ON iOS</p>
           </div>
         </Container>
       </section>
