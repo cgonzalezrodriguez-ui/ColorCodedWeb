@@ -8,6 +8,7 @@ import Container from "./components/Container";
 import Modal from "./components/Modal";
 import WaitlistCard from "./components/WaitlistCard";
 import FAQ from "./components/FAQ";
+import FeedbackCard from "./components/FeedbackCard";
 import Footer from "./components/Footer";
 import StickerShop from "./components/StickerShop";
 import AppShowcaseEdit from "./components/AppShowcaseEdit";
@@ -150,15 +151,9 @@ export default function Home() {
           </div>
         </Container>
       </section>
-
       <section className="py-16 sm:py-20">
-        <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <Container>
-          <div className="reveal mx-auto max-w-xl text-center">
-            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Have feedback?</h2>
-            <p className="mt-4 text-base text-white/40">Suggestions, ideas, or things that feel off — we want to hear it.</p>
-            <a href="mailto:support@color-coded.app" className="mt-8 inline-block rounded-full border border-white/20 px-8 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/[0.05]">Send us a message</a>
-          </div>
+          <FeedbackCard />
         </Container>
       </section>
 
