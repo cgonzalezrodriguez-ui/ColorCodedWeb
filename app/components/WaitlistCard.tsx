@@ -64,11 +64,11 @@ export default function WaitlistCard({
             id={`${formIdBase}-subscribe`}
             className="w-full shrink-0 rounded-full bg-white px-6 py-3 text-sm font-medium text-black hover:bg-white/90 sm:w-auto"
           >
-            Notify me
+            Download
           </button>
         </form>
       )}
-      <p className="mt-6 text-xs text-white/50">Launching first on iOS.</p>
+      <p className="mt-6 text-xs text-white/50">Available now on the App Store.</p>
     </div>
   );
 }

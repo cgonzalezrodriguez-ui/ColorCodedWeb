@@ -151,27 +151,13 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* ── SIGNUP ── */}
-      <section id="updates" className="wash-signup py-16 sm:py-20">
+      <section className="py-16 sm:py-20">
         <div className="line-grow mx-auto mb-16 h-px w-48 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-        <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        </div>
         <Container>
-          <div className="reveal relative mx-auto max-w-xl text-center">
-            <div className="mt-10">
-              <WaitlistCard formIdBase="mc-embedded-inline" />
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ── FEEDBACK ── */}
-      <section className="reveal py-20">
-        <Container>
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl font-semibold text-white">Have feedback?</h2>
-            <p className="mt-3 text-sm text-white/40">Suggestions, ideas, or things that feel off - we want to hear it.</p>
-            <a href="mailto:support@color-coded.app" className="mt-6 inline-block rounded-full border border-white/15 px-6 py-3 text-sm font-medium text-white/70 transition-all duration-300 hover:border-white/30 hover:bg-white/[0.04] hover:text-white">Send us a message</a>
+          <div className="reveal mx-auto max-w-xl text-center">
+            <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Have feedback?</h2>
+            <p className="mt-4 text-base text-white/40">Suggestions, ideas, or things that feel off — we want to hear it.</p>
+            <a href="mailto:support@color-coded.app" className="mt-8 inline-block rounded-full border border-white/20 px-8 py-3.5 text-sm font-medium text-white transition-all duration-300 hover:border-white/40 hover:bg-white/[0.05]">Send us a message</a>
           </div>
         </Container>
       </section>

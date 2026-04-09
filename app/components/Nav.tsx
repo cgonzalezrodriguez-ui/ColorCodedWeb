@@ -12,7 +12,7 @@ const MOBILE_LINKS_BASE: MobileLink[] = [
   { label: "FAQ", href: "/#faq" },
   { label: "Privacy", href: "/privacy" },
   { label: "Support", href: "/support" },
-  { label: "Get Updates", href: "/#updates", cta: true },
+  { label: "Download", href: "https://apps.apple.com/us/app/colorcoded-music/id6759799607", cta: true },
 ];
 
 export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
@@ -104,7 +104,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
               onClick={handleJoinBetaClick}
               className="rounded-lg bg-white px-5 py-2 text-sm font-medium text-black hover:bg-white/90"
             >
-              Get Updates
+              Download
             </Link>
           </div>
 
@@ -142,7 +142,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
               key={href + label}
               href={href}
               onClick={(e) => {
-                if (label === "Get Updates") handleJoinBetaClick(e as React.MouseEvent<HTMLAnchorElement>);
+                if (label === "Download") handleJoinBetaClick(e as React.MouseEvent<HTMLAnchorElement>);
                 closeMobileMenu();
               }}
               className={

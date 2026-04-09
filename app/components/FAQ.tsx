@@ -10,7 +10,7 @@ const FAQ_ITEMS = [
       "Beginners love it, but it's also great for returning players and visual learners.",
   },
   {
-    question: "When is the app launching?",
+    question: "Is the app available now?",
     answer:
       "We're working toward a first release now. Sign up above and we'll email you when it's ready.",
   },
@@ -27,7 +27,7 @@ const FAQ_ITEMS = [
   {
     question: "What devices will ColorCoded work on?",
     answer:
-      "ColorCoded is launching on iPhone first. iPad support is planned.",
+      "Yes! ColorCoded is available now on the App Store for iPhone. iPad support is planned.",
   },
   {
     question: "What type of sheet music can I upload?",
