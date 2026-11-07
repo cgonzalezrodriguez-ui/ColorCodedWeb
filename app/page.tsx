@@ -49,8 +49,8 @@ export default function Home() {
   }, [isModalOpen]);
 
   return (
-    <main className="page-bg min-h-screen text-white overflow-x-hidden" data-background="3">
-      <Nav onJoinBeta={() => setIsModalOpen(true)} />
+    <main className="page-bg min-h-screen text-white overflow-x-clip" data-background="3">
+      <Nav />
 
       <Modal
         open={isModalOpen}

@@ -20,7 +20,26 @@ body {
   background: #000;
   color: #ededed;
   font-family: var(--font-sans), system-ui, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+/* Keep navigation above the page with a stronger glass surface on scroll. */
+.site-nav {
+  background: rgba(8, 6, 14, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(8px) saturate(140%);
+  backdrop-filter: blur(8px) saturate(140%);
+  transition: background 250ms ease, border-color 250ms ease, box-shadow 250ms ease, backdrop-filter 250ms ease;
+}
+.site-nav[data-scrolled="true"] {
+  background: rgba(15, 12, 24, 0.58);
+  border-color: rgba(255, 255, 255, 0.14);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-nav { transition: none; }
 }
 
 /* ── Scroll reveal system ── */

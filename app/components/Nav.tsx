@@ -15,7 +15,7 @@ const MOBILE_LINKS_BASE: MobileLink[] = [
   { label: "Download", href: "https://apps.apple.com/us/app/colorcoded-music/id6759799607", cta: true },
 ];
 
-export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
+export default function Nav() {
   const pathname = usePathname();
   const isHome = pathname === "/";
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,21 +24,6 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
   const mobileLinks: MobileLink[] = isHome
     ? MOBILE_LINKS_BASE
     : [{ label: "Home", href: "/" }, ...MOBILE_LINKS_BASE];
-
-  function handleJoinBetaClick(e: React.MouseEvent<HTMLAnchorElement>) {
-    if (isHome) {
-      e.preventDefault();
-      if (onJoinBeta) {
-        onJoinBeta();
-        return;
-      }
-      const el = document.getElementById("updates");
-      if (el) {
-        const y = el.getBoundingClientRect().top + window.scrollY - 80; // clear sticky header
-        window.scrollTo({ top: y, behavior: "smooth" });
-      }
-    }
-  }
 
   function closeMobileMenu() {
     setMobileMenuOpen(false);
@@ -55,9 +40,8 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b border-white/5 py-3 shadow-[0_1px_0_0_rgba(255,255,255,0.05)] backdrop-blur-[10px] md:py-3.5 ${
-        isScrolled ? "bg-black/45" : "bg-black/20"
-      }`}
+      className="site-nav sticky top-0 z-50 py-3 md:py-3.5"
+      data-scrolled={isScrolled}
     >
       <Container>
         <div className="flex items-center justify-between">
@@ -86,7 +70,7 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
             </nav>
           </div>
 
-          {/* Right group: Privacy, Support, Join Beta */}
+          {/* Right group: Privacy, Support, Download */}
           <div className="hidden items-center gap-7 md:ml-auto md:flex md:shrink-0">
             {!isHome && (
               <Link className={navLinkClass} href="/">
@@ -101,7 +85,6 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
             </Link>
             <Link
               href="https://apps.apple.com/us/app/colorcoded-music/id6759799607" target="_blank" rel="noopener noreferrer"
-              onClick={handleJoinBetaClick}
               className="rounded-lg bg-white px-5 py-2 text-sm font-medium text-black hover:bg-white/90"
             >
               Download
@@ -141,10 +124,9 @@ export default function Nav({ onJoinBeta }: { onJoinBeta?: () => void }) {
             <Link
               key={href + label}
               href={href}
-              onClick={(e) => {
-                if (label === "Download") handleJoinBetaClick(e as React.MouseEvent<HTMLAnchorElement>);
-                closeMobileMenu();
-              }}
+              onClick={closeMobileMenu}
+              target={cta ? "_blank" : undefined}
+              rel={cta ? "noopener noreferrer" : undefined}
               className={
                 cta
                   ? "mx-4 mt-2 rounded-full bg-white py-3 text-center text-sm font-medium text-black hover:bg-white/90"
