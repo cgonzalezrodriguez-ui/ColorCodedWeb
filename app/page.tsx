@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import useReveal from "./hooks/useReveal";
 import useScrollFade from "./hooks/useScrollFade";
+import useReveal from "./hooks/useReveal";
 import Nav from "./components/Nav";
+import PremiumHero from "./components/PremiumHero";
 import Container from "./components/Container";
 import Modal from "./components/Modal";
 import WaitlistCard from "./components/WaitlistCard";
@@ -37,8 +38,9 @@ const BUILT_FOR = [
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalSubmitted, setModalSubmitted] = useState(false);
+
   const fadeRef = useRef<HTMLDivElement>(null);
-  const { progress: fadeProgress, reset: resetFade, toggle: toggleFade, isComplete: fadeComplete } = useScrollFade(fadeRef);
+  const { progress: fadeProgress, toggle: toggleFade } = useScrollFade(fadeRef);
 
   useReveal();
 
@@ -47,7 +49,7 @@ export default function Home() {
   }, [isModalOpen]);
 
   return (
-    <main className="page-bg min-h-screen text-white overflow-x-hidden">
+    <main className="page-bg min-h-screen text-white overflow-x-hidden" data-background="3">
       <Nav onJoinBeta={() => setIsModalOpen(true)} />
 
       <Modal
@@ -59,31 +61,10 @@ export default function Home() {
         <WaitlistCard formIdBase="mc-embedded-modal" submitted={modalSubmitted} onSubmit={() => setModalSubmitted(true)} />
       </Modal>
 
-      {/* ── HERO ── */}
-      <section className="relative flex min-h-screen items-center justify-center">
-
-        <Container>
-          <div className="relative z-[2] mx-auto max-w-4xl text-center">
-            <h1 className="hero-animate text-5xl font-bold leading-[1.1] tracking-tight text-white sm:text-6xl md:text-7xl lg:text-8xl">
-              Read piano music<br />in{" "}
-              <span className="hero-rainbow-text hero-rainbow-glow bg-clip-text text-transparent">color.</span>
-            </h1>
-            <p className="hero-animate hero-animate-delay-1 mx-auto mt-8 max-w-lg text-lg text-white/45 sm:text-xl">
-              Reading sheet music is hard for beginners. ColorCoded makes it visual - so you spend less time decoding and more time playing.
-            </p>
-            <div className="hero-animate hero-animate-delay-2 mt-10 flex flex-wrap justify-center gap-4">
-              <a href="#transformation" onClick={() => resetFade()} className="group rounded-full border border-white/15 bg-white/[0.03] px-7 py-3.5 text-sm font-medium text-white/80 backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/[0.06]">
-                See how it works <span className="ml-2 inline-block transition-transform duration-300 group-hover:translate-y-1">&darr;</span>
-              </a>
-              <a href="https://apps.apple.com/us/app/colorcoded-music/id6759799607" target="_blank" rel="noopener noreferrer" className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(255,255,255,0.15)]">Download for iOS</a>
-            </div>
-            <p className="hero-animate hero-animate-delay-3 mt-6 text-xs tracking-wide text-white/25">AVAILABLE NOW ON iOS</p>
-          </div>
-        </Container>
-      </section>
+      <PremiumHero />
 
       {/* ── CROSSFADE ── */}
-      <section id="transformation" className="wash-solution py-16 sm:py-20">
+      <section id="transformation" className="py-16 sm:py-20">
         <Container>
           <div className="reveal mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The solution</p>
@@ -106,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* ── COLOR SYSTEM ── */}
-      <section className="wash-system py-16 sm:py-20">
+      <section className="py-16 sm:py-20">
         <Container>
           <div className="reveal mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-white/30">The system</p>
@@ -123,7 +104,9 @@ export default function Home() {
         </Container>
       </section>
       {/* ── SCAN / EDIT / PLAY ── */}
-      <AppShowcaseEdit />
+      <div id="how-it-works" className="scroll-mt-24">
+        <AppShowcaseEdit />
+      </div>
 
       {/* ── PUBLIC LIBRARY ── */}
       <AppShowcaseLibrary />
