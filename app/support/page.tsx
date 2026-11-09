@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Nav from "../components/Nav";
-import Container from "../components/Container";
+import Nav from "../components/layout/Nav";
+import Container from "../components/ui/Container";
 
 export const metadata = {
   title: "Support - ColorCoded",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Container from "./Container";
+import Container from "../ui/Container";
 
 const FAQ_ITEMS = [
   {

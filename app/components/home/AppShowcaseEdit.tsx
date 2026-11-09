@@ -1,6 +1,6 @@
 "use client";
 
-import Container from "./Container";
+import Container from "../ui/Container";
 
 function PhoneFrame({ src, alt, className }: { src: string; alt: string; className?: string }) {
   return (

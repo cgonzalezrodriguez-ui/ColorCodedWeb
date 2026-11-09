@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import Container from "./Container";
+import Container from "../ui/Container";
 
 type MobileLink = { label: string; href: string; cta?: boolean };
 const MOBILE_LINKS_BASE: MobileLink[] = [
