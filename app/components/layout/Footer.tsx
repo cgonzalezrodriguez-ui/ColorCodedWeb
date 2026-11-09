@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Container from "./Container";
+import Container from "../ui/Container";
 
 export default function Footer() {
   return (
@@ -44,6 +44,15 @@ export default function Footer() {
                   className="underline hover:text-white"
                 >
                   support@color-coded.app
+                </a>
+              </p>
+              <p className="text-white/70">
+                Legal:{" "}
+                <a
+                  href="mailto:legal@color-coded.app"
+                  className="underline hover:text-white"
+                >
+                  legal@color-coded.app
                 </a>
               </p>
             </div>

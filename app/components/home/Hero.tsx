@@ -1,12 +1,10 @@
-
-export default function PremiumHero() {
-
+export default function Hero() {
   return (
     <section className="cc-hero" aria-labelledby="cc-hero-title">
       <div className="cc-hero-inner">
         <div className="cc-hero-copy">
           <p className="cc-eyebrow"><span aria-hidden="true" /> A more visual way into music</p>
-          <h1 id="cc-hero-title">Read piano music<br />in <span className="cc-color-word">color.</span></h1>
+          <h1 id="cc-hero-title">Read piano music<br />in <span className="cc-color-word">color</span></h1>
           <p className="cc-hero-description">Reading sheet music is hard for beginners. ColorCoded makes it visual - so you spend less time decoding and more time playing.</p>
           <div className="cc-hero-actions">
             <a className="cc-download" href="https://apps.apple.com/us/app/colorcoded-music/id6759799607" target="_blank" rel="noopener noreferrer">

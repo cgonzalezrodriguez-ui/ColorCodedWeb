@@ -1,4 +1,4 @@
-import Container from "./Container";
+import Container from "../ui/Container";
 
 const ETSY_ROWS = [
   ["#DC2626","#DC2626","#DC2626","#DC2626","#DC2626","#DC2626","#DC2626","#DC2626"],
